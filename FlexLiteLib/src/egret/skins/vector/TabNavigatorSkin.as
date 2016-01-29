@@ -1,0 +1,62 @@
+package egret.skins.vector
+{
+	import flash.display.Graphics;
+	
+	import egret.core.ns_egret;
+	import egret.components.Group;
+	import egret.components.TabBar;
+	import egret.components.ViewStack;
+	import egret.skins.VectorSkin;
+	
+	use namespace ns_egret;
+	/**
+	 * 垂直滚动条默认皮肤
+	 * @author dom
+	 */
+	public class TabNavigatorSkin extends VectorSkin
+	{
+		public function TabNavigatorSkin()
+		{
+			super();
+		}
+
+		public var contentGroup:Group;	
+		/**
+		 * [SkinPart]选项卡组件
+		 */
+		public var tabBar:TabBar;
+		
+		/**
+		 * @inheritDoc
+		 */
+		override protected function createChildren():void
+		{
+			super.createChildren();
+			contentGroup = new ViewStack();
+			contentGroup.top = 25;
+			contentGroup.left = 1;
+			contentGroup.right = 1;
+			contentGroup.bottom = 1;
+			contentGroup.clipAndEnableScrolling = true;
+			addElement(contentGroup);
+			
+			tabBar = new TabBar();
+			tabBar.height = 25;
+			addElement(tabBar);
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		override public function updateDisplayList(w:Number,h:Number):void
+		{
+			super.updateDisplayList(w,h);
+			var g:Graphics = this.graphics;
+			g.clear();
+			g.beginFill(0xFFFFFF);
+			g.lineStyle(1,borderColors[0]);
+			g.drawRect(0,24,w,h-24);
+		}
+		
+	}
+}

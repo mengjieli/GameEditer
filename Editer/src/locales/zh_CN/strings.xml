@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<keys>
+	<item key="ColorWindow.Title" value="颜色选择器" />
+	<item key="ColorWindow.SelectColor" value="选择颜色:" />
+	<item key="ColorWindow.NewColor" value="新的:" />
+	<item key="ColorWindow.CurrentColor" value="当前:" />
+	<item key="ColorWindow.UseDefault" value="使用默认值:" />
+
+	<item key="CloseTabButtonSkin.CloseButton.ToolTip" value="关闭" />
+	<item key="AlertWindowSkin.ButtonOne" value="是" />
+	<item key="AlertWindowSkin.ButtonTwo" value="否" />
+	<item key="AlertWindowSkin.ButtonThree" value="取消" />
+	<item key="TabGroup.MenuButton" value="选项卡菜单" />
+	<item key="FileUtil.Browse" value="浏览文件" />
+	<item key="FileUtil.Save" value="保存文件" />
+
+	<item key="StatuBar.EditArea" value="编辑区" />
+	<item key="StatuBar.Restore" value="复原" />
+
+	<item key="TabGroup.Close" value="关闭" />
+	<item key="TabGroup.Minimum" value="最小化" />
+	<item key="TabGroup.CloseTab" value="关闭选项卡组" />
+
+	<item key="CloseTabButton.Close" value="关闭" />
+	<item key="CloseTabButton.CloseOther" value="关闭其他" />
+	<item key="CloseTabButton.CloseAll" value="关闭全部" />
+</keys>

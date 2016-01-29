@@ -1,0 +1,16 @@
+package egret.display
+{
+	
+	/**
+	 * 能够解析DxrData的显示对象接口
+	 * @author dom
+	 */
+	public interface IDxrDisplay
+	{
+		/**
+		 * 被引用的DxrData对象
+		 */
+		function get dxrData():DxrData;
+		function set dxrData(value:DxrData):void;
+	}
+}

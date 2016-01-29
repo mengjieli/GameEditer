@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<keys>
+	<item key="ColorWindow.Title" value="Color Selector" />
+	<item key="ColorWindow.SelectColor" value="Select Color:" />
+	<item key="ColorWindow.NewColor" value="New:" />
+	<item key="ColorWindow.CurrentColor" value="Current:" />
+	<item key="ColorWindow.UseDefault" value="Default Value:" />
+
+	<item key="CloseTabButtonSkin.CloseButton.ToolTip" value="Close" />
+	<item key="AlertWindowSkin.ButtonOne" value="Yes" />
+	<item key="AlertWindowSkin.ButtonTwo" value="No" />
+	<item key="AlertWindowSkin.ButtonThree" value="Cancel" />
+	<item key="TabGroup.MenuButton" value="Tab Group" />
+	<item key="FileUtil.Browse" value="Browse Files" />
+	<item key="FileUtil.Save" value="Save Files" />
+	
+	<item key="StatuBar.EditArea" value="Edit Area"/>
+	<item key="StatuBar.Restore" value="Restore"/>
+	
+	<item key="TabGroup.Close" value="Close"/>
+	<item key="TabGroup.Minimum" value="Minimum"/>
+	<item key="TabGroup.CloseTab" value="Close Tab Group"/>
+			
+	<item key="CloseTabButton.Close" value="Close"/>
+	<item key="CloseTabButton.CloseOther" value="Close Others"/>
+	<item key="CloseTabButton.CloseAll" value="Close All"/>
+</keys>

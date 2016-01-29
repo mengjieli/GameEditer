@@ -1,0 +1,7 @@
+<root>
+  <language>zh_CN</language>
+  <package>
+    <item name="en_US" path="locales/en_US/strings.xml"/>
+    <item name="zh_CN" path="locales/zh_CN/strings.xml"/>
+  </package>
+</root>

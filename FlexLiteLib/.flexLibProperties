@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="egret.collections.ArrayCollection"/>
+    <classEntry path="egret.collections.ICollection"/>
+    <classEntry path="egret.collections.ICollectionView"/>
+    <classEntry path="egret.collections.ITreeCollection"/>
+    <classEntry path="egret.collections.ObjectCollection"/>
+    <classEntry path="egret.collections.XMLCollection"/>
+    <classEntry path="egret.components.AccordionGroup"/>
+    <classEntry path="egret.components.Alert"/>
+    <classEntry path="egret.components.Application"/>
+    <classEntry path="egret.components.Button"/>
+    <classEntry path="egret.components.CheckBox"/>
+    <classEntry path="egret.components.ComboBox"/>
+    <classEntry path="egret.components.DataGrid"/>
+    <classEntry path="egret.components.DataGroup"/>
+    <classEntry path="egret.components.DropDownList"/>
+    <classEntry path="egret.components.EditableText"/>
+    <classEntry path="egret.components.Grid"/>
+    <classEntry path="egret.components.GridColumnHeaderGroup"/>
+    <classEntry path="egret.components.Group"/>
+    <classEntry path="egret.components.HScrollBar"/>
+    <classEntry path="egret.components.HSlider"/>
+    <classEntry path="egret.components.IDataRenderer"/>
+    <classEntry path="egret.components.IItemRenderer"/>
+    <classEntry path="egret.components.IItemRendererOwner"/>
+    <classEntry path="egret.components.ITreeItemRenderer"/>
+    <classEntry path="egret.components.Label"/>
+    <classEntry path="egret.components.List"/>
+    <classEntry path="egret.components.Menu"/>
+    <classEntry path="egret.components.MenuBar"/>
+    <classEntry path="egret.components.PageNavigator"/>
+    <classEntry path="egret.components.Panel"/>
+    <classEntry path="egret.components.PopUpAnchor"/>
+    <classEntry path="egret.components.ProgressBar"/>
+    <classEntry path="egret.components.ProgressBarDirection"/>
+    <classEntry path="egret.components.RadioButton"/>
+    <classEntry path="egret.components.RadioButtonGroup"/>
+    <classEntry path="egret.components.Rect"/>
+    <classEntry path="egret.components.RectangularDropShadow"/>
+    <classEntry path="egret.components.Scroller"/>
+    <classEntry path="egret.components.Skin"/>
+    <classEntry path="egret.components.SkinnableComponent"/>
+    <classEntry path="egret.components.SkinnableContainer"/>
+    <classEntry path="egret.components.SkinnableDataContainer"/>
+    <classEntry path="egret.components.Spacer"/>
+    <classEntry path="egret.components.TabBar"/>
+    <classEntry path="egret.components.TabBarButton"/>
+    <classEntry path="egret.components.TabNavigator"/>
+    <classEntry path="egret.components.TextArea"/>
+    <classEntry path="egret.components.TextInput"/>
+    <classEntry path="egret.components.Theme"/>
+    <classEntry path="egret.components.TitleWindow"/>
+    <classEntry path="egret.components.ToggleButton"/>
+    <classEntry path="egret.components.ToolTip"/>
+    <classEntry path="egret.components.Tree"/>
+    <classEntry path="egret.components.UIAsset"/>
+    <classEntry path="egret.components.UIMovieClip"/>
+    <classEntry path="egret.components.VScrollBar"/>
+    <classEntry path="egret.components.VSlider"/>
+    <classEntry path="egret.components.ViewStack"/>
+    <classEntry path="egret.components.Window"/>
+    <classEntry path="egret.components.WindowedApplication"/>
+    <classEntry path="egret.components.gridClasses.CellPosition"/>
+    <classEntry path="egret.components.gridClasses.CellRegion"/>
+    <classEntry path="egret.components.gridClasses.DataGridEditor"/>
+    <classEntry path="egret.components.gridClasses.DefaultGridItemEditor"/>
+    <classEntry path="egret.components.gridClasses.GridColumn"/>
+    <classEntry path="egret.components.gridClasses.GridColumnHeaderGroupLayout"/>
+    <classEntry path="egret.components.gridClasses.GridDimensions"/>
+    <classEntry path="egret.components.gridClasses.GridItemEditor"/>
+    <classEntry path="egret.components.gridClasses.GridItemRenderer"/>
+    <classEntry path="egret.components.gridClasses.GridLayer"/>
+    <classEntry path="egret.components.gridClasses.GridLayout"/>
+    <classEntry path="egret.components.gridClasses.GridRowList"/>
+    <classEntry path="egret.components.gridClasses.GridRowNode"/>
+    <classEntry path="egret.components.gridClasses.GridSelection"/>
+    <classEntry path="egret.components.gridClasses.GridSelectionMode"/>
+    <classEntry path="egret.components.gridClasses.IDataGridElement"/>
+    <classEntry path="egret.components.gridClasses.IGridItemEditor"/>
+    <classEntry path="egret.components.gridClasses.IGridItemRenderer"/>
+    <classEntry path="egret.components.gridClasses.IGridVisualElement"/>
+    <classEntry path="egret.components.menuClasses.DefaultMenuDataDescriptor"/>
+    <classEntry path="egret.components.menuClasses.IMenuBarItemRenderer"/>
+    <classEntry path="egret.components.menuClasses.IMenuDataDescriptor"/>
+    <classEntry path="egret.components.menuClasses.IMenuItemRenderer"/>
+    <classEntry path="egret.components.menuClasses.MenuBarItemRenderer"/>
+    <classEntry path="egret.components.menuClasses.MenuItemRenderer"/>
+    <classEntry path="egret.components.supportClasses.ButtonBase"/>
+    <classEntry path="egret.components.supportClasses.DefaultAssetAdapter"/>
+    <classEntry path="egret.components.supportClasses.DefaultSkinAdapter"/>
+    <classEntry path="egret.components.supportClasses.DropDownController"/>
+    <classEntry path="egret.components.supportClasses.DropDownListBase"/>
+    <classEntry path="egret.components.supportClasses.GroupBase"/>
+    <classEntry path="egret.components.supportClasses.ItemRenderer"/>
+    <classEntry path="egret.components.supportClasses.ListBase"/>
+    <classEntry path="egret.components.supportClasses.Range"/>
+    <classEntry path="egret.components.supportClasses.ScrollBarBase"/>
+    <classEntry path="egret.components.supportClasses.ScrollerLayout"/>
+    <classEntry path="egret.components.supportClasses.SkinBasicLayout"/>
+    <classEntry path="egret.components.supportClasses.SkinnableTextBase"/>
+    <classEntry path="egret.components.supportClasses.SliderBase"/>
+    <classEntry path="egret.components.supportClasses.TextBase"/>
+    <classEntry path="egret.components.supportClasses.ToggleButtonBase"/>
+    <classEntry path="egret.components.supportClasses.TrackBase"/>
+    <classEntry path="egret.components.supportClasses.TreeItemRenderer"/>
+    <classEntry path="egret.core.BitmapFillMode"/>
+    <classEntry path="egret.core.BitmapSource"/>
+    <classEntry path="egret.core.DragSource"/>
+    <classEntry path="egret.core.EXML"/>
+    <classEntry path="egret.core.GlobalStyles"/>
+    <classEntry path="egret.core.IAsset"/>
+    <classEntry path="egret.core.IAssetAdapter"/>
+    <classEntry path="egret.core.IBitmapAsset"/>
+    <classEntry path="egret.core.IContainer"/>
+    <classEntry path="egret.core.IDisplayText"/>
+    <classEntry path="egret.core.IEditableText"/>
+    <classEntry path="egret.core.IFactory"/>
+    <classEntry path="egret.core.IInvalidateDisplay"/>
+    <classEntry path="egret.core.IInvalidating"/>
+    <classEntry path="egret.core.ILayoutElement"/>
+    <classEntry path="egret.core.IMovieClip"/>
+    <classEntry path="egret.core.ISkin"/>
+    <classEntry path="egret.core.ISkinAdapter"/>
+    <classEntry path="egret.core.ISkinnableClient"/>
+    <classEntry path="egret.core.IStateClient"/>
+    <classEntry path="egret.core.IStyleClient"/>
+    <classEntry path="egret.core.ITexture"/>
+    <classEntry path="egret.core.IToolTip"/>
+    <classEntry path="egret.core.IUIComponent"/>
+    <classEntry path="egret.core.IViewStack"/>
+    <classEntry path="egret.core.IViewport"/>
+    <classEntry path="egret.core.IVisualElement"/>
+    <classEntry path="egret.core.IVisualElementContainer"/>
+    <classEntry path="egret.core.IWindow"/>
+    <classEntry path="egret.core.Injector"/>
+    <classEntry path="egret.core.LayoutElementUIComponentUtils"/>
+    <classEntry path="egret.core.NavigationUnit"/>
+    <classEntry path="egret.core.PopUpPosition"/>
+    <classEntry path="egret.core.ScrollPolicy"/>
+    <classEntry path="egret.core.UIComponent"/>
+    <classEntry path="egret.core.UIGlobals"/>
+    <classEntry path="egret.core.UITextField"/>
+    <classEntry path="egret.core.ns_egret"/>
+    <classEntry path="egret.debug.DebugWindow"/>
+    <classEntry path="egret.debug.Debugger"/>
+    <classEntry path="egret.display.BitmapFont"/>
+    <classEntry path="egret.display.DxrBitmap"/>
+    <classEntry path="egret.display.DxrData"/>
+    <classEntry path="egret.display.DxrFile"/>
+    <classEntry path="egret.display.DxrMovieClip"/>
+    <classEntry path="egret.display.DxrShape"/>
+    <classEntry path="egret.display.IDxrDisplay"/>
+    <classEntry path="egret.display.Scale9GridBitmap"/>
+    <classEntry path="egret.display.SpriteSheet"/>
+    <classEntry path="egret.display.Texture"/>
+    <classEntry path="egret.display.codec.DxrDecoder"/>
+    <classEntry path="egret.display.codec.DxrDrawer"/>
+    <classEntry path="egret.display.codec.DxrEncoder"/>
+    <classEntry path="egret.display.codec.IBitmapDecoder"/>
+    <classEntry path="egret.display.codec.IBitmapEncoder"/>
+    <classEntry path="egret.display.events.MovieClipPlayEvent"/>
+    <classEntry path="egret.display.image.Jpeg32Decoder"/>
+    <classEntry path="egret.display.image.Jpeg32Encoder"/>
+    <classEntry path="egret.display.image.JpegXREncoder"/>
+    <classEntry path="egret.display.image.PngDecoder"/>
+    <classEntry path="egret.display.image.PngEncoder"/>
+    <classEntry path="egret.display.utils.DxrMatLib"/>
+    <classEntry path="egret.display.utils.DxrMultiDecoder"/>
+    <classEntry path="egret.display.utils.DxrUtil"/>
+    <classEntry path="egret.effects.Animate"/>
+    <classEntry path="egret.effects.AnimateTransform"/>
+    <classEntry path="egret.effects.CompositeEffect"/>
+    <classEntry path="egret.effects.Effect"/>
+    <classEntry path="egret.effects.EffectInstance"/>
+    <classEntry path="egret.effects.Fade"/>
+    <classEntry path="egret.effects.IEffect"/>
+    <classEntry path="egret.effects.IEffectInstance"/>
+    <classEntry path="egret.effects.Move"/>
+    <classEntry path="egret.effects.Parallel"/>
+    <classEntry path="egret.effects.Rotate"/>
+    <classEntry path="egret.effects.Scale"/>
+    <classEntry path="egret.effects.Sequence"/>
+    <classEntry path="egret.effects.animation.Animation"/>
+    <classEntry path="egret.effects.animation.Keyframe"/>
+    <classEntry path="egret.effects.animation.MotionPath"/>
+    <classEntry path="egret.effects.animation.RepeatBehavior"/>
+    <classEntry path="egret.effects.animation.SimpleMotionPath"/>
+    <classEntry path="egret.effects.easing.Bounce"/>
+    <classEntry path="egret.effects.easing.EaseInOutBase"/>
+    <classEntry path="egret.effects.easing.Elastic"/>
+    <classEntry path="egret.effects.easing.IEaser"/>
+    <classEntry path="egret.effects.easing.Linear"/>
+    <classEntry path="egret.effects.easing.Power"/>
+    <classEntry path="egret.effects.easing.Sine"/>
+    <classEntry path="egret.effects.effectClasses.AnimateInstance"/>
+    <classEntry path="egret.effects.effectClasses.AnimateTransformInstance"/>
+    <classEntry path="egret.effects.effectClasses.CompositeEffectInstance"/>
+    <classEntry path="egret.effects.effectClasses.FadeInstance"/>
+    <classEntry path="egret.effects.effectClasses.ParallelInstance"/>
+    <classEntry path="egret.effects.effectClasses.SequenceInstance"/>
+    <classEntry path="egret.effects.effectClasses.TransformUtil"/>
+    <classEntry path="egret.effects.interpolation.IInterpolator"/>
+    <classEntry path="egret.effects.interpolation.NumberInterpolator"/>
+    <classEntry path="egret.events.CloseEvent"/>
+    <classEntry path="egret.events.CollectionEvent"/>
+    <classEntry path="egret.events.CollectionEventKind"/>
+    <classEntry path="egret.events.DragEvent"/>
+    <classEntry path="egret.events.EffectEvent"/>
+    <classEntry path="egret.events.ElementExistenceEvent"/>
+    <classEntry path="egret.events.GridCaretEvent"/>
+    <classEntry path="egret.events.GridEvent"/>
+    <classEntry path="egret.events.GridItemEditorEvent"/>
+    <classEntry path="egret.events.GridSelectionEvent"/>
+    <classEntry path="egret.events.GridSelectionEventKind"/>
+    <classEntry path="egret.events.GridSortEvent"/>
+    <classEntry path="egret.events.IndexChangeEvent"/>
+    <classEntry path="egret.events.ListEvent"/>
+    <classEntry path="egret.events.MenuEvent"/>
+    <classEntry path="egret.events.MoveEvent"/>
+    <classEntry path="egret.events.PopUpEvent"/>
+    <classEntry path="egret.events.PropertyChangeEvent"/>
+    <classEntry path="egret.events.PropertyChangeEventKind"/>
+    <classEntry path="egret.events.RendererExistenceEvent"/>
+    <classEntry path="egret.events.ResizeEvent"/>
+    <classEntry path="egret.events.SkinPartEvent"/>
+    <classEntry path="egret.events.StateChangeEvent"/>
+    <classEntry path="egret.events.ToolTipEvent"/>
+    <classEntry path="egret.events.TrackBaseEvent"/>
+    <classEntry path="egret.events.TreeEvent"/>
+    <classEntry path="egret.events.TweenEvent"/>
+    <classEntry path="egret.events.UIEvent"/>
+    <classEntry path="egret.layouts.AccordionLayout"/>
+    <classEntry path="egret.layouts.BasicLayout"/>
+    <classEntry path="egret.layouts.ColumnAlign"/>
+    <classEntry path="egret.layouts.HorizontalAlign"/>
+    <classEntry path="egret.layouts.HorizontalLayout"/>
+    <classEntry path="egret.layouts.RowAlign"/>
+    <classEntry path="egret.layouts.ScrollBasicLayout"/>
+    <classEntry path="egret.layouts.TileLayout"/>
+    <classEntry path="egret.layouts.TileOrientation"/>
+    <classEntry path="egret.layouts.VerticalAlign"/>
+    <classEntry path="egret.layouts.VerticalLayout"/>
+    <classEntry path="egret.layouts.supportClasses.LayoutBase"/>
+    <classEntry path="egret.managers.CursorManager"/>
+    <classEntry path="egret.managers.DragManager"/>
+    <classEntry path="egret.managers.FocusManager"/>
+    <classEntry path="egret.managers.ICursorManager"/>
+    <classEntry path="egret.managers.IDragManager"/>
+    <classEntry path="egret.managers.IFocusManager"/>
+    <classEntry path="egret.managers.ILayoutManagerClient"/>
+    <classEntry path="egret.managers.IPopUpManager"/>
+    <classEntry path="egret.managers.ISystemManager"/>
+    <classEntry path="egret.managers.IToolTipManager"/>
+    <classEntry path="egret.managers.IToolTipManagerClient"/>
+    <classEntry path="egret.managers.ITranslator"/>
+    <classEntry path="egret.managers.LayoutManager"/>
+    <classEntry path="egret.managers.PopUpManager"/>
+    <classEntry path="egret.managers.ScreenDPIManager"/>
+    <classEntry path="egret.managers.SystemContainer"/>
+    <classEntry path="egret.managers.SystemManager"/>
+    <classEntry path="egret.managers.ToolTipManager"/>
+    <classEntry path="egret.managers.Translator"/>
+    <classEntry path="egret.managers.dragClasses.DragProxy"/>
+    <classEntry path="egret.managers.impl.CursorManagerImpl"/>
+    <classEntry path="egret.managers.impl.DragManagerImpl"/>
+    <classEntry path="egret.managers.impl.PopUpManagerImpl"/>
+    <classEntry path="egret.managers.impl.ToolTipManagerImpl"/>
+    <classEntry path="egret.managers.impl.TranslatorImpl"/>
+    <classEntry path="egret.managers.layoutClass.DepthQueue"/>
+    <classEntry path="egret.net.HttpMonitor"/>
+    <classEntry path="egret.net.protocol.ProtocolActionType"/>
+    <classEntry path="egret.net.protocol.ProtocolCheckLogin"/>
+    <classEntry path="egret.net.protocol.ProtocolConfig"/>
+    <classEntry path="egret.net.protocol.ProtocolLogin"/>
+    <classEntry path="egret.net.protocol.ProtocolLogout"/>
+    <classEntry path="egret.net.protocol.ProtocolNetBase"/>
+    <classEntry path="egret.net.protocol.ProtocolSoftInfo"/>
+    <classEntry path="egret.net.util.ProtocolUtil"/>
+    <classEntry path="egret.net.view.LoginWindow"/>
+    <classEntry path="egret.net.view.skin.LinkButtonSkin"/>
+    <classEntry path="egret.skins.VectorSkin"/>
+    <classEntry path="egret.skins.themes.VectorTheme"/>
+    <classEntry path="egret.skins.vector.AlertSkin"/>
+    <classEntry path="egret.skins.vector.ApplicationSkin"/>
+    <classEntry path="egret.skins.vector.ButtonSkin"/>
+    <classEntry path="egret.skins.vector.CheckBoxSkin"/>
+    <classEntry path="egret.skins.vector.ComboBoxButtonSkin"/>
+    <classEntry path="egret.skins.vector.ComboBoxSkin"/>
+    <classEntry path="egret.skins.vector.ComboBoxTextInputSkin"/>
+    <classEntry path="egret.skins.vector.DataGridSkin"/>
+    <classEntry path="egret.skins.vector.DropDownListButtonSkin"/>
+    <classEntry path="egret.skins.vector.DropDownListSkin"/>
+    <classEntry path="egret.skins.vector.HScrollBarSkin"/>
+    <classEntry path="egret.skins.vector.HScrollBarThumbSkin"/>
+    <classEntry path="egret.skins.vector.HScrollBarTrackSkin"/>
+    <classEntry path="egret.skins.vector.HSliderSkin"/>
+    <classEntry path="egret.skins.vector.HSliderTrackHighlightSkin"/>
+    <classEntry path="egret.skins.vector.HSliderTrackSkin"/>
+    <classEntry path="egret.skins.vector.ItemRendererSkin"/>
+    <classEntry path="egret.skins.vector.ListSkin"/>
+    <classEntry path="egret.skins.vector.MenuBarItemRendererSkin"/>
+    <classEntry path="egret.skins.vector.MenuBarSkin"/>
+    <classEntry path="egret.skins.vector.MenuItemRendererSkin"/>
+    <classEntry path="egret.skins.vector.MenuSkin"/>
+    <classEntry path="egret.skins.vector.PageNavigatorSkin"/>
+    <classEntry path="egret.skins.vector.PanelSkin"/>
+    <classEntry path="egret.skins.vector.ProgressBarSkin"/>
+    <classEntry path="egret.skins.vector.ProgressBarThumbSkin"/>
+    <classEntry path="egret.skins.vector.ProgressBarTrackSkin"/>
+    <classEntry path="egret.skins.vector.RadioButtonSkin"/>
+    <classEntry path="egret.skins.vector.ScrollBarDownButtonSkin"/>
+    <classEntry path="egret.skins.vector.ScrollBarLeftButtonSkin"/>
+    <classEntry path="egret.skins.vector.ScrollBarRightButtonSkin"/>
+    <classEntry path="egret.skins.vector.ScrollBarUpButtonSkin"/>
+    <classEntry path="egret.skins.vector.ScrollerSkin"/>
+    <classEntry path="egret.skins.vector.SkinnableContainerSkin"/>
+    <classEntry path="egret.skins.vector.SkinnableDataContainerSkin"/>
+    <classEntry path="egret.skins.vector.SliderThumbSkin"/>
+    <classEntry path="egret.skins.vector.TabBarButtonSkin"/>
+    <classEntry path="egret.skins.vector.TabBarSkin"/>
+    <classEntry path="egret.skins.vector.TabNavigatorSkin"/>
+    <classEntry path="egret.skins.vector.TextAreaSkin"/>
+    <classEntry path="egret.skins.vector.TextInputSkin"/>
+    <classEntry path="egret.skins.vector.TitleWindowCloseButtonSkin"/>
+    <classEntry path="egret.skins.vector.TitleWindowSkin"/>
+    <classEntry path="egret.skins.vector.ToggleButtonSkin"/>
+    <classEntry path="egret.skins.vector.TreeDisclosureButtonSkin"/>
+    <classEntry path="egret.skins.vector.TreeItemRendererSkin"/>
+    <classEntry path="egret.skins.vector.VScrollBarSkin"/>
+    <classEntry path="egret.skins.vector.VScrollBarThumbSkin"/>
+    <classEntry path="egret.skins.vector.VScrollBarTrackSkin"/>
+    <classEntry path="egret.skins.vector.VSliderSkin"/>
+    <classEntry path="egret.skins.vector.VSliderTrackHighlightSkin"/>
+    <classEntry path="egret.skins.vector.VSliderTrackSkin"/>
+    <classEntry path="egret.skins.vector.WindowSkin"/>
+    <classEntry path="egret.states.AddItems"/>
+    <classEntry path="egret.states.IOverride"/>
+    <classEntry path="egret.states.InterruptionBehavior"/>
+    <classEntry path="egret.states.OverrideBase"/>
+    <classEntry path="egret.states.SetProperty"/>
+    <classEntry path="egret.states.SetStyle"/>
+    <classEntry path="egret.states.State"/>
+    <classEntry path="egret.states.Transition"/>
+    <classEntry path="egret.text.ITextContainer"/>
+    <classEntry path="egret.text.TextFlow"/>
+    <classEntry path="egret.text.TextGroup"/>
+    <classEntry path="egret.text.edit.EditManager"/>
+    <classEntry path="egret.text.edit.EditingMode"/>
+    <classEntry path="egret.text.edit.IEditManager"/>
+    <classEntry path="egret.text.edit.IMEClient"/>
+    <classEntry path="egret.text.edit.ISelectionManager"/>
+    <classEntry path="egret.text.edit.SelectionManager"/>
+    <classEntry path="egret.text.edit.SelectionState"/>
+    <classEntry path="egret.text.events.SelectionEvent"/>
+    <classEntry path="egret.text.events.TextFlowEvent"/>
+    <classEntry path="egret.text.events.TextOperationEvent"/>
+    <classEntry path="egret.text.operations.DeleteTextOperation"/>
+    <classEntry path="egret.text.operations.InsertTabOperation"/>
+    <classEntry path="egret.text.operations.InsertTextOperation"/>
+    <classEntry path="egret.text.operations.MoveTextOperation"/>
+    <classEntry path="egret.text.operations.TextOperation"/>
+    <classEntry path="egret.text.undo.IOperation"/>
+    <classEntry path="egret.text.undo.IUndoManager"/>
+    <classEntry path="egret.text.undo.UndoManager"/>
+    <classEntry path="egret.text.utils.CharacterUtil"/>
+    <classEntry path="egret.text.utils.NavigationUtil"/>
+    <classEntry path="egret.text.utils.TextLineUtil"/>
+    <classEntry path="egret.ui.behaivors.TreeDragBehavior"/>
+    <classEntry path="egret.ui.components.AboutWindow"/>
+    <classEntry path="egret.ui.components.AccordionGroup"/>
+    <classEntry path="egret.ui.components.Alert"/>
+    <classEntry path="egret.ui.components.Application"/>
+    <classEntry path="egret.ui.components.AutoToggleButton"/>
+    <classEntry path="egret.ui.components.BoxContainer"/>
+    <classEntry path="egret.ui.components.ColorPicker"/>
+    <classEntry path="egret.ui.components.ColorWindow"/>
+    <classEntry path="egret.ui.components.ComboBox"/>
+    <classEntry path="egret.ui.components.DataGridHeadRenderer"/>
+    <classEntry path="egret.ui.components.DividedGroup"/>
+    <classEntry path="egret.ui.components.DocTabGroup"/>
+    <classEntry path="egret.ui.components.DropDownList"/>
+    <classEntry path="egret.ui.components.DropDownTextInput"/>
+    <classEntry path="egret.ui.components.FTEEditableText"/>
+    <classEntry path="egret.ui.components.FocusUIComponent"/>
+    <classEntry path="egret.ui.components.HDividerGroup"/>
+    <classEntry path="egret.ui.components.HPopUpSlider"/>
+    <classEntry path="egret.ui.components.HueSlider"/>
+    <classEntry path="egret.ui.components.IDocumentData"/>
+    <classEntry path="egret.ui.components.IPage"/>
+    <classEntry path="egret.ui.components.ITabPanel"/>
+    <classEntry path="egret.ui.components.IconButton"/>
+    <classEntry path="egret.ui.components.IconItemRenderer"/>
+    <classEntry path="egret.ui.components.IconList"/>
+    <classEntry path="egret.ui.components.IconTabBar"/>
+    <classEntry path="egret.ui.components.IconTabBarButton"/>
+    <classEntry path="egret.ui.components.IconToggleButton"/>
+    <classEntry path="egret.ui.components.MenuIconButton"/>
+    <classEntry path="egret.ui.components.NumberRegulator"/>
+    <classEntry path="egret.ui.components.PopUpSliderBase"/>
+    <classEntry path="egret.ui.components.RetinaAssetAdapter"/>
+    <classEntry path="egret.ui.components.RollOverButton"/>
+    <classEntry path="egret.ui.components.SeparatorLabel"/>
+    <classEntry path="egret.ui.components.TabGroup"/>
+    <classEntry path="egret.ui.components.TabPanel"/>
+    <classEntry path="egret.ui.components.TextInput"/>
+    <classEntry path="egret.ui.components.Tree"/>
+    <classEntry path="egret.ui.components.VPopUpSlider"/>
+    <classEntry path="egret.ui.components.ViewStackWindow"/>
+    <classEntry path="egret.ui.components.Window"/>
+    <classEntry path="egret.ui.components.boxClasses.BoxElement"/>
+    <classEntry path="egret.ui.components.boxClasses.CloseTabButton"/>
+    <classEntry path="egret.ui.components.boxClasses.DocDropDownList"/>
+    <classEntry path="egret.ui.components.boxClasses.FocusTabBarButton"/>
+    <classEntry path="egret.ui.components.boxClasses.IBoxElement"/>
+    <classEntry path="egret.ui.components.boxClasses.IBoxElementContainer"/>
+    <classEntry path="egret.ui.components.boxClasses.Separator"/>
+    <classEntry path="egret.ui.core.AddPosition"/>
+    <classEntry path="egret.ui.core.Cursors"/>
+    <classEntry path="egret.ui.core.DragFormat"/>
+    <classEntry path="egret.ui.core.FTEText.core.FTETextBase"/>
+    <classEntry path="egret.ui.core.FTEText.core.FTETextField"/>
+    <classEntry path="egret.ui.core.FTEText.core.IFTEText"/>
+    <classEntry path="egret.ui.core.FTEText.history.HistoryBehavior"/>
+    <classEntry path="egret.ui.core.FTEText.history.Memento"/>
+    <classEntry path="egret.ui.core.FTEText.info.TextDataInfo"/>
+    <classEntry path="egret.ui.core.FTEText.info.TextLineInfo"/>
+    <classEntry path="egret.ui.core.FTEText.view.Ibeam"/>
+    <classEntry path="egret.ui.core.Factory"/>
+    <classEntry path="egret.ui.core.UIFTETextField"/>
+    <classEntry path="egret.ui.events.BoxContainerEvent"/>
+    <classEntry path="egret.ui.events.CloseTabEvent"/>
+    <classEntry path="egret.ui.events.DocumentEvent"/>
+    <classEntry path="egret.ui.events.FTEKeyboardEvent"/>
+    <classEntry path="egret.ui.events.FTETextEvent"/>
+    <classEntry path="egret.ui.events.FTETextSelectionEvent"/>
+    <classEntry path="egret.ui.events.FTEViewPortEvent"/>
+    <classEntry path="egret.ui.events.StatusClickEvent"/>
+    <classEntry path="egret.ui.events.TabGroupEvent"/>
+    <classEntry path="egret.ui.events.TreeDragEvent"/>
+    <classEntry path="egret.ui.events.TreeEditorEvent"/>
+    <classEntry path="egret.ui.events.ViewStackPageEvent"/>
+    <classEntry path="egret.ui.layouts.AttributeQueueLayout"/>
+    <classEntry path="egret.ui.managers.impl.DragManagerImpl"/>
+    <classEntry path="egret.ui.nativeComponent.SplashWindow"/>
+    <classEntry path="egret.ui.proxy.StageProxy"/>
+    <classEntry path="egret.ui.skins.AccordionButtonSkin"/>
+    <classEntry path="egret.ui.skins.ButtonSkin"/>
+    <classEntry path="egret.ui.skins.CheckBoxSkin"/>
+    <classEntry path="egret.ui.skins.CloseTabButtonSkin"/>
+    <classEntry path="egret.ui.skins.ColorDisplay"/>
+    <classEntry path="egret.ui.skins.ColorPickerSkin"/>
+    <classEntry path="egret.ui.skins.ComboBoxButtonSkin"/>
+    <classEntry path="egret.ui.skins.ComboBoxSkin"/>
+    <classEntry path="egret.ui.skins.ControlBarSkin"/>
+    <classEntry path="egret.ui.skins.DataGridHeadRendererSkin"/>
+    <classEntry path="egret.ui.skins.DataGridSkin"/>
+    <classEntry path="egret.ui.skins.DefaultItemRendererSkin"/>
+    <classEntry path="egret.ui.skins.DocCloseButtonSkin"/>
+    <classEntry path="egret.ui.skins.DocDropDownListSkin"/>
+    <classEntry path="egret.ui.skins.DocTabBarSkin"/>
+    <classEntry path="egret.ui.skins.DocTabGroupSkin"/>
+    <classEntry path="egret.ui.skins.DropDownListButtonSkin"/>
+    <classEntry path="egret.ui.skins.DropDownListSkin"/>
+    <classEntry path="egret.ui.skins.DropDownTextInputSkin"/>
+    <classEntry path="egret.ui.skins.GridItemRendererSkin"/>
+    <classEntry path="egret.ui.skins.HDividerGroupSkin"/>
+    <classEntry path="egret.ui.skins.HPopUpSliderSkin"/>
+    <classEntry path="egret.ui.skins.HueSliderSkin"/>
+    <classEntry path="egret.ui.skins.HueThumbButtonSkin"/>
+    <classEntry path="egret.ui.skins.IconButtonSkin"/>
+    <classEntry path="egret.ui.skins.IconItemRendererSkin"/>
+    <classEntry path="egret.ui.skins.IconListSkin"/>
+    <classEntry path="egret.ui.skins.IconTabBarButtonSkin"/>
+    <classEntry path="egret.ui.skins.IconTabBarSkin"/>
+    <classEntry path="egret.ui.skins.IconToggleButtonSkin"/>
+    <classEntry path="egret.ui.skins.ListSkin"/>
+    <classEntry path="egret.ui.skins.MenuBarItemRendererSkin"/>
+    <classEntry path="egret.ui.skins.MenuBarSkin"/>
+    <classEntry path="egret.ui.skins.MenuButtonSkin"/>
+    <classEntry path="egret.ui.skins.MenuIconButtonSkin"/>
+    <classEntry path="egret.ui.skins.MenuItemRendererSkin"/>
+    <classEntry path="egret.ui.skins.MenuSkin"/>
+    <classEntry path="egret.ui.skins.NumberRegulatorSkin"/>
+    <classEntry path="egret.ui.skins.RadioButtonSkin"/>
+    <classEntry path="egret.ui.skins.SliderThumbSkin"/>
+    <classEntry path="egret.ui.skins.TabBarSkin"/>
+    <classEntry path="egret.ui.skins.TabGroupSkin"/>
+    <classEntry path="egret.ui.skins.TabPanelSkin"/>
+    <classEntry path="egret.ui.skins.TextAreaSkin"/>
+    <classEntry path="egret.ui.skins.TextInputSkin"/>
+    <classEntry path="egret.ui.skins.TreeDisclosureButtonSkin"/>
+    <classEntry path="egret.ui.skins.TreeItemRendererSkin"/>
+    <classEntry path="egret.ui.skins.VSliderTrackSkin"/>
+    <classEntry path="egret.ui.skins.macAppButton.MacAppButtonBase"/>
+    <classEntry path="egret.ui.skins.macAppButton.MacCloseButtonSkin"/>
+    <classEntry path="egret.ui.skins.macAppButton.MacMaximizeButtonSkin"/>
+    <classEntry path="egret.ui.skins.macAppButton.MacMinimizeButtonSkin"/>
+    <classEntry path="egret.ui.skins.macAppButton.MacRestoreButtonSkin"/>
+    <classEntry path="egret.ui.skins.macWindowSkin.MacAlertSkin"/>
+    <classEntry path="egret.ui.skins.macWindowSkin.MacColorWindowSkin"/>
+    <classEntry path="egret.ui.skins.macWindowSkin.MacWindowSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.ButtonSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.CloseButtonSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.IconButtonSkinBase"/>
+    <classEntry path="egret.ui.skins.managerSkin.MinButtonSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.ProgressBarSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.ProgressBarThumbSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.ProgressBarTrackSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.ScrollBarDownButtonSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.ScrollBarUpButtonSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.ScrollerSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.VScrollBarSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.VScrollBarThumbSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.VScrollBarTrackSkin"/>
+    <classEntry path="egret.ui.skins.managerSkin.WindowSkin"/>
+    <classEntry path="egret.ui.skins.scrollBarSkin.HScrollBarSkin"/>
+    <classEntry path="egret.ui.skins.scrollBarSkin.HScrollBarTrackSkin"/>
+    <classEntry path="egret.ui.skins.scrollBarSkin.ScrollBarBaseButtonSkin"/>
+    <classEntry path="egret.ui.skins.scrollBarSkin.ScrollBarDownButtonSkin"/>
+    <classEntry path="egret.ui.skins.scrollBarSkin.ScrollBarLeftButtonSkin"/>
+    <classEntry path="egret.ui.skins.scrollBarSkin.ScrollBarRightButtonSkin"/>
+    <classEntry path="egret.ui.skins.scrollBarSkin.ScrollBarThumbSkin"/>
+    <classEntry path="egret.ui.skins.scrollBarSkin.ScrollBarUpButtonSkin"/>
+    <classEntry path="egret.ui.skins.scrollBarSkin.ScrollerSkin"/>
+    <classEntry path="egret.ui.skins.scrollBarSkin.VScrollBarSkin"/>
+    <classEntry path="egret.ui.skins.scrollBarSkin.VScrollBarTrackSkin"/>
+    <classEntry path="egret.ui.skins.themes.EgretTheme"/>
+    <classEntry path="egret.ui.skins.winAppButton.WinAppButtonBase"/>
+    <classEntry path="egret.ui.skins.winAppButton.WinCloseButtonSkin"/>
+    <classEntry path="egret.ui.skins.winAppButton.WinMaximizeButtonSkin"/>
+    <classEntry path="egret.ui.skins.winAppButton.WinMinimizeButtonSkin"/>
+    <classEntry path="egret.ui.skins.winAppButton.WinRestoreButtonSkin"/>
+    <classEntry path="egret.ui.skins.winWindowSkin.WinAlertSkin"/>
+    <classEntry path="egret.ui.skins.winWindowSkin.WinColorWindowSkin"/>
+    <classEntry path="egret.ui.skins.winWindowSkin.WinWindowSkin"/>
+    <classEntry path="egret.ui.utils.BoxElementIdUtil"/>
+    <classEntry path="egret.ui.utils.EgretCopyRight"/>
+    <classEntry path="egret.utils.AppRenderMode"/>
+    <classEntry path="egret.utils.AppVersion"/>
+    <classEntry path="egret.utils.Argments"/>
+    <classEntry path="egret.utils.AutoUpdater"/>
+    <classEntry path="egret.utils.CRC32Util"/>
+    <classEntry path="egret.utils.ClassReader"/>
+    <classEntry path="egret.utils.CodeFilter"/>
+    <classEntry path="egret.utils.CodeUtil"/>
+    <classEntry path="egret.utils.ContainerUtil"/>
+    <classEntry path="egret.utils.EgretPath"/>
+    <classEntry path="egret.utils.EgretWorkspace"/>
+    <classEntry path="egret.utils.Environment"/>
+    <classEntry path="egret.utils.FileUtil"/>
+    <classEntry path="egret.utils.GraphicsUtil"/>
+    <classEntry path="egret.utils.InvalidteEventDispatcher"/>
+    <classEntry path="egret.utils.LayoutUtil"/>
+    <classEntry path="egret.utils.LoaderUtil"/>
+    <classEntry path="egret.utils.MouseEventUtil"/>
+    <classEntry path="egret.utils.NativeApplicationMenu"/>
+    <classEntry path="egret.utils.ObjectUtil"/>
+    <classEntry path="egret.utils.OnDemandEventDispatcher"/>
+    <classEntry path="egret.utils.PathFormat"/>
+    <classEntry path="egret.utils.Recycler"/>
+    <classEntry path="egret.utils.ScreensUtil"/>
+    <classEntry path="egret.utils.SharedMap"/>
+    <classEntry path="egret.utils.SharedObjectTool"/>
+    <classEntry path="egret.utils.SharedObjectUtil"/>
+    <classEntry path="egret.utils.SkinPartUtil"/>
+    <classEntry path="egret.utils.Storage"/>
+    <classEntry path="egret.utils.StringUtil"/>
+    <classEntry path="egret.utils.SwcParser"/>
+    <classEntry path="egret.utils.SwfMatLib"/>
+    <classEntry path="egret.utils.SwfUtil"/>
+    <classEntry path="egret.utils.SystemInfo"/>
+    <classEntry path="egret.utils.Uint64"/>
+    <classEntry path="egret.utils.app.AppConnection"/>
+    <classEntry path="egret.utils.app.AppConnectionEvent"/>
+    <classEntry path="egret.utils.app.AppRestart"/>
+    <classEntry path="egret.utils.app.AppScript"/>
+    <classEntry path="egret.utils.app.AppUpdater"/>
+    <classEntry path="egret.utils.app.bridge.AppBridge"/>
+    <classEntry path="egret.utils.app.bridge.IAppGlobals"/>
+    <classEntry path="egret.utils.callLater"/>
+    <classEntry path="egret.utils.command.CommandEvent"/>
+    <classEntry path="egret.utils.command.CommandParser"/>
+    <classEntry path="egret.utils.command.IAsynCommand"/>
+    <classEntry path="egret.utils.command.ICommand"/>
+    <classEntry path="egret.utils.command.subcommand.Copy"/>
+    <classEntry path="egret.utils.command.subcommand.Delete"/>
+    <classEntry path="egret.utils.command.subcommand.Run"/>
+    <classEntry path="egret.utils.language.AppLanguage"/>
+    <classEntry path="egret.utils.language.AppLanguageDefine"/>
+    <classEntry path="egret.utils.loader.MultiLoader"/>
+    <classEntry path="egret.utils.loader.MultiURLLoader"/>
+    <classEntry path="egret.utils.loader.PathHelper"/>
+    <classEntry path="egret.utils.loader.RootLoader"/>
+    <classEntry path="egret.utils.loader.SingleLoader"/>
+    <classEntry path="egret.utils.loader.SingleURLLoader"/>
+    <classEntry path="egret.utils.maxRects.FreeRectangleChoiceHeuristic"/>
+    <classEntry path="egret.utils.maxRects.IMaxRectangle"/>
+    <classEntry path="egret.utils.maxRects.MaxRectangle"/>
+    <classEntry path="egret.utils.maxRects.MaxRectsCore"/>
+    <classEntry path="egret.utils.maxRects.MaxRectsResultType"/>
+    <classEntry path="egret.utils.maxRects.MaxRectsSortType"/>
+    <classEntry path="egret.utils.maxRects.MaxRectsUtil"/>
+    <classEntry path="egret.utils.tr"/>
+    <classEntry path="locales.locale_egret_desktop"/>
+    <classEntry path="locales.locale_egret_lib"/>
+  </includeClasses>
+  <includeResources>
+    <resourceEntry destPath="egret/ui/skins/assets/radio/unSelectHover_r.png" sourcePath="egret/ui/skins/assets/radio/unSelectHover_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/project_close_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/project_close_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/colorphase_thumb.png" sourcePath="egret/ui/skins/assets/colorphase_thumb.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/ts.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/ts.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/json.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/json.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/selectNormal.png" sourcePath="egret/ui/skins/assets/checkBoxBtn/selectNormal.png"/>
+    <resourceEntry destPath="egret/ui/core/cursors/nwse.png" sourcePath="egret/ui/core/cursors/nwse.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/xml.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/xml.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/downBtnHover_r.png" sourcePath="egret/ui/skins/assets/scroll/downBtnHover_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/text_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/text_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/restore_icon.png" sourcePath="egret/ui/skins/assets/windowBtn/restore_icon.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/closeBtn/CloseButtonDown_r.png" sourcePath="egret/ui/skins/assets/closeBtn/CloseButtonDown_r.png"/>
+    <resourceEntry destPath="locales/en_US/strings.xml" sourcePath="locales/en_US/strings.xml"/>
+    <resourceEntry destPath="egret/ui/skins/assets/menuBtn/btnBgNormal.png" sourcePath="egret/ui/skins/assets/menuBtn/btnBgNormal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/window/titleIcon.png" sourcePath="egret/ui/skins/assets/window/titleIcon.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/bgDown.png" sourcePath="egret/ui/skins/assets/dropDownListBtn/bgDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/hover.png" sourcePath="egret/ui/skins/assets/windowBtn/hover.png"/>
+    <resourceEntry destPath="egret/ui/core/cursors/ns.png" sourcePath="egret/ui/core/cursors/ns.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/close_normal_r.png" sourcePath="egret/ui/skins/assets/manager/close_normal_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordionBtn/iconClose_r.png" sourcePath="egret/ui/skins/assets/accordionBtn/iconClose_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/unknown_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/unknown_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/png.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/png.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/leftBtnHover_r.png" sourcePath="egret/ui/skins/assets/scroll/leftBtnHover_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/package.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/package.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/down_disabled.png" sourcePath="egret/ui/skins/assets/manager/down_disabled.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/docArrow.png" sourcePath="egret/ui/skins/assets/dropDownListBtn/docArrow.png"/>
+    <resourceEntry destPath="egret/ui/core/cursors/circle.png" sourcePath="egret/ui/core/cursors/circle.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/restore_icon_r.png" sourcePath="egret/ui/skins/assets/windowBtn/restore_icon_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/exml_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/exml_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/gif_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/gif_r.png"/>
+    <resourceEntry destPath="locales/zh_CN/strings.xml" sourcePath="locales/zh_CN/strings.xml"/>
+    <resourceEntry destPath="egret/ui/skins/assets/radio/selectHover_r.png" sourcePath="egret/ui/skins/assets/radio/selectHover_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/menuBtn/btnBgHover.png" sourcePath="egret/ui/skins/assets/menuBtn/btnBgHover.png"/>
+    <resourceEntry destPath="egret/.DS_Store" sourcePath="egret/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/back.png" sourcePath="egret/ui/skins/assets/manager/back.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/maximize_icon.png" sourcePath="egret/ui/skins/assets/windowBtn/maximize_icon.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacCloseButtonOver.png" sourcePath="egret/ui/skins/assets/macBtn/MacCloseButtonOver.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/closeBtn/CloseButtonOver.png" sourcePath="egret/ui/skins/assets/closeBtn/CloseButtonOver.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/package_empty_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/package_empty_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordionBtn/bgHover.png" sourcePath="egret/ui/skins/assets/accordionBtn/bgHover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/radio/selectNormal_r.png" sourcePath="egret/ui/skins/assets/radio/selectNormal_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/button/disabled.png" sourcePath="egret/ui/skins/assets/button/disabled.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMinimizeButton.png" sourcePath="egret/ui/skins/assets/macBtn/MacMinimizeButton.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacFullScreenButtonOver_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacFullScreenButtonOver_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/up_disabled.png" sourcePath="egret/ui/skins/assets/manager/up_disabled.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/componentItem/bgHover.png" sourcePath="egret/ui/skins/assets/componentItem/bgHover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/controlBarBottomBg/bg.png" sourcePath="egret/ui/skins/assets/controlBarBottomBg/bg.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordionBtn/iconOpen_r.png" sourcePath="egret/ui/skins/assets/accordionBtn/iconOpen_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/package_empty.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/package_empty.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/downBtnDown_r.png" sourcePath="egret/ui/skins/assets/scroll/downBtnDown_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_src_open_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_src_open_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/menuBtn/iconMenu.png" sourcePath="egret/ui/skins/assets/menuBtn/iconMenu.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/closeBtn/CloseButton_r.png" sourcePath="egret/ui/skins/assets/closeBtn/CloseButton_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/closeBtn/CloseButton.png" sourcePath="egret/ui/skins/assets/closeBtn/CloseButton.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/lark_project_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/lark_project_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/rightBtnHover_r.png" sourcePath="egret/ui/skins/assets/scroll/rightBtnHover_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/egret_project_open_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/egret_project_open_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/min_disabled.png" sourcePath="egret/ui/skins/assets/manager/min_disabled.png"/>
+    <resourceEntry destPath="egret/ui/skins/.DS_Store" sourcePath="egret/ui/skins/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/itemRenderer/.DS_Store" sourcePath="egret/ui/skins/assets/itemRenderer/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/js.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/js.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/vscroller_thumb.png" sourcePath="egret/ui/skins/assets/manager/vscroller_thumb.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/floderClose.png" sourcePath="egret/ui/skins/assets/directionView/floderClose.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordionBtn/bgNormal.png" sourcePath="egret/ui/skins/assets/accordionBtn/bgNormal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/up_disabled_r.png" sourcePath="egret/ui/skins/assets/manager/up_disabled_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacCloseButtonDown.png" sourcePath="egret/ui/skins/assets/macBtn/MacCloseButtonDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/egret_project_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/egret_project_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/menuBtn/iconMenu_r.png" sourcePath="egret/ui/skins/assets/menuBtn/iconMenu_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/rightBtnDown.png" sourcePath="egret/ui/skins/assets/scroll/rightBtnDown.png"/>
+    <resourceEntry destPath="egret/ui/core/.DS_Store" sourcePath="egret/ui/core/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/upBtnHover_r.png" sourcePath="egret/ui/skins/assets/scroll/upBtnHover_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/.DS_Store" sourcePath="egret/ui/skins/assets/dropDownListBtn/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/up_over_r.png" sourcePath="egret/ui/skins/assets/manager/up_over_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/upBtnDown_r.png" sourcePath="egret/ui/skins/assets/scroll/upBtnDown_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/unknown.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/unknown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/jpg_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/jpg_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordionBtn/iconOpen.png" sourcePath="egret/ui/skins/assets/accordionBtn/iconOpen.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/radio/selectHover.png" sourcePath="egret/ui/skins/assets/radio/selectHover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMaximizeButton_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacMaximizeButton_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/minimize_icon.png" sourcePath="egret/ui/skins/assets/windowBtn/minimize_icon.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/rightBtnNormal.png" sourcePath="egret/ui/skins/assets/scroll/rightBtnNormal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacFullScreenButtonDown.png" sourcePath="egret/ui/skins/assets/macBtn/MacFullScreenButtonDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/lark_project_open.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/lark_project_open.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/downBtnDown.png" sourcePath="egret/ui/skins/assets/scroll/downBtnDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/closeBtn/.DS_Store" sourcePath="egret/ui/skins/assets/closeBtn/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/controlBar/.DS_Store" sourcePath="egret/ui/skins/assets/controlBar/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/docArrow_r.png" sourcePath="egret/ui/skins/assets/dropDownListBtn/docArrow_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacFullScreenButtonDown_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacFullScreenButtonDown_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/normal.png" sourcePath="egret/ui/skins/assets/windowBtn/normal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/radio/unSelectHover.png" sourcePath="egret/ui/skins/assets/radio/unSelectHover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/min_over.png" sourcePath="egret/ui/skins/assets/manager/min_over.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_src_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_src_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/up_down.png" sourcePath="egret/ui/skins/assets/manager/up_down.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/new_project_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/new_project_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordion_open_r.png" sourcePath="egret/ui/skins/assets/accordion_open_r.png"/>
+    <resourceEntry destPath="egret/ui/core/cursors/drag.png" sourcePath="egret/ui/core/cursors/drag.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/new_project.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/new_project.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordionBtn/bgDown.png" sourcePath="egret/ui/skins/assets/accordionBtn/bgDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacNormalScreenButtonDown_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacNormalScreenButtonDown_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/arrow_down_r.png" sourcePath="egret/ui/skins/assets/arrow_down_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/rightBtnNormal_r.png" sourcePath="egret/ui/skins/assets/scroll/rightBtnNormal_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/down_normal_r.png" sourcePath="egret/ui/skins/assets/manager/down_normal_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacCloseButtonOver_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacCloseButtonOver_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/maximize_icon_r.png" sourcePath="egret/ui/skins/assets/windowBtn/maximize_icon_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/leftBtnDown.png" sourcePath="egret/ui/skins/assets/scroll/leftBtnDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/arrowNormal.png" sourcePath="egret/ui/skins/assets/dropDownListBtn/arrowNormal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/json_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/json_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/down_disabled_r.png" sourcePath="egret/ui/skins/assets/manager/down_disabled_r.png"/>
+    <resourceEntry destPath="egret/ui/core/cursors/.DS_Store" sourcePath="egret/ui/core/cursors/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/leftBtnHover.png" sourcePath="egret/ui/skins/assets/scroll/leftBtnHover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/window/titleIcon_r.png" sourcePath="egret/ui/skins/assets/window/titleIcon_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/leftBtnNormal.png" sourcePath="egret/ui/skins/assets/scroll/leftBtnNormal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/.DS_Store" sourcePath="egret/ui/skins/assets/directionView/fileIcon/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/textInput/unSelect.png" sourcePath="egret/ui/skins/assets/textInput/unSelect.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMinimizeButton_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacMinimizeButton_r.png"/>
+    <resourceEntry destPath="locales/ErrorCode.txt" sourcePath="locales/ErrorCode.txt"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/upBtnNormal.png" sourcePath="egret/ui/skins/assets/scroll/upBtnNormal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/window/shadow.png" sourcePath="egret/ui/skins/assets/window/shadow.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacCloseButtonDisabled_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacCloseButtonDisabled_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/ts_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/ts_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/close_icon.png" sourcePath="egret/ui/skins/assets/windowBtn/close_icon.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/menuBtn/btnBgDown.png" sourcePath="egret/ui/skins/assets/menuBtn/btnBgDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/upBtnHover.png" sourcePath="egret/ui/skins/assets/scroll/upBtnHover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/.DS_Store" sourcePath="egret/ui/skins/assets/manager/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/itemRenderer/bgDown.png" sourcePath="egret/ui/skins/assets/itemRenderer/bgDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacNormalScreenButtonOver.png" sourcePath="egret/ui/skins/assets/macBtn/MacNormalScreenButtonOver.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/up_down_r.png" sourcePath="egret/ui/skins/assets/manager/up_down_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/package_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/package_r.png"/>
+    <resourceEntry destPath="egret/ui/.DS_Store" sourcePath="egret/ui/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/arrow_up_r.png" sourcePath="egret/ui/skins/assets/arrow_up_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/arrow_down.png" sourcePath="egret/ui/skins/assets/arrow_down.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMaximizeButton.png" sourcePath="egret/ui/skins/assets/macBtn/MacMaximizeButton.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/lark_project.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/lark_project.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/selectNormal_r.png" sourcePath="egret/ui/skins/assets/checkBoxBtn/selectNormal_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/progressbar_track.png" sourcePath="egret/ui/skins/assets/manager/progressbar_track.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/controlBarBottomBg/.DS_Store" sourcePath="egret/ui/skins/assets/controlBarBottomBg/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMaximizeButtonDown_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacMaximizeButtonDown_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/arrowNormal_r.png" sourcePath="egret/ui/skins/assets/dropDownListBtn/arrowNormal_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMinimizeButtonDown.png" sourcePath="egret/ui/skins/assets/macBtn/MacMinimizeButtonDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/colorphase_thumb_r.png" sourcePath="egret/ui/skins/assets/colorphase_thumb_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/circle_white_r.png" sourcePath="egret/ui/skins/assets/circle_white_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMinimizeButtonOver.png" sourcePath="egret/ui/skins/assets/macBtn/MacMinimizeButtonOver.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacFullScreenButtonOver.png" sourcePath="egret/ui/skins/assets/macBtn/MacFullScreenButtonOver.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/close_icon_r.png" sourcePath="egret/ui/skins/assets/windowBtn/close_icon_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacNormalScreenButtonOver_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacNormalScreenButtonOver_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/.DS_Store" sourcePath="egret/ui/skins/assets/checkBoxBtn/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/xml_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/xml_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/componentItem/bgDown.png" sourcePath="egret/ui/skins/assets/componentItem/bgDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/upBtnNormal_r.png" sourcePath="egret/ui/skins/assets/scroll/upBtnNormal_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/leftBtnNormal_r.png" sourcePath="egret/ui/skins/assets/scroll/leftBtnNormal_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/up_normal_r.png" sourcePath="egret/ui/skins/assets/manager/up_normal_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/downBtnNormal.png" sourcePath="egret/ui/skins/assets/scroll/downBtnNormal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_open_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_open_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/vscroller_track.png" sourcePath="egret/ui/skins/assets/manager/vscroller_track.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMaximizeButtonOver.png" sourcePath="egret/ui/skins/assets/macBtn/MacMaximizeButtonOver.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/egret_project.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/egret_project.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/unSelectNormal.png" sourcePath="egret/ui/skins/assets/checkBoxBtn/unSelectNormal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/button/hover.png" sourcePath="egret/ui/skins/assets/button/hover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/egret_project_open.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/egret_project_open.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacCloseButtonDown_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacCloseButtonDown_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/text.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/text.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/closeBtn/CloseButtonOver_r.png" sourcePath="egret/ui/skins/assets/closeBtn/CloseButtonOver_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/min_normal.png" sourcePath="egret/ui/skins/assets/manager/min_normal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMinimizeButtonOver_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacMinimizeButtonOver_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/unSelectHover_r.png" sourcePath="egret/ui/skins/assets/checkBoxBtn/unSelectHover_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/downBtnHover.png" sourcePath="egret/ui/skins/assets/scroll/downBtnHover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordionBtn/.DS_Store" sourcePath="egret/ui/skins/assets/accordionBtn/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/circle_white.png" sourcePath="egret/ui/skins/assets/circle_white.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordion_close.png" sourcePath="egret/ui/skins/assets/accordion_close.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordionBtn/iconClose.png" sourcePath="egret/ui/skins/assets/accordionBtn/iconClose.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacCloseButton_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacCloseButton_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMinimizeButtonDown_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacMinimizeButtonDown_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/button/down.png" sourcePath="egret/ui/skins/assets/button/down.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/lark_project_open_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/lark_project_open_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/itemRenderer/bgNormal.png" sourcePath="egret/ui/skins/assets/itemRenderer/bgNormal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/bg.png" sourcePath="egret/ui/skins/assets/scroll/bg.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/.DS_Store" sourcePath="egret/ui/skins/assets/directionView/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/leftBtnDown_r.png" sourcePath="egret/ui/skins/assets/scroll/leftBtnDown_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/close_disabled.png" sourcePath="egret/ui/skins/assets/manager/close_disabled.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/textInput/select.png" sourcePath="egret/ui/skins/assets/textInput/select.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/closeBtn/CloseButtonDown.png" sourcePath="egret/ui/skins/assets/closeBtn/CloseButtonDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacCloseButtonDisabled.png" sourcePath="egret/ui/skins/assets/macBtn/MacCloseButtonDisabled.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMaximizeButtonDown.png" sourcePath="egret/ui/skins/assets/macBtn/MacMaximizeButtonDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/itemRenderer/bgHover.png" sourcePath="egret/ui/skins/assets/itemRenderer/bgHover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/down_over.png" sourcePath="egret/ui/skins/assets/manager/down_over.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_open.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_open.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/unSelectNormal_r.png" sourcePath="egret/ui/skins/assets/checkBoxBtn/unSelectNormal_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/bgHover.png" sourcePath="egret/ui/skins/assets/dropDownListBtn/bgHover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/button/.DS_Store" sourcePath="egret/ui/skins/assets/button/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/gif.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/gif.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/bgNormal.png" sourcePath="egret/ui/skins/assets/dropDownListBtn/bgNormal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/circle_black.png" sourcePath="egret/ui/skins/assets/circle_black.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/rightBtnHover.png" sourcePath="egret/ui/skins/assets/scroll/rightBtnHover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/button/normal.png" sourcePath="egret/ui/skins/assets/button/normal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/png_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/png_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/radio/unSelectNormal_r.png" sourcePath="egret/ui/skins/assets/radio/unSelectNormal_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacNormalScreenButtonDown.png" sourcePath="egret/ui/skins/assets/macBtn/MacNormalScreenButtonDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/close_over_r.png" sourcePath="egret/ui/skins/assets/manager/close_over_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/down.png" sourcePath="egret/ui/skins/assets/windowBtn/down.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/min_down.png" sourcePath="egret/ui/skins/assets/manager/min_down.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/bg.png" sourcePath="egret/ui/skins/assets/dropDownListBtn/bg.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_close.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_close.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_src.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_src.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/project_close.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/project_close.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordion_open.png" sourcePath="egret/ui/skins/assets/accordion_open.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/componentItem/.DS_Store" sourcePath="egret/ui/skins/assets/componentItem/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/core/cursors/ew.png" sourcePath="egret/ui/core/cursors/ew.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/close_down_r.png" sourcePath="egret/ui/skins/assets/manager/close_down_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordion_close_r.png" sourcePath="egret/ui/skins/assets/accordion_close_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/close_over.png" sourcePath="egret/ui/skins/assets/manager/close_over.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_src_open.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_src_open.png"/>
+    <resourceEntry destPath="egret/ui/core/cursors/nesw.png" sourcePath="egret/ui/core/cursors/nesw.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/up_normal.png" sourcePath="egret/ui/skins/assets/manager/up_normal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/close_down.png" sourcePath="egret/ui/skins/assets/manager/close_down.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/exml.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/exml.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/selectHover.png" sourcePath="egret/ui/skins/assets/checkBoxBtn/selectHover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMaximizeButtonOver_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacMaximizeButtonOver_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/html.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/html.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/circle_black_r.png" sourcePath="egret/ui/skins/assets/circle_black_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/upBtnDown.png" sourcePath="egret/ui/skins/assets/scroll/upBtnDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/arrow_up.png" sourcePath="egret/ui/skins/assets/arrow_up.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/progressbar_thumb.png" sourcePath="egret/ui/skins/assets/manager/progressbar_thumb.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/js_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/js_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/radio/unSelectNormal.png" sourcePath="egret/ui/skins/assets/radio/unSelectNormal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/selectHover_r.png" sourcePath="egret/ui/skins/assets/checkBoxBtn/selectHover_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/html_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/html_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/close_disabled_r.png" sourcePath="egret/ui/skins/assets/manager/close_disabled_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/controlBar/bg.png" sourcePath="egret/ui/skins/assets/controlBar/bg.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/close_normal.png" sourcePath="egret/ui/skins/assets/manager/close_normal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/minimize_icon_r.png" sourcePath="egret/ui/skins/assets/windowBtn/minimize_icon_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/down_normal.png" sourcePath="egret/ui/skins/assets/manager/down_normal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/down_over_r.png" sourcePath="egret/ui/skins/assets/manager/down_over_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/jpg.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/jpg.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/down_down.png" sourcePath="egret/ui/skins/assets/manager/down_down.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/rightBtnDown_r.png" sourcePath="egret/ui/skins/assets/scroll/rightBtnDown_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/floderOpen.png" sourcePath="egret/ui/skins/assets/directionView/floderOpen.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/unSelectHover.png" sourcePath="egret/ui/skins/assets/checkBoxBtn/unSelectHover.png"/>
+    <resourceEntry destPath="egret/ui/core/cursors/disable.png" sourcePath="egret/ui/core/cursors/disable.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/downBtnNormal_r.png" sourcePath="egret/ui/skins/assets/scroll/downBtnNormal_r.png"/>
+    <resourceEntry destPath="locales/language.xml" sourcePath="locales/language.xml"/>
+    <resourceEntry destPath="egret/ui/skins/assets/radio/selectNormal.png" sourcePath="egret/ui/skins/assets/radio/selectNormal.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/.DS_Store" sourcePath="egret/ui/skins/assets/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/down_down_r.png" sourcePath="egret/ui/skins/assets/manager/down_down_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/up_over.png" sourcePath="egret/ui/skins/assets/manager/up_over.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacCloseButton.png" sourcePath="egret/ui/skins/assets/macBtn/MacCloseButton.png"/>
+  </includeResources>
+  <namespaceManifests/>
+</flexLibProperties>

@@ -1,0 +1,253 @@
+package egret.components
+{
+	import flash.events.MouseEvent;
+	import flash.geom.Point;
+	import flash.utils.getQualifiedClassName;
+	
+	import egret.components.supportClasses.ScrollBarBase;
+	import egret.core.IInvalidating;
+	import egret.core.IViewport;
+	import egret.core.NavigationUnit;
+	import egret.core.ns_egret;
+	import egret.events.PropertyChangeEvent;
+	import egret.events.ResizeEvent;
+	
+	
+	use namespace ns_egret;
+	
+	[EXML(show="true")]
+	
+	/**
+	 * 垂直滚动条组件
+	 * @author dom
+	 */	
+	public class VScrollBar extends ScrollBarBase
+	{
+		/**
+		 * 构造函数
+		 */		
+		public function VScrollBar()
+		{
+			super();
+		}
+		
+		/**
+		 * 更新最大值和分页大小
+		 */
+		private function updateMaximumAndPageSize():void
+		{
+			var vsp:Number = viewport.verticalScrollPosition;
+			var viewportHeight:Number = isNaN(viewport.height) ? 0 : viewport.height;
+			var cHeight:Number = viewport.contentHeight;
+			maximum = (cHeight == 0) ? vsp : cHeight - viewportHeight;
+			pageSize = viewportHeight;
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		override public function set viewport(newViewport:IViewport):void
+		{
+			const oldViewport:IViewport = super.viewport;
+			if (oldViewport == newViewport)
+				return;
+			
+			if (oldViewport)
+			{
+				oldViewport.removeEventListener(MouseEvent.MOUSE_WHEEL, mouseWheelHandler);
+				removeEventListener(MouseEvent.MOUSE_WHEEL, mouseWheelHandler);
+			}
+			
+			super.viewport = newViewport;
+			
+			if (newViewport)
+			{
+				updateMaximumAndPageSize()
+				value = newViewport.verticalScrollPosition;;
+				newViewport.addEventListener(MouseEvent.MOUSE_WHEEL, mouseWheelHandler);
+				addEventListener(MouseEvent.MOUSE_WHEEL, mouseWheelHandler);  
+			}
+		}   
+		
+		/**
+		 * @inheritDoc
+		 */
+		override protected function pointToValue(x:Number, y:Number):Number
+		{
+			if (!thumb || !track)
+				return 0;
+			
+			var r:Number = track.layoutBoundsHeight - thumb.layoutBoundsHeight;
+			return minimum + ((r != 0) ? (y / r) * (maximum - minimum) : 0); 
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		override protected function updateSkinDisplayList():void
+		{
+			if (!thumb || !track)
+				return;
+			
+			var trackSize:Number = track.layoutBoundsHeight;
+			var range:Number = maximum - minimum;
+			
+			var thumbPos:Point;
+			var thumbPosTrackY:Number = 0;
+			var thumbPosParentY:Number = 0;
+			var thumbSize:Number = trackSize;
+			if (range > 0)
+			{
+				if (fixedThumbSize === false)
+				{
+					thumbSize = Math.min((pageSize / (range + pageSize)) * trackSize, trackSize)
+					thumbSize = Math.max(thumb.minHeight, thumbSize);
+				}
+				else
+				{
+					thumbSize = thumb ? thumb.height : 0;
+				}
+				thumbPosTrackY = (value - minimum) * ((trackSize - thumbSize) / range);
+			}
+			
+			if (fixedThumbSize === false)
+				thumb.setLayoutBoundsSize(thumb.layoutBoundsWidth, Math.ceil(thumbSize));
+			if (autoThumbVisibility === true)
+				thumb.visible = thumbSize < trackSize;
+			cachePoint.setTo(0, thumbPosTrackY);
+			thumbPos = track.localToGlobal(cachePoint);
+			thumbPosParentY = thumb.parent.globalToLocal(thumbPos).y;
+			
+			thumb.setLayoutBoundsPosition(thumb.layoutBoundsX, Math.round(thumbPosParentY));
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		override protected function setValue(value:Number):void
+		{
+			super.setValue(value);
+			if (viewport)
+				viewport.verticalScrollPosition = value;
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		override public function changeValueByPage(increase:Boolean = true):void
+		{
+			var oldPageSize:Number;
+			if (viewport)
+			{
+				oldPageSize = pageSize;
+				pageSize = Math.abs(viewport.getVerticalScrollPositionDelta(
+					(increase) ? NavigationUnit.PAGE_DOWN : NavigationUnit.PAGE_UP));
+			}
+			super.changeValueByPage(increase);
+			if (viewport)
+				pageSize = oldPageSize;
+		} 
+		
+		/**
+		 * @inheritDoc
+		 */
+		override protected function animatePaging(newValue:Number, pageSize:Number):void
+		{
+			if (viewport)
+			{
+				var vpPageSize:Number = Math.abs(viewport.getVerticalScrollPositionDelta(
+					(newValue > value) ? NavigationUnit.PAGE_DOWN : NavigationUnit.PAGE_UP));
+				super.animatePaging(newValue, vpPageSize);
+				return;
+			}        
+			super.animatePaging(newValue, pageSize);
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		override public function changeValueByStep(increase:Boolean = true):void
+		{
+			var oldStepSize:Number;
+			if (viewport)
+			{
+				oldStepSize = stepSize;
+				stepSize = Math.abs(viewport.getVerticalScrollPositionDelta(
+					(increase) ? NavigationUnit.DOWN : NavigationUnit.UP));
+			}
+			super.changeValueByStep(increase);
+			if (viewport)
+				stepSize = oldStepSize;
+		} 
+		    
+		/**
+		 * @inheritDoc
+		 */
+		override protected function partAdded(partName:String, instance:Object):void
+		{
+			if (instance == thumb)
+			{
+				thumb.top = undefined;
+				thumb.bottom = undefined;
+				thumb.verticalCenter = undefined;
+			}      
+			super.partAdded(partName, instance);
+		}     
+		
+		/**
+		 * @inheritDoc
+		 */
+		override ns_egret function viewportVerticalScrollPositionChangeHandler(event:PropertyChangeEvent):void
+		{
+			if (viewport)
+				value = viewport.verticalScrollPosition;
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		override ns_egret function viewportResizeHandler(event:ResizeEvent):void
+		{
+			if (viewport)
+				updateMaximumAndPageSize();
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		override ns_egret function viewportContentHeightChangeHandler(event:PropertyChangeEvent):void
+		{
+			if (viewport)
+			{
+				var viewportHeight:Number = isNaN(viewport.height) ? 0 : viewport.height;
+				maximum = viewport.contentHeight - viewport.height;
+			}
+		}
+		
+		/**
+		 * 根据event.delta滚动指定步数的距离。
+		 */	
+		ns_egret function mouseWheelHandler(event:MouseEvent):void
+		{
+			const vp:IViewport = viewport;
+			if (event.isDefaultPrevented() || !vp || !vp.visible||!visible)
+				return;
+			
+			var nSteps:uint = useMouseWheelDelta?Math.abs(event.delta):1;
+			var navigationUnit:uint;
+			navigationUnit = (event.delta < 0) ? NavigationUnit.DOWN : NavigationUnit.UP;
+			for (var vStep:int = 0; vStep < nSteps; vStep++)
+			{
+				var vspDelta:Number = vp.getVerticalScrollPositionDelta(navigationUnit);
+				if (!isNaN(vspDelta))
+				{
+					vp.verticalScrollPosition += vspDelta;
+					if (vp is IInvalidating)
+						IInvalidating(vp).validateNow();
+				}
+			}
+			event.preventDefault();
+		}
+		
+	}
+}
