@@ -1,5 +1,6 @@
 package main.panels.directionView
 {
+	import egret.components.Group;
 	import egret.ui.components.IconButton;
 	
 	import main.panels.components.DirectionTreeItemSkin;
@@ -11,6 +12,7 @@ package main.panels.directionView
 		}
 		
 		
+		public var buttonContainer:Group;
 		public var button0:IconButton;
 		public var button1:IconButton;
 		public var button2:IconButton;
@@ -24,9 +26,14 @@ package main.panels.directionView
 		{
 			super.createChildren();
 			
+			buttonContainer = new Group();
+			buttonContainer.percentWidth = 100;
+			buttonContainer.percentHeight = 100;
+			this.addElement(buttonContainer);
+			
 			for(var i:int = 0; i < 5; i++) {
 				this["button"+i] = new IconButton();
-				this.addElement(this["button"+i]);
+				buttonContainer.addElement(this["button"+i]);
 				this["button"+i].right = 5 + 25 * i;
 				this["button"+i].verticalCenter = 0;
 				this["button"+i].visible = false;

@@ -67,6 +67,6 @@ package main.menu
 		
 		public static const CONNECT_MOBILE:String = "connect_mobile";
 		
-		public static const DIRECTION_ITEM_MENU = "direction_item_menu";
+		public static const DIRECTION_ITEM_MENU:String = "direction_item_menu";
 	}
 }

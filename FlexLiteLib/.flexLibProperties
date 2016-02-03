@@ -605,6 +605,10 @@
     <classEntry path="egret.utils.tr"/>
     <classEntry path="locales.locale_egret_desktop"/>
     <classEntry path="locales.locale_egret_lib"/>
+    <classEntry path="extend.ui.ImageLoader"/>
+    <classEntry path="extend.ui.BitmapUI"/>
+    <classEntry path="extend.ui.ImageLoaderToolTip"/>
+    <classEntry path="extend.ui.TabPanel"/>
   </includeClasses>
   <includeResources>
     <resourceEntry destPath="egret/ui/skins/assets/radio/unSelectHover_r.png" sourcePath="egret/ui/skins/assets/radio/unSelectHover_r.png"/>
@@ -619,19 +623,19 @@
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/text_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/text_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/windowBtn/restore_icon.png" sourcePath="egret/ui/skins/assets/windowBtn/restore_icon.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/closeBtn/CloseButtonDown_r.png" sourcePath="egret/ui/skins/assets/closeBtn/CloseButtonDown_r.png"/>
-    <resourceEntry destPath="locales/en_US/strings.xml" sourcePath="locales/en_US/strings.xml"/>
     <resourceEntry destPath="egret/ui/skins/assets/menuBtn/btnBgNormal.png" sourcePath="egret/ui/skins/assets/menuBtn/btnBgNormal.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/window/titleIcon.png" sourcePath="egret/ui/skins/assets/window/titleIcon.png"/>
+    <resourceEntry destPath="locales/en_US/strings.xml" sourcePath="locales/en_US/strings.xml"/>
     <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/bgDown.png" sourcePath="egret/ui/skins/assets/dropDownListBtn/bgDown.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/hover.png" sourcePath="egret/ui/skins/assets/windowBtn/hover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/window/titleIcon.png" sourcePath="egret/ui/skins/assets/window/titleIcon.png"/>
     <resourceEntry destPath="egret/ui/core/cursors/ns.png" sourcePath="egret/ui/core/cursors/ns.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/hover.png" sourcePath="egret/ui/skins/assets/windowBtn/hover.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/manager/close_normal_r.png" sourcePath="egret/ui/skins/assets/manager/close_normal_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/accordionBtn/iconClose_r.png" sourcePath="egret/ui/skins/assets/accordionBtn/iconClose_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/unknown_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/unknown_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/png.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/png.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/scroll/leftBtnHover_r.png" sourcePath="egret/ui/skins/assets/scroll/leftBtnHover_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/package.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/package.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/leftBtnHover_r.png" sourcePath="egret/ui/skins/assets/scroll/leftBtnHover_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/manager/down_disabled.png" sourcePath="egret/ui/skins/assets/manager/down_disabled.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/docArrow.png" sourcePath="egret/ui/skins/assets/dropDownListBtn/docArrow.png"/>
     <resourceEntry destPath="egret/ui/core/cursors/circle.png" sourcePath="egret/ui/core/cursors/circle.png"/>
@@ -659,27 +663,27 @@
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/package_empty.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/package_empty.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/scroll/downBtnDown_r.png" sourcePath="egret/ui/skins/assets/scroll/downBtnDown_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_src_open_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_src_open_r.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/menuBtn/iconMenu.png" sourcePath="egret/ui/skins/assets/menuBtn/iconMenu.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/closeBtn/CloseButton_r.png" sourcePath="egret/ui/skins/assets/closeBtn/CloseButton_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/menuBtn/iconMenu.png" sourcePath="egret/ui/skins/assets/menuBtn/iconMenu.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/closeBtn/CloseButton.png" sourcePath="egret/ui/skins/assets/closeBtn/CloseButton.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/lark_project_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/lark_project_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/scroll/rightBtnHover_r.png" sourcePath="egret/ui/skins/assets/scroll/rightBtnHover_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/egret_project_open_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/egret_project_open_r.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/manager/min_disabled.png" sourcePath="egret/ui/skins/assets/manager/min_disabled.png"/>
     <resourceEntry destPath="egret/ui/skins/.DS_Store" sourcePath="egret/ui/skins/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/min_disabled.png" sourcePath="egret/ui/skins/assets/manager/min_disabled.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/itemRenderer/.DS_Store" sourcePath="egret/ui/skins/assets/itemRenderer/.DS_Store"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/js.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/js.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/manager/vscroller_thumb.png" sourcePath="egret/ui/skins/assets/manager/vscroller_thumb.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/floderClose.png" sourcePath="egret/ui/skins/assets/directionView/floderClose.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/accordionBtn/bgNormal.png" sourcePath="egret/ui/skins/assets/accordionBtn/bgNormal.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/manager/up_disabled_r.png" sourcePath="egret/ui/skins/assets/manager/up_disabled_r.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacCloseButtonDown.png" sourcePath="egret/ui/skins/assets/macBtn/MacCloseButtonDown.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/egret_project_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/egret_project_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacCloseButtonDown.png" sourcePath="egret/ui/skins/assets/macBtn/MacCloseButtonDown.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/menuBtn/iconMenu_r.png" sourcePath="egret/ui/skins/assets/menuBtn/iconMenu_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/scroll/rightBtnDown.png" sourcePath="egret/ui/skins/assets/scroll/rightBtnDown.png"/>
     <resourceEntry destPath="egret/ui/core/.DS_Store" sourcePath="egret/ui/core/.DS_Store"/>
-    <resourceEntry destPath="egret/ui/skins/assets/scroll/upBtnHover_r.png" sourcePath="egret/ui/skins/assets/scroll/upBtnHover_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/.DS_Store" sourcePath="egret/ui/skins/assets/dropDownListBtn/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/upBtnHover_r.png" sourcePath="egret/ui/skins/assets/scroll/upBtnHover_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/manager/up_over_r.png" sourcePath="egret/ui/skins/assets/manager/up_over_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/scroll/upBtnDown_r.png" sourcePath="egret/ui/skins/assets/scroll/upBtnDown_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/unknown.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/unknown.png"/>
@@ -689,21 +693,21 @@
     <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMaximizeButton_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacMaximizeButton_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/windowBtn/minimize_icon.png" sourcePath="egret/ui/skins/assets/windowBtn/minimize_icon.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/scroll/rightBtnNormal.png" sourcePath="egret/ui/skins/assets/scroll/rightBtnNormal.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacFullScreenButtonDown.png" sourcePath="egret/ui/skins/assets/macBtn/MacFullScreenButtonDown.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/lark_project_open.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/lark_project_open.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/scroll/downBtnDown.png" sourcePath="egret/ui/skins/assets/scroll/downBtnDown.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacFullScreenButtonDown.png" sourcePath="egret/ui/skins/assets/macBtn/MacFullScreenButtonDown.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/closeBtn/.DS_Store" sourcePath="egret/ui/skins/assets/closeBtn/.DS_Store"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/downBtnDown.png" sourcePath="egret/ui/skins/assets/scroll/downBtnDown.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/controlBar/.DS_Store" sourcePath="egret/ui/skins/assets/controlBar/.DS_Store"/>
     <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/docArrow_r.png" sourcePath="egret/ui/skins/assets/dropDownListBtn/docArrow_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacFullScreenButtonDown_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacFullScreenButtonDown_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/windowBtn/normal.png" sourcePath="egret/ui/skins/assets/windowBtn/normal.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/radio/unSelectHover.png" sourcePath="egret/ui/skins/assets/radio/unSelectHover.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/manager/min_over.png" sourcePath="egret/ui/skins/assets/manager/min_over.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_src_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_src_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/min_over.png" sourcePath="egret/ui/skins/assets/manager/min_over.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/radio/unSelectHover.png" sourcePath="egret/ui/skins/assets/radio/unSelectHover.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/manager/up_down.png" sourcePath="egret/ui/skins/assets/manager/up_down.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/new_project_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/new_project_r.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/accordion_open_r.png" sourcePath="egret/ui/skins/assets/accordion_open_r.png"/>
     <resourceEntry destPath="egret/ui/core/cursors/drag.png" sourcePath="egret/ui/core/cursors/drag.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/accordion_open_r.png" sourcePath="egret/ui/skins/assets/accordion_open_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/new_project_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/new_project_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/new_project.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/new_project.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/accordionBtn/bgDown.png" sourcePath="egret/ui/skins/assets/accordionBtn/bgDown.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacNormalScreenButtonDown_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacNormalScreenButtonDown_r.png"/>
@@ -806,34 +810,34 @@
     <resourceEntry destPath="egret/ui/skins/assets/radio/unSelectNormal_r.png" sourcePath="egret/ui/skins/assets/radio/unSelectNormal_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacNormalScreenButtonDown.png" sourcePath="egret/ui/skins/assets/macBtn/MacNormalScreenButtonDown.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/manager/close_over_r.png" sourcePath="egret/ui/skins/assets/manager/close_over_r.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/down.png" sourcePath="egret/ui/skins/assets/windowBtn/down.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/manager/min_down.png" sourcePath="egret/ui/skins/assets/manager/min_down.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/dropDownListBtn/bg.png" sourcePath="egret/ui/skins/assets/dropDownListBtn/bg.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/min_down.png" sourcePath="egret/ui/skins/assets/manager/min_down.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/windowBtn/down.png" sourcePath="egret/ui/skins/assets/windowBtn/down.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_close.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_close.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_src.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_src.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/project_close.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/project_close.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/accordion_open.png" sourcePath="egret/ui/skins/assets/accordion_open.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/componentItem/.DS_Store" sourcePath="egret/ui/skins/assets/componentItem/.DS_Store"/>
     <resourceEntry destPath="egret/ui/core/cursors/ew.png" sourcePath="egret/ui/core/cursors/ew.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/manager/close_down_r.png" sourcePath="egret/ui/skins/assets/manager/close_down_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/componentItem/.DS_Store" sourcePath="egret/ui/skins/assets/componentItem/.DS_Store"/>
     <resourceEntry destPath="egret/ui/skins/assets/accordion_close_r.png" sourcePath="egret/ui/skins/assets/accordion_close_r.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/manager/close_over.png" sourcePath="egret/ui/skins/assets/manager/close_over.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/close_down_r.png" sourcePath="egret/ui/skins/assets/manager/close_down_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/folder_src_open.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/folder_src_open.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/close_over.png" sourcePath="egret/ui/skins/assets/manager/close_over.png"/>
     <resourceEntry destPath="egret/ui/core/cursors/nesw.png" sourcePath="egret/ui/core/cursors/nesw.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/manager/up_normal.png" sourcePath="egret/ui/skins/assets/manager/up_normal.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/manager/close_down.png" sourcePath="egret/ui/skins/assets/manager/close_down.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/exml.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/exml.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/close_down.png" sourcePath="egret/ui/skins/assets/manager/close_down.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/up_normal.png" sourcePath="egret/ui/skins/assets/manager/up_normal.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/selectHover.png" sourcePath="egret/ui/skins/assets/checkBoxBtn/selectHover.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacMaximizeButtonOver_r.png" sourcePath="egret/ui/skins/assets/macBtn/MacMaximizeButtonOver_r.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/html.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/html.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/circle_black_r.png" sourcePath="egret/ui/skins/assets/circle_black_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/html.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/html.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/scroll/upBtnDown.png" sourcePath="egret/ui/skins/assets/scroll/upBtnDown.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/arrow_up.png" sourcePath="egret/ui/skins/assets/arrow_up.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/manager/progressbar_thumb.png" sourcePath="egret/ui/skins/assets/manager/progressbar_thumb.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/js_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/js_r.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/radio/unSelectNormal.png" sourcePath="egret/ui/skins/assets/radio/unSelectNormal.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/selectHover_r.png" sourcePath="egret/ui/skins/assets/checkBoxBtn/selectHover_r.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/radio/unSelectNormal.png" sourcePath="egret/ui/skins/assets/radio/unSelectNormal.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/html_r.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/html_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/manager/close_disabled_r.png" sourcePath="egret/ui/skins/assets/manager/close_disabled_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/controlBar/bg.png" sourcePath="egret/ui/skins/assets/controlBar/bg.png"/>
@@ -843,17 +847,17 @@
     <resourceEntry destPath="egret/ui/skins/assets/manager/down_over_r.png" sourcePath="egret/ui/skins/assets/manager/down_over_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/fileIcon/jpg.png" sourcePath="egret/ui/skins/assets/directionView/fileIcon/jpg.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/manager/down_down.png" sourcePath="egret/ui/skins/assets/manager/down_down.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/scroll/rightBtnDown_r.png" sourcePath="egret/ui/skins/assets/scroll/rightBtnDown_r.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/directionView/floderOpen.png" sourcePath="egret/ui/skins/assets/directionView/floderOpen.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/unSelectHover.png" sourcePath="egret/ui/skins/assets/checkBoxBtn/unSelectHover.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/scroll/rightBtnDown_r.png" sourcePath="egret/ui/skins/assets/scroll/rightBtnDown_r.png"/>
     <resourceEntry destPath="egret/ui/core/cursors/disable.png" sourcePath="egret/ui/core/cursors/disable.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/checkBoxBtn/unSelectHover.png" sourcePath="egret/ui/skins/assets/checkBoxBtn/unSelectHover.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/scroll/downBtnNormal_r.png" sourcePath="egret/ui/skins/assets/scroll/downBtnNormal_r.png"/>
     <resourceEntry destPath="locales/language.xml" sourcePath="locales/language.xml"/>
     <resourceEntry destPath="egret/ui/skins/assets/radio/selectNormal.png" sourcePath="egret/ui/skins/assets/radio/selectNormal.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/.DS_Store" sourcePath="egret/ui/skins/assets/.DS_Store"/>
     <resourceEntry destPath="egret/ui/skins/assets/manager/down_down_r.png" sourcePath="egret/ui/skins/assets/manager/down_down_r.png"/>
-    <resourceEntry destPath="egret/ui/skins/assets/manager/up_over.png" sourcePath="egret/ui/skins/assets/manager/up_over.png"/>
     <resourceEntry destPath="egret/ui/skins/assets/macBtn/MacCloseButton.png" sourcePath="egret/ui/skins/assets/macBtn/MacCloseButton.png"/>
+    <resourceEntry destPath="egret/ui/skins/assets/manager/up_over.png" sourcePath="egret/ui/skins/assets/manager/up_over.png"/>
   </includeResources>
   <namespaceManifests/>
 </flexLibProperties>

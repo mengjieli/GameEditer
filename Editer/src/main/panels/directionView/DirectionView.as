@@ -7,26 +7,34 @@ package main.panels.directionView
 	import egret.components.Group;
 	import egret.components.Label;
 	import egret.components.UIAsset;
+	import egret.events.CollectionEvent;
+	import egret.events.CollectionEventKind;
 	import egret.ui.components.TabPanel;
 	import egret.ui.components.Tree;
 	import egret.utils.FileUtil;
 	
 	import main.data.ToolData;
-	import main.data.gameProject.path.PathData;
+	import main.data.directionData.DirectionDataBase;
+	import main.data.gameProject.GameProjectData;
 	import main.events.EventMgr;
 	import main.events.ProjectEvent;
+	import main.events.ToolEvent;
 	import main.panels.components.DirectionTreeCollection;
+	import main.panels.netWaitPanel.NetWaitingPanel;
 
 	public class DirectionView extends TabPanel
 	{
 		private var bg:Group;
+		private var project:GameProjectData;
 		
 		public function DirectionView()
 		{
 			this.title = "项目目录";
 			this.percentWidth = this.percentHeight = 100;
 			
+			EventMgr.ist.addEventListener(ToolEvent.START,start);
 			EventMgr.ist.addEventListener(ProjectEvent.SHOW_PROJECT,onShowProject);
+			EventMgr.ist.addEventListener(ProjectEvent.ADD_DIRECTION,onAddDirection);
 		}
 		
 		private var data:DirectionTreeCollection;
@@ -61,12 +69,39 @@ package main.panels.directionView
 			bg.addElement(label);
 			
 			bg.addEventListener(MouseEvent.CLICK,onLoadProject);
-			
+		}
+		
+		private function start(e:ToolEvent):void {
+			var url:String = ToolData.getInstance().getConfigValue("project","ui");
+			if(url != "") {
+				EventMgr.ist.dispatchEvent(new ProjectEvent(ProjectEvent.LOAD_PROJECT,null,url));
+			}
 		}
 		
 		private function onShowProject(e:ProjectEvent):void {
-			ToolData.getInstance().saveConfigValue("project",e.project.url);
+			project = e.project;
+			var url:String = e.project.url;
+			while(url.charAt(url.length-1) == "/") {
+				url = url.slice(0,url.length-1);
+			}
+			ToolData.getInstance().saveConfigValue("project",url,"ui");
 			bg.visible = false;
+			data.removeAll();
+			var initPath:Vector.<DirectionDataBase> = e.project.getInitPath();
+			NetWaitingPanel.show("加载项目资源 ...");
+			for(var i:int = 0; i < initPath.length; i++) {
+				var dir:DirectionDataBase = initPath[i];
+				data.addFile(dir,false);
+				if(dir.initLoad) {
+					dir.initLoad.call(dir);
+				}
+			}
+			NetWaitingPanel.hide();
+		}
+		
+		private function onAddDirection(e:ProjectEvent):void {
+			data.addFile(e.direction);
+			data.dispatchEvent(new CollectionEvent(CollectionEvent.COLLECTION_CHANGE,false,false,CollectionEventKind.REFRESH));
 		}
 		
 		private function onLoadProject(e:MouseEvent):void {
@@ -75,15 +110,6 @@ package main.panels.directionView
 		
 		private function selectProjectFile(file:File):void {
 			trace(file.url);
-		}
-		
-		private function initDirection():void {
-			data.removeAll();
-			var paths:Vector.<PathData> = ToolData.getInstance().project.paths;
-			for(var i:int = 0; i < paths.length; i++) {
-				var path:PathData = paths[i];
-				data.addFile(path.name,path.nameDesc,path.url,"direction");
-			}
 		}
 	}
 }

@@ -21,5 +21,9 @@ package main.data.parsers
 		public function getNewData():ParserDataBase {
 			return new ParserDataBase();
 		}
+		
+		public function get api():Object {
+			return {};
+		}
 	}
 }

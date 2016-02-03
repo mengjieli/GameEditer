@@ -4,37 +4,28 @@ package main.panels.components
 	import flash.events.EventDispatcher;
 	
 	import egret.events.CollectionEventKind;
+	
+	import main.data.directionData.DirectionDataBase;
 
 	public class DirectionTreeCollectionItem extends EventDispatcher
 	{	
-		private var _name:String;
-		private var _desc:String;
-		private var _url:String;
-		private var _type:String;
+		public var isSort:Boolean = true;
 		private var _state:String = CollectionEventKind.CLOSE;
-		private var _fileType:String;
+		private var pathData:DirectionDataBase;
 		
 		public var children:Vector.<DirectionTreeCollectionItem> = new Vector.<DirectionTreeCollectionItem>();
 		
-		public function DirectionTreeCollectionItem(name:String,desc:String,url:String,type:String,fileType:String="")
+		public function DirectionTreeCollectionItem(data:DirectionDataBase)
 		{
-			this._name = name;
-			this._desc = desc;
-			this._url = url;
-			this._type = type;
-			this._fileType = fileType;
+			this.pathData = data;
 		}
 		
-		public function set name(val:String):void {
-			_name = val;
-		}
-		
-		public function get name():String {
-			return _name;
+		public function get directionData():DirectionDataBase {
+			return this.pathData;
 		}
 		
 		public function get url():String {
-			return this._url;
+			return pathData.url
 		}
 		
 		public function set state(val:String):void {
@@ -46,19 +37,17 @@ package main.panels.components
 		}
 		
 		public function get fileIcon():String {
-			if(_type == "direction") {
-				return "assets/directionView/fileIcon/folder_" + _state + ".png";
+			if(pathData.isDirection) {
+				if(this._state == CollectionEventKind.CLOSE) {
+					return pathData.directionCloseIcon;
+				}
+				return pathData.directionOpenIcon;
 			}
-			var end:String = "";
-			if(_fileType == "") {
-				end = this.url.split("/")[this.url.split("/").length-1];
-				end = this.url.split(".")[this.url.split(".").length-1];
-			}
-			return "assets/directionView/fileIcon/" + end + ".png";
+			return pathData.fileIcon;
 		}
 		
 		public function get isDirection():Boolean {
-			return this._type=="direction"?true:false;
+			return pathData.isDirection;
 		}
 		
 		/**
@@ -81,7 +70,7 @@ package main.panels.components
 		}
 		
 		override public function toString():String {
-			return this._desc!=""?this._desc:this._name;
+			return this.pathData.nameDesc;
 		}
 	}
 }

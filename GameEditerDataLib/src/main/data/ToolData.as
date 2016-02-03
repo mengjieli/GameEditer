@@ -2,6 +2,7 @@ package main.data
 {
 	import flash.filesystem.FileStream;
 	
+	import egret.ui.components.TabPanel;
 	import egret.utils.FileUtil;
 	
 	import main.data.gameProject.GameProjectData;
@@ -16,6 +17,7 @@ package main.data
 		public var mobile:MobileData = new MobileData();
 		public var log:LogData = new LogData();
 		public var parsers:Vector.<ParserBase> = new Vector.<ParserBase>();
+		public var panels:Object = {};
 		
 		public var project:GameProjectData;
 		
@@ -25,12 +27,12 @@ package main.data
 		
 		public function showProject(p:GameProjectData):void {
 			this.project = p;
-			EventMgr.ist.dispatchEvent(new ProjectEvent(ProjectEvent.SHOW_PROJECT,p));
+			EventMgr.ist.dispatchEvent(new ProjectEvent(ProjectEvent.SHOW_PROJECT,this.project));
 		}
 		
 		public function createGameProject(name:String,url:String,res:String,src:String):void {
-			var p:GameProjectData = new GameProjectData();
-			p.name = name;
+//			var p:GameProjectData = new GameProjectData();
+//			p.name = name;
 			if(url.charAt(url.length-1) == "/") {
 				url = url.slice(0,url.length-1);
 			}
@@ -46,10 +48,23 @@ package main.data
 				"src":src
 			};
 			FileUtil.save(url + "/GameProject.json",JSON.stringify(config));
-			p.url = url + "/";
-			p.src = url + "/" + src + "/";
-			p.res = url + "/" + res + "/";
-			EventMgr.ist.dispatchEvent(new ProjectEvent(ProjectEvent.LOAD_PROJECT,p));
+//			p.url = url + "/";
+//			p.src = url + "/" + src + "/";
+//			p.res = url + "/" + res + "/";
+			EventMgr.ist.dispatchEvent(new ProjectEvent(ProjectEvent.LOAD_PROJECT,null,url));
+		}
+		
+		public function getParser(name:String):ParserBase {
+			for(var i:int = 0; i < parsers.length; i++) {
+				if(parsers[i].parserName == name) {
+					return parsers[i];
+				}
+			}
+			return null;
+		}
+		
+		public function getPanel(name:String):Class {
+			return this.panels[name];
 		}
 		
 		/**
@@ -69,16 +84,17 @@ package main.data
 		}
 		
 		public function saveConfigValue(key:String,value:*,configName:String="config"):void {
-			var exist:Boolean = FileUtil.exists(configURL);
+			var url:String = "configs/" + configName + ".txt";
+			var exist:Boolean = FileUtil.exists(url);
 			if(exist == false) {
-				FileUtil.save(configURL,"{}");
+				FileUtil.save(url,"{}");
 			}
-			var file:FileStream = FileUtil.open("configs/" + configName + ".txt");
+			var file:FileStream = FileUtil.open(url);
 			var str:String = file.readUTFBytes(file.bytesAvailable);
 			file.close();
 			var json:Object = JSON.parse(str);
 			json[key] = value;
-			FileUtil.save(configURL,JSON.stringify(json));
+			FileUtil.save(url,JSON.stringify(json));
 		}
 		
 		private static var ist:ToolData;

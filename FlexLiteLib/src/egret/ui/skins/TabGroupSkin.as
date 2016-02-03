@@ -6,6 +6,7 @@ package egret.ui.skins
 	import egret.components.Skin;
 	import egret.components.ViewStack;
 	import egret.layouts.HorizontalLayout;
+	import egret.ui.components.IconButton;
 	import egret.ui.components.IconTabBar;
 	import egret.ui.components.boxClasses.FocusTabBarButton;
 	import egret.utils.callLater;

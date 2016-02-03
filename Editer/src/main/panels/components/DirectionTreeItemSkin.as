@@ -92,7 +92,7 @@ package main.panels.components
 			group.percentHeight = 100;
 			
 			floader = new RectImage(15,20);
-			floader.buttonMode = true;
+//			floader.buttonMode = true;
 			floader.left = 5;
 			floader.verticalCenter = 0;
 			group.addElement(floader);

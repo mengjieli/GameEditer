@@ -27,6 +27,8 @@ package
 	import main.controllers.SystemController;
 	import main.data.Config;
 	import main.data.ToolData;
+	import main.events.EventMgr;
+	import main.events.ToolEvent;
 	import main.model.ModelMgr;
 	import main.model.errorTipModel.TipModel;
 	import main.model.loginModel.LoginModel;
@@ -70,7 +72,11 @@ package
 			
 			this.addElement(new TipModel());
 			
-			(new ParserLoad("parser/")).addEventListener(Event.COMPLETE,start);
+			(new ParserLoad("parsers/")).addEventListener(Event.COMPLETE,onLoadPanel);
+		}
+		
+		private function onLoadPanel(e:Event):void {
+			(new PanelLoad("parsers/")).addEventListener(Event.COMPLETE,start);
 		}
 		
 		private function start(e:Event):void {
@@ -83,6 +89,7 @@ package
 				server.addEventListener(Event.CONNECT,function(e:Event):void {
 					if(!init) {
 						(new ModelMgr()).init();
+						EventMgr.ist.dispatchEvent(new ToolEvent(ToolEvent.START));
 					} else {
 						init = true;
 					}

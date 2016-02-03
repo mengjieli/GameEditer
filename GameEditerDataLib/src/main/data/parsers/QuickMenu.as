@@ -1,6 +1,5 @@
 package main.data.parsers
 {
-	import main.data.directionData.DirectionDataBase;
 
 	public class QuickMenu
 	{
@@ -14,13 +13,11 @@ package main.data.parsers
 		 */
 		public var toolTip:String = "";
 		
+		public var clickFunction:ParserCall;
+		
 		
 		public function QuickMenu()
 		{
-		}
-		
-		public function click(data:DirectionDataBase):void {
-			 
 		}
 	}
 }

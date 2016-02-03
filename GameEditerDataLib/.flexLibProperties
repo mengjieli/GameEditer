@@ -9,6 +9,12 @@
     <classEntry path="main.events.EventMgr"/>
     <classEntry path="main.events.ProjectEvent"/>
     <classEntry path="utils.FileHelp"/>
+    <classEntry path="main.events.ToolEvent"/>
+    <classEntry path="main.data.parsers.MenuData"/>
+    <classEntry path="main.events.DirectionEvent"/>
+    <classEntry path="main.data.parsers.ParserCall"/>
+    <classEntry path="main.ui.DefinePanel"/>
+    <classEntry path="main.events.PanelEvent"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

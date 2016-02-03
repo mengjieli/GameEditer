@@ -6,6 +6,8 @@ package main.panels.components
 	import egret.collections.ITreeCollection;
 	import egret.events.CollectionEvent;
 	import egret.events.CollectionEventKind;
+	
+	import main.data.directionData.DirectionDataBase;
 
 	public class DirectionTreeCollection extends ArrayCollection implements ITreeCollection
 	{
@@ -19,9 +21,9 @@ package main.panels.components
 		/**
 		 * 添加文件夹/文件夹
 		 */
-		public function addFile(name:String,desc:String,url:String,type:String,fileType:String="",sort:Boolean=true):Boolean {
-			var urlArray:Array = url.split("/");
-			var direction:DirectionTreeCollectionItem = new DirectionTreeCollectionItem(name,desc,url,"direction");
+		public function addFile(data:DirectionDataBase,sort:Boolean=true):Boolean {
+			var urlArray:Array = data.url.split("/");
+			var direction:DirectionTreeCollectionItem = new DirectionTreeCollectionItem(data);
 			var parent:DirectionTreeCollectionItem;
 			var find:Boolean = true;
 			var list:Vector.<DirectionTreeCollectionItem> = this.root;
@@ -42,7 +44,16 @@ package main.panels.components
 					
 				}
 				if(find == false) {
-					var parentDirection:DirectionTreeCollectionItem = new DirectionTreeCollectionItem(urlArray[i],i==urlArray.length-1?desc:"",currentURL,i==urlArray.length-1?type:"direction",i==urlArray.length-1?fileType:"");
+					var parentDirection:DirectionTreeCollectionItem;
+					if(i == urlArray.length - 1) {
+						parentDirection = new DirectionTreeCollectionItem(data);
+					} else {
+						var directionData:DirectionDataBase = new DirectionDataBase();
+						directionData.initWidthDirection();
+						directionData.url = currentURL;
+						parentDirection = new DirectionTreeCollectionItem(directionData);
+					}
+					parentDirection.isSort = sort;
 					var insert:Number;
 					if(parent == null) {
 						if(sort) {
@@ -101,6 +112,9 @@ package main.panels.components
 			for(var c:Number = 0; c < list.length; c++) {
 				var a:DirectionTreeCollectionItem = item;
 				var b:DirectionTreeCollectionItem = list[c];
+				if(b.isSort == true) {
+					continue;
+				}
 				var flag:Boolean = true;
 				var len:Number = a.url.length>b.url.length?b.url.length:a.url.length;
 				for(var i:Number = 0; i < len; i++) {

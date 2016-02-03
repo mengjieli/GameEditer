@@ -28,6 +28,7 @@ package egret.ui.skins
 		
 		public var labelDisplay:Label;
 		public var iconDisplay:UIAsset;
+		protected var group:Group;
 		
 		override protected function createChildren():void
 		{
@@ -60,7 +61,7 @@ package egret.ui.skins
 			focusRect.fillColor = 0x374552;
 			this.addElement(focusRect);
 			
-			var group:Group = new Group();
+			group = new Group();
 			group.percentWidth = 100;
 			group.verticalCenter = 0;
 			group.clipAndEnableScrolling = true;
