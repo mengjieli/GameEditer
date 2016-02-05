@@ -8,6 +8,8 @@ package main.panels.components
 	import egret.ui.components.IconButton;
 	import egret.ui.skins.IconButtonSkin;
 	
+	import main.events.EventMgr;
+	import main.events.ToolBarEvent;
 	import main.model.ModelEvent;
 	import main.model.ModelMgr;
 	import main.panels.mobileView.ConnectMobilePanel;
@@ -67,6 +69,7 @@ package main.panels.components
 		{
 			var type:String = e.currentTarget.name.toString();
 			ModelMgr.getInstance().excute(ModelEvent.MENU,type);
+			EventMgr.ist.dispatchEvent(new ToolBarEvent(type));
 			//(new ConnectMobilePanel()).open();
 //			MessageUtil.send(Message.MENUSELECTED,new MenuData(e.currentTarget.name.toString()));
 		}

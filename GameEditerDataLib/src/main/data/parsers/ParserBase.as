@@ -1,5 +1,7 @@
 package main.data.parsers
 {
+	import flash.display.Loader;
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 
 	/**
@@ -7,6 +9,9 @@ package main.data.parsers
 	 */
 	public class ParserBase extends Sprite
 	{
+		public var loader:Loader;
+//		public var swf:MovieClip;
+		
 		public function ParserBase()
 		{
 		}
@@ -24,6 +29,11 @@ package main.data.parsers
 		
 		public function get api():Object {
 			return {};
+		}
+		
+		public function unload():void {
+//			swf.stopAllMovieClips();
+			loader.unloadAndStop();
 		}
 	}
 }

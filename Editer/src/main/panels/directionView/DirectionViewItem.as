@@ -1,11 +1,15 @@
 package main.panels.directionView
 {
 	import flash.events.MouseEvent;
+	import flash.utils.setTimeout;
 	
 	import egret.components.Group;
-	import egret.components.Menu;
+	import egret.core.DragSource;
 	import egret.ui.components.IconButton;
 	
+	import extend.ui.DragManager;
+	
+	import main.data.DragType;
 	import main.data.directionData.DirectionDataBase;
 	import main.data.parsers.MenuData;
 	import main.data.parsers.QuickMenu;
@@ -23,6 +27,7 @@ package main.panels.directionView
 			super();
 			this.skinName = DirectionViewItemSkin;
 			this.addEventListener(MouseEvent.CLICK,onShow);
+			this.addEventListener(MouseEvent.MOUSE_DOWN,onDown);
 		}
 		
 		public var buttonContainer:Group;
@@ -77,6 +82,8 @@ package main.panels.directionView
 		}
 		
 		private function onShow(e:MouseEvent):void {
+			if(startDrag) return;
+			downFlag = false;
 			var d:DirectionDataBase = this.data.directionData;
 			if(d && d.isDirection == false) {
 				var event:DirectionEvent = new DirectionEvent(DirectionEvent.SHOW_FILE,d);
@@ -91,6 +98,23 @@ package main.panels.directionView
 		override public function set selected(value:Boolean):void {
 			super.selected = value;
 			buttonContainer.visible = value;
+		}
+		
+		private var downFlag:Boolean = false;
+		private var startDrag:Boolean;
+		private function onDown(e:MouseEvent):void {
+			var d:DirectionDataBase = this.data.directionData;
+			if(!d || !d.dragFlag) return;
+			downFlag = true;
+			startDrag = false;
+			setTimeout(checkDrag,300);
+		}
+		
+		private function checkDrag():void {
+			var d:DirectionDataBase = this.data.directionData;
+			if(!d || !d.dragFlag || !downFlag) return;
+			startDrag = true;
+			DragManager.startDrag(DragType.IMAGE,this,this.data.directionData,d.dragShow,-20,-20);//,-this.mouseX+20,-this.mouseY+20);
 		}
 	}
 }

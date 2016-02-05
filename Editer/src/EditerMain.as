@@ -22,6 +22,8 @@ package
 	import egret.utils.app.AppUpdater;
 	import egret.utils.language.AppLanguage;
 	
+	import extend.ui.ExtendGlobal;
+	
 	import main.controllers.MainViewController;
 	import main.controllers.MenuController;
 	import main.controllers.SystemController;
@@ -43,6 +45,8 @@ package
 		
 		public function EditerMain()
 		{
+			ExtendGlobal.stage = stage;
+			
 			AppLanguage.init(AppLanguage.LANGUAGE_CONFIG);
 			AppUpdater.start();
 			if(SystemInfo.isMacOS)
@@ -58,7 +62,7 @@ package
 			Config.width = stage.stageWidth;
 			Config.height = stage.stageHeight;
 			
-			this.stage.frameRate = 60;
+//			this.stage.frameRate = 60;
 			
 			application=new Application();
 			application.title="";
@@ -72,11 +76,15 @@ package
 			
 			this.addElement(new TipModel());
 			
+			(new ModelLoad("models/")).addEventListener(Event.COMPLETE,onLoadParser);
+		}
+		
+		private function onLoadParser(e:Event):void {
 			(new ParserLoad("parsers/")).addEventListener(Event.COMPLETE,onLoadPanel);
 		}
 		
 		private function onLoadPanel(e:Event):void {
-			(new PanelLoad("parsers/")).addEventListener(Event.COMPLETE,start);
+			(new PanelLoad("panels/")).addEventListener(Event.COMPLETE,start);
 		}
 		
 		private function start(e:Event):void {
@@ -102,7 +110,7 @@ package
 							server.connect(ToolData.getInstance().getConfigValue("ip","server"),ToolData.getInstance().getConfigValue("port","server"));
 							NetWaitingPanel.show("链接服务器中 ... " + server.ip + ":" + server.port);
 						} else {
-							NativeApplication.nativeApplication.exit();
+//							NativeApplication.nativeApplication.exit();
 						}
 					},"确定","取消");
 				});

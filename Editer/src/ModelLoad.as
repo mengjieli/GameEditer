@@ -2,38 +2,40 @@ package
 {
 	import flash.display.Loader;
 	import flash.display.LoaderInfo;
-	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.filesystem.File;
 	import flash.net.URLRequest;
+	import flash.utils.getDefinitionByName;
+	import flash.utils.getQualifiedClassName;
 	import flash.utils.setTimeout;
+	
+	import egret.ui.components.TabPanel;
 	
 	import main.data.ToolData;
 	import main.data.parsers.ParserBase;
+	import main.model.ModelBase;
 	import main.panels.netWaitPanel.NetWaitingPanel;
+	import main.ui.DefinePanel;
 	
 	import utils.FileHelp;
-
-	public class ParserLoad extends EventDispatcher
+	
+	public class ModelLoad extends EventDispatcher
 	{
 		private var list:Vector.<File> = new Vector.<File>();
 		private var index:int;
 		private var root:String;
 		
-		public function ParserLoad(url:String)
+		public function ModelLoad(url:String)
 		{
-			ToolData.getInstance().deleteParsers();
-			
-			NetWaitingPanel.show("加载解析器");
+			NetWaitingPanel.show("加载模块");
 			root = File.applicationDirectory.url;
 			var file:File = File.applicationDirectory.resolvePath(url);
 			list = FileHelp.getFileListWidthEnd(file,"swf");
+			
 			index = 0;
 			setTimeout(loadNextParser,0);
 		}
-		
-		private var load:Loader;
 		
 		private function loadNextParser():void {
 			if(index >= list.length) {	
@@ -42,21 +44,22 @@ package
 			}
 			var file:File = list[index];
 			var url:String = file.url.slice(root.length,file.url.length);
-			load = new Loader();
+			var load:Loader = new Loader();
 			load.load(new URLRequest(url));
 			load.contentLoaderInfo.addEventListener(Event.COMPLETE,onLoadParserComplete);
 		}
 		
 		private function onLoadParserComplete(e:Event):void {
-			load.contentLoaderInfo.removeEventListener(Event.COMPLETE,onLoadParserComplete);
-			var parser:ParserBase = (e.currentTarget as LoaderInfo).content as ParserBase;
-			parser.loader = load;
+			var loaderInfo:LoaderInfo = e.currentTarget as LoaderInfo;
+			var panel:ModelBase = loaderInfo.content as ModelBase;
 			try {
-				if(parser) {
-					ToolData.getInstance().parsers.push(parser);
-					NetWaitingPanel.show("加载解析器 " + parser.parserName);
+				if(panel) {
+//					var className:String = flash.utils.getQualifiedClassName(panel);
+//					var cls:* = loaderInfo.applicationDomain.getDefinition(className);
+//					ToolData.getInstance().panels[panel.panelName] = cls;
+					NetWaitingPanel.show("加载模块 " + panel.modelName);
 				}
-			} catch(e:Error) {
+			} catch(err:Error) {
 			}
 			index++;
 			setTimeout(loadNextParser,0);

@@ -1,15 +1,8 @@
 package main.data.gameProject
 {
-	import flash.events.EventDispatcher;
-	
-	import egret.components.Menu;
 	import egret.utils.FileUtil;
 	
-	import main.data.ToolData;
 	import main.data.directionData.DirectionDataBase;
-	import main.data.gameProject.path.PathData;
-	import imageParser.ImageData;
-	import main.data.gameProject.resource.SpriteSheetData;
 	import main.data.parsers.MenuData;
 	import main.data.parsers.ParserBase;
 	import main.data.parsers.ParserCall;

@@ -2,7 +2,6 @@ package main.data
 {
 	import flash.filesystem.FileStream;
 	
-	import egret.ui.components.TabPanel;
 	import egret.utils.FileUtil;
 	
 	import main.data.gameProject.GameProjectData;
@@ -61,6 +60,23 @@ package main.data
 				}
 			}
 			return null;
+		}
+		
+		public function deleteParsers():void {
+			while(parsers.length) {
+				var parser:ParserBase = parsers.pop();
+				parser.unload();
+			}
+		}
+		
+		public function deleteParser(name:String):void {
+			for(var i:int = 0; i < parsers.length; i++) {
+				if(parsers[i].parserName == name) {
+					var parser:ParserBase = parsers[i];
+					parsers.splice(i,1);
+					break;
+				}
+			}
 		}
 		
 		public function getPanel(name:String):Class {

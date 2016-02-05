@@ -5,7 +5,7 @@ package main.menu
 		/**
 		 *新建 
 		 */		
-		public static const NEW:String="new";
+		public static const NEW:String="new"; 
 		//==================================
 		/**
 		 *重新创建 ，重新创建会连带转换命令一起执行
@@ -66,6 +66,8 @@ package main.menu
 		public static const COPYLOG:String="copylog";
 		
 		public static const CONNECT_MOBILE:String = "connect_mobile";
+		
+		public static const RELOAD_PARSERS:String = "reload_parsers";
 		
 		public static const DIRECTION_ITEM_MENU:String = "direction_item_menu";
 	}

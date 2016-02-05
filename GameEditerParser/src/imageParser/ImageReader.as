@@ -5,8 +5,6 @@ package imageParser
 	import main.data.ToolData;
 	import main.data.directionData.DirectionDataBase;
 	import main.data.parsers.ReaderBase;
-	
-	import utils.FileHelp;
 
 	public class ImageReader extends ReaderBase
 	{
@@ -17,7 +15,7 @@ package imageParser
 		}
 		
 		override public function showData(d:DirectionDataBase):void {
-			this.title = FileHelp.getURLName(d.url);
+			this.title = d.desc==""?d.name:d.desc;
 			this.icon = d.fileIcon;
 			if(!image) {
 				image = new ImageLoader();

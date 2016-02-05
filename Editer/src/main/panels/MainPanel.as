@@ -108,7 +108,9 @@ package main.panels
 					toolBar.dataProvider=new XMLList(
 						'<node icon="assets/new.png" id="'+ MenuID.NEW +'" tooltip="新建游戏项目"/>'
 						+ '<node  type="spliter"/>'
-						+ '<node  icon="assets/connectMobile.png" id="'+MenuID.CONNECT_MOBILE+'"  tooltip="链接游戏客户端"/>'
+						+ '<node  icon="assets/ui/button/addAction.png" id="'+MenuID.CONNECT_MOBILE+'"  tooltip="链接游戏客户端"/>'
+						+ '<node  type="spliter"/>'
+						+ '<node  icon="assets/ui/button/refresh.png" id="'+MenuID.RELOAD_PARSERS+'"  tooltip="重新载入解析器"/>'
 						+ '<node  type="spliter"/>'
 						+ '<node  icon="assets/help.png" id="'+MenuID.HELP+'"  tooltip="帮助"/>'
 					);

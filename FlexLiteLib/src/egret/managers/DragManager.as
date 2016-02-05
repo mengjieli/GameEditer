@@ -44,6 +44,8 @@ package egret.managers
 		{
 			return impl.isDragging;
 		}
+		
+		
 		/**
 		 * 启动拖拽操作。请在MouseDown事件里执行此方法。
 		 * @param dragInitiator 启动拖拽的组件

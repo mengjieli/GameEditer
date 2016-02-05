@@ -15,6 +15,9 @@
     <classEntry path="main.data.parsers.ParserCall"/>
     <classEntry path="main.ui.DefinePanel"/>
     <classEntry path="main.events.PanelEvent"/>
+    <classEntry path="main.events.ToolBarEvent"/>
+    <classEntry path="main.model.ModelBase"/>
+    <classEntry path="main.data.DragType"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

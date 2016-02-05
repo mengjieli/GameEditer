@@ -1,6 +1,10 @@
 package main.data.directionData
 {
 	
+	import egret.components.UIAsset;
+	
+	import extend.ui.ImageLoader;
+	
 	import main.data.parsers.MenuData;
 	import main.data.parsers.ParserCall;
 	import main.data.parsers.ParserDataBase;
@@ -43,7 +47,7 @@ package main.data.directionData
 		/**
 		 * url
 		 */
-		public var url:String;
+		private var _url:String;
 		
 		/**
 		 * 文件名描述
@@ -59,7 +63,7 @@ package main.data.directionData
 		public var data:ParserDataBase;
 		
 		/**
-		 * 阅读器地址
+		 * 阅读器
 		 */
 		public var reader:ReaderBase;
 		
@@ -75,6 +79,9 @@ package main.data.directionData
 		
 		public var initLoad:ParserCall;
 		
+		public var dragFlag:Boolean = false;
+		public var dragShow:ImageLoader;
+		
 		
 		public function DirectionDataBase()
 		{
@@ -82,6 +89,14 @@ package main.data.directionData
 		
 		public function get isDirection():Boolean {
 			return type==DirectionDataBase.DIRECTION?true:false;
+		}
+		
+		public function get url():String {
+			return _url;
+		}
+		
+		public function set url(val:String):void {
+			_url = val;
 		}
 		
 		public function get name():String {
@@ -101,6 +116,10 @@ package main.data.directionData
 		public function initWidthFile():void {
 			this.type = DirectionDataBase.FILE;
 			this.fileIcon = "assets/directionView/fileIcon/unknow.png";
+		}
+		
+		public function save():void {
+			
 		}
 	}
 }

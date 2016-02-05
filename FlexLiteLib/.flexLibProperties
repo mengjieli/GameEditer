@@ -609,6 +609,10 @@
     <classEntry path="extend.ui.BitmapUI"/>
     <classEntry path="extend.ui.ImageLoaderToolTip"/>
     <classEntry path="extend.ui.TabPanel"/>
+    <classEntry path="extend.ui.Input"/>
+    <classEntry path="extend.ui.LabelAndInput"/>
+    <classEntry path="extend.ui.DragManager"/>
+    <classEntry path="extend.ui.ExtendGlobal"/>
   </includeClasses>
   <includeResources>
     <resourceEntry destPath="egret/ui/skins/assets/radio/unSelectHover_r.png" sourcePath="egret/ui/skins/assets/radio/unSelectHover_r.png"/>

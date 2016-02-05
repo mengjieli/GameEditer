@@ -17,7 +17,25 @@ package dataParser
 		{
 		}
 		
+		public function get dataName():String {
+			return _name;
+		}
 		
+		public function set dataName(val:String):void {
+			_name = val;
+		}
+		
+		public function get dataDesc():String {
+			return _desc;
+		}
+		
+		public function set dataDesc(val:String):void {
+			_desc = val;
+		}
+		
+		public function get members():Vector.<DataItem> {
+			return _members;
+		}
 		
 		public function decode():Boolean
 		{
@@ -26,6 +44,7 @@ package dataParser
 				var cfg:Object = JSON.parse(content);
 				this._name = cfg.name;
 				this._desc = cfg.desc;
+				this.desc = this._desc;
 				_members = new Vector.<DataItem>();
 				var mebs:Object = cfg.members;
 				for(var key:String in mebs) {
@@ -36,7 +55,7 @@ package dataParser
 					if(mebs[key].typeValue) {
 						item.typeValue = mebs[key].typeValue;
 					}
-					this._members.push(
+					this._members.push(item);
 				}
 			} catch(err:Error) {
 				var e:PanelEvent = new PanelEvent("Log","add",{"text":"[解析 Data 出错] " + this.url + "，" + err.message});

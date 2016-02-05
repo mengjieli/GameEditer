@@ -49,17 +49,16 @@ package main.model.projectModel
 			loadProject.src = projectURL + "/" + config.src + "/";
 			loadProject.res = projectURL + "/" + config.res + "/";
 			
+			loadComplete();
 			//加载 res 下所有json文件
-			loadJsons = FileHelp.getFileListWidthEnd(new File(loadProject.res),"json");
-			jsonIndex = 0;
-			nextProgress =  10 + Math.floor(Math.random()*10);
-			setTimeout(loadNextJson,0);
+//			loadJsons = FileHelp.getFileListWidthEnd(new File(loadProject.res),"json");
+//			jsonIndex = 0;
+//			nextProgress =  10 + Math.floor(Math.random()*10);
+//			setTimeout(loadNextJson,0);
 		}
 		
 		private function loadNextJson():void {
 			if(jsonIndex >= loadJsons.length) {
-				NetWaitingPanel.hide();
-				ToolData.getInstance().showProject(loadProject);
 				return;
 			}
 			var file:File = loadJsons[jsonIndex];
@@ -72,6 +71,11 @@ package main.model.projectModel
 			} else {
 				loadNextJson();
 			}
+		}
+		
+		private function loadComplete():void {
+			NetWaitingPanel.hide();
+			ToolData.getInstance().showProject(loadProject);
 		}
 	}
 }
