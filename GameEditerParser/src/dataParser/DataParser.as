@@ -2,13 +2,10 @@ package dataParser
 {
 	import flash.filesystem.File;
 	
-	import imageParser.ImageReader;
 	
 	import main.data.ToolData;
 	import main.data.directionData.DirectionDataBase;
-	import imageParser.ImageData;
 	import main.data.parsers.ParserBase;
-	import main.data.parsers.ParserDataBase;
 	import main.events.EventMgr;
 	import main.events.ProjectEvent;
 	
@@ -40,7 +37,7 @@ package dataParser
 				dir.fileIcon = "assets/directionView/fileIcon/" + FileHelp.getURLEnd(dir.url) + ".png";
 				//				dir.toolTip = loads[i].url;
 				//				dir.toolTipClass = ImageLoaderToolTip;
-				dir.reader = new DataReader();
+				dir.reader = DataReader;
 				ToolData.getInstance().project.addData(dir);
 				var e:ProjectEvent = new ProjectEvent(ProjectEvent.ADD_DIRECTION,ToolData.getInstance().project);
 				e.direction = dir;

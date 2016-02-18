@@ -1,10 +1,6 @@
-package uistyle.button
+package view
 {
-	import flash.events.MouseEvent;
 	import flash.filesystem.File;
-	
-	import dataParser.DataData;
-	import dataParser.DataReader;
 	
 	import main.data.ToolData;
 	import main.data.directionData.DirectionDataBase;
@@ -12,33 +8,30 @@ package uistyle.button
 	import main.events.EventMgr;
 	import main.events.ProjectEvent;
 	
-	import uistyle.AddStylePanel;
-	
 	import utils.FileHelp;
-	
 
-	public class ButtonStyleParser extends ParserBase
+	public class ViewParser extends ParserBase
 	{
-		public function ButtonStyleParser()
+		public function ViewParser()
 		{
 		}
 		
 		override public function get parserName():String {
-			return "ButtonStyle";
+			return "View";
 		}
 		
 		private function add(d:DirectionDataBase):void {
-			(new AddStylePanel("添加按钮样式",d,addBack)).open(false);
+			(new AddViewPanel(d,addBack)).open(false);
 		}
 		
 		private function addBack(d:DirectionDataBase,name:String,desc:String):void {
-			var dir:ButtonStyleData = new ButtonStyleData();
+			var dir:ViewData = new ViewData();
 			dir.url = d.url + "/" + name + ".json";
 			dir.desc = desc;
 			dir.type = DirectionDataBase.FILE;
-			dir.fileIcon = "assets/directionView/fileIcon/" + FileHelp.getURLEnd(dir.url) + ".png";
+			//dir.fileIcon = "assets/directionView/fileIcon/" + FileHelp.getURLEnd(dir.url) + ".png";
 			dir.save();
-			dir.reader = ButtonStyleReader;
+			dir.reader = ViewReader;
 			ToolData.getInstance().project.addData(dir);
 			var e:ProjectEvent = new ProjectEvent(ProjectEvent.ADD_DIRECTION,ToolData.getInstance().project);
 			e.direction = dir;
@@ -48,14 +41,14 @@ package uistyle.button
 		private function refreshDirection(d:DirectionDataBase):void {
 			var loads:Vector.<File> = FileHelp.getFileListWidthEnd(new File(ToolData.getInstance().project.getResURL(d.url)),["json"]);
 			for(var i:int = 0; i < loads.length; i++) {
-				var dir:ButtonStyleData = new ButtonStyleData();
+				var dir:ViewData = new ViewData();
 				dir.url = ToolData.getInstance().project.getResDirectionURL(loads[i].url);
 				if(dir.decode() == false) {
 					continue;
 				}
 				dir.type = DirectionDataBase.FILE;
-				dir.fileIcon = "assets/directionView/fileIcon/" + FileHelp.getURLEnd(dir.url) + ".png";
-				dir.reader = ButtonStyleReader;
+				//dir.fileIcon = "assets/directionView/fileIcon/" + FileHelp.getURLEnd(dir.url) + ".png";
+				dir.reader = ViewReader;
 				ToolData.getInstance().project.addData(dir);
 				var e:ProjectEvent = new ProjectEvent(ProjectEvent.ADD_DIRECTION,ToolData.getInstance().project);
 				e.direction = dir;
@@ -64,10 +57,7 @@ package uistyle.button
 		}
 		
 		override public function get api():Object {
-			return {
-				"add":add,
-				"refreshDirection":refreshDirection
-			};
+			return {"add":add,"refreshDirection":refreshDirection};
 		}
 	}
 }

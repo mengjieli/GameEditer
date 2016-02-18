@@ -11,13 +11,15 @@ package imageParser
 		public function ImageData()
 		{
 			this.dragFlag = true;
+			this.dragType = "image";
 		}
 		
-		override public function set url(val:String):void {
-			super.url = val;
-			if(!this.dragShow && url != "") {
-				dragShow = new ImageLoader(ToolData.getInstance().project.getResURL(url));
+		
+		override public function get dragShow():ImageLoader {
+			if(url != "") {
+				return new ImageLoader(ToolData.getInstance().project.getResURL(url));
 			}
+			return null;
 		}
 	}
 }

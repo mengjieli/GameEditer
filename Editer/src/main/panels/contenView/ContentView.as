@@ -43,11 +43,27 @@ package main.panels.contenView
 		
 		private function onShowFile(e:DirectionEvent):void {
 			if(e.file.reader) {
-				if(e.file.reader.parent == null) {
+				/*if(e.file.reader.parent == null) {
 					this.addElement(e.file.reader);
 				}
 				this.selectedPanel = e.file.reader;
-				e.file.reader.showData(e.file);
+				e.file.reader.showData(e.file);*/
+				var find:Boolean = false;
+				var panel:ReaderBase;
+				for(var i:int = 0; i < this.numChildren; i++) {
+					var reader:ReaderBase = this.getElementAt(i) as ReaderBase;
+					if(reader && reader.directionData == e.file) {
+						panel = reader;
+						find = true;
+						break;
+					}
+				}
+				if(find == false) {
+					panel = new e.file.reader();
+					this.addElement(panel);
+				}
+				this.selectedPanel = panel;
+				panel.showData(e.file);
 			}
 		}
 		

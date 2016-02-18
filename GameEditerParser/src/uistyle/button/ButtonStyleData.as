@@ -4,6 +4,9 @@ package uistyle.button
 	
 	import egret.utils.FileUtil;
 	
+	import extend.ui.ImageLoader;
+	
+	import main.data.DragType;
 	import main.data.ToolData;
 	import main.events.EventMgr;
 	import main.events.PanelEvent;
@@ -25,6 +28,14 @@ package uistyle.button
 			_up.addEventListener(Event.CHANGE,onChangeURL);
 			_down.addEventListener(Event.CHANGE,onChangeURL);
 			_disabled.addEventListener(Event.CHANGE,onChangeURL);
+			this.dragType = "buttonStyle";
+		}
+		
+		override public function get dragShow():ImageLoader {
+			if(_up.url) {
+				return new ImageLoader(ToolData.getInstance().project.getResURL(_up.url));;
+			}
+			return null;
 		}
 		
 		public function get up():StyleImageData {

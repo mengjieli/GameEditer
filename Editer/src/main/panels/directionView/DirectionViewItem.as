@@ -114,7 +114,7 @@ package main.panels.directionView
 			var d:DirectionDataBase = this.data.directionData;
 			if(!d || !d.dragFlag || !downFlag) return;
 			startDrag = true;
-			DragManager.startDrag(DragType.IMAGE,this,this.data.directionData,d.dragShow,-20,-20);//,-this.mouseX+20,-this.mouseY+20);
+			DragManager.startDrag(this.data.directionData.dragType,this,this.data.directionData,d.dragShow,-20,-20);//,-this.mouseX+20,-this.mouseY+20);
 		}
 	}
 }

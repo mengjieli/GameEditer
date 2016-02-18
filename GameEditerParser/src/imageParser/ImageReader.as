@@ -15,6 +15,7 @@ package imageParser
 		}
 		
 		override public function showData(d:DirectionDataBase):void {
+			super.showData(d);
 			this.title = d.desc==""?d.name:d.desc;
 			this.icon = d.fileIcon;
 			if(!image) {

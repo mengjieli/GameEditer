@@ -65,7 +65,7 @@ package main.data.directionData
 		/**
 		 * 阅读器
 		 */
-		public var reader:ReaderBase;
+		public var reader:Class;
 		
 		/**
 		 * 快捷按钮
@@ -80,8 +80,13 @@ package main.data.directionData
 		public var initLoad:ParserCall;
 		
 		public var dragFlag:Boolean = false;
-		public var dragShow:ImageLoader;
+		public var dragType:String = "";
 		
+		protected var _dragShow:ImageLoader;
+		
+		public function get dragShow():ImageLoader {
+			return _dragShow;
+		}
 		
 		public function DirectionDataBase()
 		{

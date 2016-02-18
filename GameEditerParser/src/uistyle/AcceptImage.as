@@ -1,7 +1,6 @@
 package uistyle
 {
 	import flash.events.Event;
-	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	
 	import egret.components.UIAsset;
@@ -10,7 +9,6 @@ package uistyle
 	import extend.ui.DragManager;
 	import extend.ui.ImageLoader;
 	
-	import main.data.DragType;
 	import main.data.ToolData;
 	import main.menu.NativeMenuExtend;
 	import main.menu.NativeMenuItemExtend;
@@ -42,7 +40,7 @@ package uistyle
 		private function onDrag(e:Event):void {
 			switch(e.type) {
 				case DragManager.START_DRAG:
-					if(inDrag == false && DragManager.isDraging && DragManager.type == DragType.IMAGE && this.mouseX >= 0 && this.mouseX < this.showMaxWidth && this.mouseY >= 0 && this.mouseY < this.showMaxHeight) {
+					if(inDrag == false && DragManager.isDraging && DragManager.type == "image" && this.mouseX >= 0 && this.mouseX < this.showMaxWidth && this.mouseY >= 0 && this.mouseY < this.showMaxHeight) {
 						var dragData:* = DragManager.dragData;
 						dragShow.visible = true;
 						backGround.alpha = 0;
@@ -51,7 +49,7 @@ package uistyle
 					}
 					break;
 				case MouseEvent.MOUSE_OVER:
-					if(DragManager.isDraging && DragManager.type == DragType.IMAGE) {
+					if(DragManager.isDraging && DragManager.type == "image") {
 						var dragData:* = DragManager.dragData;
 						dragShow.visible = true;
 						backGround.alpha = 0;

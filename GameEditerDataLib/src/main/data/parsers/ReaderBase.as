@@ -8,6 +8,7 @@ package main.data.parsers
 	public class ReaderBase extends TabPanel
 	{
 		protected var _changeFlag:Boolean = false;
+		protected var dir:DirectionDataBase;
 		
 		public function ReaderBase()
 		{
@@ -19,7 +20,11 @@ package main.data.parsers
 		}
 		
 		public function showData(d:DirectionDataBase):void {
-			trace("显示内容",d.url);
+			this.dir = d;
+		}
+		
+		public function get directionData():DirectionDataBase {
+			return this.dir;
 		}
 		
 		public function get changeFlag():Boolean {

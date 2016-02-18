@@ -29,7 +29,7 @@ package imageParser
 				dir.fileIcon = "assets/directionView/fileIcon/" + FileHelp.getURLEnd(dir.url) + ".png";
 //				dir.toolTip = loads[i].url;
 //				dir.toolTipClass = ImageLoaderToolTip;
-				dir.reader = new ImageReader();
+				dir.reader = ImageReader;
 				ToolData.getInstance().project.addData(dir);
 				var e:ProjectEvent = new ProjectEvent(ProjectEvent.ADD_DIRECTION,ToolData.getInstance().project);
 				e.direction = dir;

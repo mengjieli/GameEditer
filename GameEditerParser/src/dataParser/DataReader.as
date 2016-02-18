@@ -81,6 +81,7 @@ package dataParser
 		}
 		
 		override public function showData(d:DirectionDataBase):void {
+			super.showData(d);
 			dir = d as DataData;
 			if(list) {
 				listData.removeAll();

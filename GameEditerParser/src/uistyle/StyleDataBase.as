@@ -6,6 +6,7 @@ package uistyle
 	{
 		public function StyleDataBase()
 		{
+			this.dragFlag = true;
 		}
 	}
 }

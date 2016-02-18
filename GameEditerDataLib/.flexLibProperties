@@ -17,7 +17,6 @@
     <classEntry path="main.events.PanelEvent"/>
     <classEntry path="main.events.ToolBarEvent"/>
     <classEntry path="main.model.ModelBase"/>
-    <classEntry path="main.data.DragType"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
