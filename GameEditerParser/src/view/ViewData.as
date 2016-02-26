@@ -9,9 +9,45 @@ package view
 
 	public class ViewData extends DirectionDataBase
 	{
+		/**
+		 * 尺寸方案
+		 * 0. 固定尺寸
+		 * 1. 固定尺寸全屏缩放
+		 * 2. 全屏尺寸
+		 * 3. 全屏固定宽
+		 * 4. 全屏固定高
+		 */
+		private var _sizeType:int = 0;
+		private var _width:int = 0;
+		private var _height:int = 0;
+		
 		public function ViewData()
 		{
 			this.fileIcon = "assets/directionView/fileIcon/exml.png";
+		}
+		
+		public function set sizeType(val:int):void {
+			this._sizeType = val;
+		}
+		
+		public function get sizeType():int {
+			return this._sizeType;
+		}
+		
+		public function set width(val:int):void {
+			this._width = val;
+		}
+		
+		public function get width():int {
+			return _width;
+		}
+		
+		public function set height(val:int):void {
+			_height = val;
+		}
+		
+		public function get height():int {
+			return _height;
 		}
 		
 		public function decode():Boolean
