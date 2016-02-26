@@ -31,6 +31,20 @@ package uistyle.button
 			(new AddStylePanel("添加按钮样式",d,addBack)).open(false);
 		}
 		
+		override public function parseToFixConfig(url:String):Object {
+			var style:ButtonStyleData = new ButtonStyleData();
+			style.url = url;
+			if(style.decode()) {
+				return {
+					"class":"Button",
+					"up":style.up.url,
+					"down":style.down.url,
+					"disabled":style.disabled.url
+				}
+			}
+			return null;
+		}
+		
 		private function addBack(d:DirectionDataBase,name:String,desc:String):void {
 			var dir:ButtonStyleData = new ButtonStyleData();
 			dir.url = d.url + "/" + name + ".json";

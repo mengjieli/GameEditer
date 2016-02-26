@@ -21,6 +21,13 @@ package main.data.parsers
 		}
 		
 		/**
+		 * 与其它模块交换数据，数据的格式是向前兼容的，一般不会随着存储的数据变化而变化
+		 */
+		public function parseToFixConfig(url:String):Object {
+			return null;
+		}
+		
+		/**
 		 * 获取数据解析类
 		 */
 		public function getNewData():ParserDataBase {

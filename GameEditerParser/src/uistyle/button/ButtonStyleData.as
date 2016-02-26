@@ -6,7 +6,6 @@ package uistyle.button
 	
 	import extend.ui.ImageLoader;
 	
-	import main.data.DragType;
 	import main.data.ToolData;
 	import main.events.EventMgr;
 	import main.events.PanelEvent;

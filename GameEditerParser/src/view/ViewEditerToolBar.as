@@ -10,6 +10,8 @@ package view
 	import egret.ui.skins.IconButtonSkin;
 	
 	import extend.ui.DragManager;
+	
+	import view.component.ComponentParser;
 
 	public class ViewEditerToolBar extends Group
 	{
@@ -64,7 +66,7 @@ package view
 		private function itemClick(e:MouseEvent):void
 		{
 			var type:String = e.currentTarget.name.toString();
-			DragManager.startDrag("Component",this,{"name":type},new UIAsset(e.currentTarget.icon));
+			DragManager.startDrag("Component",this,{"name":type},ComponentParser.getCustomComponent(type));
 		}
 		
 		protected override function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
