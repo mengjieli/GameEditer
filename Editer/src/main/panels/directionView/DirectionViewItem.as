@@ -36,7 +36,13 @@ package main.panels.directionView
 		public var button2:IconButton;
 		public var button3:IconButton;
 		public var button4:IconButton;
-		//		public var button5:IconButton;
+		//		public var button5:IconButto
+		public var buttonClick0:Function;
+		public var buttonClick1:Function;
+		public var buttonClick2:Function;
+		public var buttonClick3:Function;
+		public var buttonClick4:Function;
+		public var buttonClick5:Function;
 		//		public var button6:IconButton;
 		//		public var button7:IconButton;
 		
@@ -60,9 +66,10 @@ package main.panels.directionView
 				}
 				if(quickMenu.clickFunction) {
 					quickMenu.clickFunction.dir = d;
-					btn.addEventListener(MouseEvent.CLICK,function(e:MouseEvent):void {
-						quickMenu.clickFunction.call();
-					});
+					this["buttonClick" + i] = quickMenu.clickFunction.call;
+//					btn.addEventListener(MouseEvent.CLICK,function(e:MouseEvent):void {
+//						quickMenu.clickFunction.call();
+//					});
 				}
 			}
 			var menuList:Array = [new NativeMenuItemExtend(d.url,MenuID.CLEARLOG,false,null,null)];
@@ -115,6 +122,52 @@ package main.panels.directionView
 			if(!d || !d.dragFlag || !downFlag) return;
 			startDrag = true;
 			DragManager.startDrag(this.data.directionData.dragType,this,this.data.directionData,d.dragShow,-20,-20);//,-this.mouseX+20,-this.mouseY+20);
+		}
+		
+		override protected function partAdded(partName:String, instance:Object):void
+		{
+			super.partAdded(partName, instance);
+			
+			switch(instance) {
+				case button0:
+				case button1:
+				case button2:
+				case button3:
+				case button4:
+					instance.addEventListener(MouseEvent.CLICK,onClickButton);
+					break;
+			}
+		}
+		
+		private function onClickButton(e:MouseEvent):void {
+			var button:IconButton = e.currentTarget as IconButton;
+			switch(button) {
+				case button0:
+					if(this.buttonClick0) {
+						buttonClick0();
+					}
+					break;
+				case button1:
+					if(this.buttonClick1) {
+						buttonClick1();
+					}
+					break;
+				case button2:
+					if(this.buttonClick2) {
+						buttonClick2();
+					}
+					break;
+				case button3:
+					if(this.buttonClick3) {
+						buttonClick3();
+					}
+					break;
+				case button4:
+					if(this.buttonClick4) {
+						buttonClick4();
+					}
+					break;
+			}
 		}
 	}
 }

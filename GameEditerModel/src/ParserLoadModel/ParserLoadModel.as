@@ -44,7 +44,7 @@ package ParserLoadModel
 		private var load:Loader;
 		
 		private function loadNextParser():void {
-			if(index >= list.length) {	
+			if(index >= list.length) {
 				this.dispatchEvent(new Event(Event.COMPLETE));
 				return;
 			}
