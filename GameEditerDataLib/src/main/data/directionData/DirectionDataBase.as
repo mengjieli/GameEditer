@@ -1,15 +1,12 @@
 package main.data.directionData
 {
 	
-	import egret.components.UIAsset;
-	
 	import extend.ui.ImageLoader;
 	
 	import main.data.parsers.MenuData;
 	import main.data.parsers.ParserCall;
 	import main.data.parsers.ParserDataBase;
 	import main.data.parsers.QuickMenu;
-	import main.data.parsers.ReaderBase;
 	
 	import utils.FileHelp;
 

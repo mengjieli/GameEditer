@@ -50,6 +50,7 @@ package view
 			this.title = d.desc==""?d.name:d.desc;
 			this.icon = d.fileIcon;
 			var viewData:ViewData = d as ViewData;
+			this.editer.showView(viewData);
 			//			trace(ToolData.getInstance().project.getResURL(d.url));
 		}
 	}

@@ -12,6 +12,8 @@ package view
 	import extend.ui.DragManager;
 	
 	import view.component.ComponentParser;
+	import view.component.data.ComponentData;
+	import view.component.data.GroupData;
 
 	public class ViewEditerToolBar extends Group
 	{
@@ -65,8 +67,10 @@ package view
 		
 		private function itemClick(e:MouseEvent):void
 		{
-			var type:String = e.currentTarget.name.toString();
-			DragManager.startDrag("Component",this,{"name":type},ComponentParser.getCustomComponent(type));
+			var type:String = e.currentTarget.name.toString();4
+			var data:ComponentData = ComponentParser.getCustomComponentData(type);
+			data.selected = true;
+			DragManager.startDrag("Component",this,data,ComponentParser.getComponentByData(data));
 		}
 		
 		protected override function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void

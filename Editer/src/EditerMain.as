@@ -57,7 +57,7 @@ package
 			GlobalStyles.textColor = 0xfefefe;
 			
 			Injector.mapClass(Theme,EgretTheme);
-			Injector.mapClass(IAssetAdapter,RetinaAssetAdapter);
+			Injector.mapClass(IAssetAdapter,RetinaAssetAdapter); 
 			
 			Config.width = stage.stageWidth;
 			Config.height = stage.stageHeight;

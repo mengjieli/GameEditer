@@ -6,49 +6,44 @@ package view
 	import main.data.directionData.DirectionDataBase;
 	import main.events.EventMgr;
 	import main.events.PanelEvent;
+	
+	import view.component.data.GroupData;
+	import view.component.data.PanelData;
+	import view.component.data.RootPanelData;
 
 	public class ViewData extends DirectionDataBase
 	{
-		/**
-		 * 尺寸方案
-		 * 1. 固定尺寸
-		 * 2. 固定尺寸全屏(等比缩放直到两边都在屏幕内，并且一边全屏)
-		 * 3. 全屏尺寸
-		 * 4. 全屏固定宽(宽缩放到全屏，高根据缩放比计算)
-		 * 5. 全屏固定高(高缩放到全屏，高根据缩放比计算)
-		 */
-		private var _sizeType:int = 0;
-		private var _width:int = 0;
-		private var _height:int = 0;
+//		private var _width:int = 0;
+//		private var _height:int = 0;
+		private var _panel:RootPanelData;
 		
 		public function ViewData()
 		{
 			this.fileIcon = "assets/directionView/fileIcon/exml.png";
+			this._panel = new RootPanelData();
+			this._panel.editerFlag = false;
 		}
 		
-		public function set sizeType(val:int):void {
-			this._sizeType = val;
+		public function get panel():RootPanelData {
+			return _panel;
 		}
 		
-		public function get sizeType():int {
-			return this._sizeType;
-		}
 		
-		public function set width(val:int):void {
-			this._width = val;
-		}
-		
-		public function get width():int {
-			return _width;
-		}
-		
-		public function set height(val:int):void {
-			_height = val;
-		}
-		
-		public function get height():int {
-			return _height;
-		}
+//		public function set width(val:int):void {
+//			this._width = val;
+//		}
+//		
+//		public function get width():int {
+//			return _width;
+//		}
+//		
+//		public function set height(val:int):void {
+//			_height = val;
+//		}
+//		
+//		public function get height():int {
+//			return _height;
+//		}
 		
 		public function decode():Boolean
 		{

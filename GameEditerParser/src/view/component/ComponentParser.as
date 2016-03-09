@@ -4,6 +4,10 @@ package view.component
 	
 	import main.data.ToolData;
 	import main.data.parsers.ParserBase;
+	
+	import view.component.data.ComponentData;
+	import view.component.data.GroupData;
+	import view.component.data.LabelData;
 
 	public class ComponentParser
 	{
@@ -21,7 +25,7 @@ package view.component
 			var styleData:Object = parser.parseToFixConfig(styleURL);
 			switch(styleData["class"]) {
 				case "Button":
-					component = new Button();
+//					component = new Button();
 					break;
 			}
 			component.decodeByStyle(styleData,styleURL);
@@ -29,13 +33,47 @@ package view.component
 		}
 		
 		/**
+		 * 根据配置获取 ComponentData
+		 */
+		public static function getComponentDataByConfig(json:Object):ComponentData {
+			var component:ComponentData;
+			switch(json.type) {
+				case "Label":
+					var label:LabelData = new LabelData();
+					label.parser(json);
+					break;
+				case "Group":
+					var group:GroupData = new GroupData();
+					group.parser(json);
+					break;
+			}
+			return component;
+		}
+		
+		public static function getCustomComponentData(name:String):ComponentData {
+			var component:ComponentData;
+			switch(name) {
+				case "Label":
+					component = new LabelData();
+					break;
+				case "Group":
+					component = new GroupData();
+					break;
+			}
+			return component;
+		}
+		
+		/**
 		 * 获取默认容器
 		 */
-		public static function getCustomComponent(name:String):ComponentBase {
+		public static function getComponentByData(componentData:ComponentData):ComponentBase {
 			var component:ComponentBase;
-			switch(name){
+			switch(componentData.type){
+				case "Label":
+					component = new Label(componentData as LabelData);
+					break;
 				case "Group":
-					component = new Group();
+					component = new Group(componentData as GroupData);
 					break;
 			}
 			return component;
