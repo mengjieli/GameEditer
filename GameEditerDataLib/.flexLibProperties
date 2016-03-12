@@ -17,6 +17,7 @@
     <classEntry path="main.events.PanelEvent"/>
     <classEntry path="main.events.ToolBarEvent"/>
     <classEntry path="main.model.ModelBase"/>
+    <classEntry path="utils.PNGDecoder"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

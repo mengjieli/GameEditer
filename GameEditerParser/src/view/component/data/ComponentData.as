@@ -1,5 +1,6 @@
 package view.component.data
 {
+	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	
 	import view.events.ComponentAttributeEvent;
@@ -14,7 +15,9 @@ package view.component.data
 		private var _name:String = "";
 		
 		//编辑属性，不存储
+		private var _sizeSet:Boolean = true;
 		private var _editerFlag:Boolean = true;
+		private var _inediter:Boolean = false;
 		private var _selected:Boolean = false;
 		private var _parent:GroupData;
 		
@@ -63,6 +66,15 @@ package view.component.data
 			this.dispatchEvent(new ComponentAttributeEvent("height",val));
 		}
 		
+		public function get sizeSet():Boolean {
+			return _sizeSet;
+		}
+		
+		public function set sizeSet(val:Boolean):void {
+			_sizeSet = val;
+			this.dispatchEvent(new ComponentAttributeEvent("sizeSet",val));
+		}
+		
 		public function get name():String {
 			return this._name;
 		}
@@ -90,6 +102,15 @@ package view.component.data
 			this.dispatchEvent(new ComponentAttributeEvent("selected",val));
 		}
 		
+		public function get inediter():Boolean {
+			return _inediter;
+		}
+		
+		public function set inediter(val:Boolean):void {
+			_inediter = val;
+			this.dispatchEvent(new ComponentAttributeEvent("inediter",val));
+		}
+	
 		public function $setParent(val:GroupData):void {
 			_parent = val;
 			this.dispatchEvent(new ComponentAttributeEvent("parent",val));
@@ -99,8 +120,31 @@ package view.component.data
 			return _parent;
 		}
 		
+		public function encode():Object {
+			return {
+				"type":type,
+				"x":x,
+				"y":y,
+				"name":name,
+				"width":width,
+				"height":height
+			};
+		}
+		
 		public function parser(json:Object):void {
-			
+			this.name = json.name;
+			this.x = json.x;
+			this.y = json.y;
+			this.width = json.width;
+			this.height = json.height;
+		}
+		
+		override public function dispatchEvent(event:Event):Boolean {
+			var bool:Boolean = super.dispatchEvent(event);
+			if(this.parent) {
+				this.parent.dispatchEvent(new ComponentAttributeEvent(ComponentAttributeEvent.CHILD_ATTRIBUTE_CHANGE,null));
+			}
+			return bool;
 		}
 	}
 }

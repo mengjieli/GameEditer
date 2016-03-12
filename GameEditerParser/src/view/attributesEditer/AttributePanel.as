@@ -6,10 +6,13 @@ package view.attributesEditer
 	import main.events.EventMgr;
 	
 	import view.attributesEditer.attributePanel.GroupAttribute;
+	import view.attributesEditer.attributePanel.ImageAttribute;
 	import view.attributesEditer.attributePanel.LabelAttribute;
 	import view.attributesEditer.attributePanel.PanelAttribute;
 	import view.attributesEditer.attributePanel.RootPanelAttribute;
 	import view.component.data.ComponentData;
+	import view.component.data.ImageData;
+	import view.component.data.LabelData;
 	import view.events.EditeComponentEvent;
 
 	public class AttributePanel extends TabPanel
@@ -34,7 +37,10 @@ package view.attributesEditer
 			var data:ComponentData = e.component;
 			switch(data.type) {
 				case "Label":
-					container.addElement(new LabelAttribute(data));
+					container.addElement(new LabelAttribute(data as LabelData));
+					break;
+				case "Image":
+					container.addElement(new ImageAttribute(data as ImageData));
 					break;
 				case "Group":
 					container.addElement(new GroupAttribute(data));

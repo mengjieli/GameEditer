@@ -13,10 +13,10 @@ package view
 	import main.events.EventMgr;
 	
 	import view.component.ComponentBase;
-	import view.component.ComponentParser;
 	import view.component.Panel;
 	import view.component.data.ComponentData;
 	import view.component.data.GroupData;
+	import view.component.data.ImageData;
 	import view.events.EditeComponentEvent;
 
 	/**
@@ -35,6 +35,7 @@ package view
 		private var viewPanel:Panel;
 		private var viewData:ViewData;
 		private var selectComponent:ComponentData;
+		private var editedComponent:ComponentData;
 		
 		public function ViewEditePanel()
 		{
@@ -90,6 +91,8 @@ package view
 			this.viewData = viewData;
 			viewPanel = new Panel(viewData.panel);
 			this.container.addElement(viewPanel);
+			selectComponent = this.viewData.panel;
+			selectComponent.selected = true;
 			editerComponent(this.viewData.panel);
 		}
 		
@@ -109,14 +112,18 @@ package view
 			switch(e.type) {
 				case DragManager.START_DRAG:
 					if(dragNew == false && DragManager.isDraging && DragManager.type == "Component" && this.mouseX >= 0 && this.mouseX < this.width && this.mouseY >= 0 && this.mouseY < this.height) {
-						var dragData:* = DragManager.dragData;
+						dragBg.visible = true;
+						dragNew = true;
+					}
+					//拖动的是图片资源
+					if(DragManager.isDraging && DragManager.type == "image") {
 						dragBg.visible = true;
 						dragNew = true;
 					}
 					break;
 				case MouseEvent.MOUSE_DOWN:
 					var targetComponent:ComponentBase;
-					var target = e.target;
+					var target:* = e.target;
 					while(target) {
 						if(target is ComponentBase) {
 							targetComponent = target as ComponentBase;
@@ -136,9 +143,10 @@ package view
 						this.dragFlag = true;
 						this.dragComponent = targetComponent.data;
 						setDragComponentSelected = false;
-						if(dragComponent.selected == false) {
-							dragComponent.selected = true;
+						if(dragComponent.inediter == false) {
+							dragComponent.inediter = true;
 							setDragComponentSelected = true;
+							this.editedComponent.inediter = false;
 							EventMgr.ist.dispatchEvent(new EditeComponentEvent(EditeComponentEvent.SHOW_COMPONENT_ATTRIBUTE,dragComponent));
 						}
 						this.dragStartX = this.dragComponent.x;
@@ -150,6 +158,11 @@ package view
 					break;
 				case MouseEvent.MOUSE_OVER:
 					if(dragNew == false && DragManager.isDraging && DragManager.type == "Component") {
+						dragBg.visible = true;
+						dragNew = true;
+					}
+					//拖动的是图片资源
+					if(DragManager.isDraging && DragManager.type == "image") {
 						dragBg.visible = true;
 						dragNew = true;
 					}
@@ -174,16 +187,33 @@ package view
 					if(dragNew) {
 						dragBg.visible = false;
 						dragNew = false;
-						this.acceptComponent(DragManager.dragData);
+						var componentData:ComponentData;
+						if(DragManager.type == "Component") { //拖动的是组件
+							componentData = DragManager.dragData;
+						} else if(DragManager.type == "image") {
+							var image:ImageData = new ImageData();
+							image.url = DragManager.dragData.url;
+							componentData = image;
+						}
+						this.acceptComponent(componentData,DragManager.offX,DragManager.offY);
 					}
 					if(dragFlag) {
 						dragFlag = false;
 						if(setDragComponentSelected) {
-							dragComponent.selected = false;
+							dragComponent.inediter = false;
 							setDragComponentSelected = false;
-							EventMgr.ist.dispatchEvent(new EditeComponentEvent(EditeComponentEvent.SHOW_COMPONENT_ATTRIBUTE,this.selectComponent));
+							this.editedComponent.inediter = true;
+							EventMgr.ist.dispatchEvent(new EditeComponentEvent(EditeComponentEvent.SHOW_COMPONENT_ATTRIBUTE,this.editedComponent));
 						}
 						if(dragMove == false) {
+							if(dragComponent is GroupData) {
+								if(selectComponent) {
+									selectComponent.selected = false;
+									selectComponent = null;
+								}
+								this.selectComponent = dragComponent;
+								this.selectComponent.selected = true;
+							}
 							editerComponent(dragComponent);
 						}
 					}
@@ -191,6 +221,12 @@ package view
 						this.container.stopDrag();
 						dragContainer = false;
 						if(dragMove == false) {
+							if(selectComponent) {
+								selectComponent.selected = false;
+								selectComponent = null;
+							}
+							this.selectComponent = this.viewData.panel;
+							this.selectComponent.selected = true;
 							editerComponent(this.viewData.panel);
 						}
 					}
@@ -201,9 +237,10 @@ package view
 		/**
 		 * 接受外部拖拽的新组件
 		 */
-		private function acceptComponent(data:ComponentData):void {
-			data.x = this.container.mouseX;
-			data.y = this.container.mouseY;
+		private function acceptComponent(data:ComponentData,offX:Number=0,offY:Number=0):void {
+			data.selected = false;
+			data.x = this.container.mouseX + offX;
+			data.y = this.container.mouseY + offY;
 			if(this.selectComponent is GroupData) {
 				var group:GroupData = this.selectComponent as GroupData;
 				while(group != this.viewData.panel) {
@@ -226,11 +263,11 @@ package view
 		}
 		
 		private function onEditerComponent(e:EditeComponentEvent):void {
-			if(selectComponent) {
-				selectComponent.selected = false;
+			if(editedComponent) {
+				editedComponent.inediter = false;
 			}
-			this.selectComponent = e.component;
-			this.selectComponent.selected = true;
+			this.editedComponent = e.component;
+			this.editedComponent.inediter = true;
 		}
 	}
 }

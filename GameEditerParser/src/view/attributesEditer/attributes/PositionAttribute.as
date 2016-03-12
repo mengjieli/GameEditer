@@ -13,7 +13,7 @@ package view.attributesEditer.attributes
 		
 		public function PositionAttribute(data:ComponentData)
 		{
-			super("位置");
+			super("位置尺寸");
 			
 			var label:Label = new Label();
 			label.text = "X:";
@@ -67,7 +67,68 @@ package view.attributesEditer.attributes
 				data.removeEventListener("y",yFunc);
 			});
 			
-			this.height = 50;
+			
+			label = new Label();
+			label.text = "宽:";
+			label.y = 50;
+			this.addElement(label);
+			
+			
+			var widthTxt:TextInput = new TextInput();
+			widthTxt.width = 100;
+			widthTxt.height = 20;
+			widthTxt.x = 35;
+			widthTxt.y = 50;
+			this.addElement(widthTxt);
+			if(data.sizeSet == false) {
+				widthTxt.textColor = 0x595959;
+				widthTxt.editable = false;
+			}
+			widthTxt.text = data.width + "";
+			widthTxt.restrict = "0-9";
+			widthTxt.addEventListener(Event.CHANGE,function(e:Event):void {
+				data.width = int(widthTxt.text);
+			});
+			var widthFunc:Function = function(e:ComponentAttributeEvent):void {
+				widthTxt.text = data.width + "";
+			}
+			data.addEventListener("width",widthFunc);
+			this.addEventListener(Event.REMOVED_FROM_STAGE,function(e:Event):void {
+				data.removeEventListener("width",widthFunc);
+			});
+			
+			
+			label = new Label();
+			label.text = "高:";
+			label.x = 150;
+			label.y = 50;
+			this.addElement(label);
+			
+			
+			var heightTxt:TextInput = new TextInput();
+			heightTxt.width = 100;
+			heightTxt.height = 20;
+			heightTxt.x = 185;
+			heightTxt.y = 50;
+			this.addElement(heightTxt);
+			if(data.sizeSet == false) {
+				heightTxt.textColor = 0x595959;
+				heightTxt.editable = false;
+			}
+			heightTxt.text = data.height + "";
+			heightTxt.restrict = "- 0-9";
+			heightTxt.addEventListener(Event.CHANGE,function(e:Event):void {
+				data.height = int(heightTxt.text);
+			});
+			var heightFunc:Function = function(e:ComponentAttributeEvent):void {
+				heightTxt.text = data.height + "";
+			}
+			data.addEventListener("height",heightFunc);
+			this.addEventListener(Event.REMOVED_FROM_STAGE,function(e:Event):void {
+				data.removeEventListener("height",heightFunc);
+			});
+			
+			this.height = 75;
 		}
 	}
 }

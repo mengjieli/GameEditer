@@ -41,5 +41,20 @@ package view.component.data
 			_size = val;
 			this.dispatchEvent(new ComponentAttributeEvent("size",val));
 		}
+		
+		override public function encode():Object {
+			var json:Object = super.encode();
+			json.text = text;
+			json.color = color;
+			json.size = size;
+			return json;
+		}
+		
+		override public function parser(json:Object):void {
+			super.parser(json);
+			this.text = json.text;
+			this.color = json.color;
+			this.size = json.size;
+		}
 	}
 }

@@ -9,6 +9,7 @@ package view.attributesEditer.attributes
 	import main.events.EventMgr;
 	
 	import view.component.data.ComponentData;
+	import view.events.ComponentAttributeEvent;
 	import view.events.EditeComponentEvent;
 
 	public class BaseAttribute extends AttributeBase
@@ -64,6 +65,17 @@ package view.attributesEditer.attributes
 			nameTxt.x = 35;
 			nameTxt.y = 50;
 			this.addElement(nameTxt);
+			nameTxt.text = data.name;
+			nameTxt.addEventListener(Event.CHANGE,function(e:Event):void {
+				data.name = nameTxt.text;
+			});
+			var nameFunc:Function = function(e:ComponentAttributeEvent):void {
+				nameTxt.text = data.name;
+			}
+			data.addEventListener("name",nameFunc);
+			this.addEventListener(Event.REMOVED_FROM_STAGE,function(e:Event):void {
+				data.removeEventListener("name",nameFunc);
+			});
 			
 			this.height = 75;
 			

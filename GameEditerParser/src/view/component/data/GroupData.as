@@ -1,5 +1,6 @@
 package view.component.data
 {
+	import view.component.ComponentParser;
 	import view.events.GroupEvent;
 
 	public class GroupData extends ComponentData
@@ -9,8 +10,16 @@ package view.component.data
 		public function GroupData(type:String = "Group")
 		{
 			super(type);
-			this.width = 500;
+			this.width = 600;
 			this.height = 400;
+		}
+		
+		public function get numChildren():int {
+			return this._children.length;
+		}
+		
+		public function getChildAt(index:int):ComponentData {
+			return _children[index];
 		}
 		
 		public function addChild(component:ComponentData):void {
@@ -49,6 +58,23 @@ package view.component.data
 				}
 			}
 			return -1;
+		}
+		
+		override public function encode():Object {
+			var json:Object = super.encode();
+			json.children = [];
+			for(var i:int = 0; i < _children.length; i++) {
+				json.children.push(_children[i].encode());
+			}
+			return json;
+		}
+		
+		override public function parser(json:Object):void {
+			super.parser(json);
+			for(var i:int = 0; i < json.children.length; i++) {
+				var child:ComponentData = ComponentParser.getComponentDataByConfig(json.children[i]);
+				this.addChild(child);
+			}
 		}
 	}
 }

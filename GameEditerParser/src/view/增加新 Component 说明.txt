@@ -1,0 +1,7 @@
+增加一个新的 Component 顺序：
+1. 在 ViewReader 中 toolBar.dataProvider=new XMLList 添加新的菜单栏快捷键
+2. view/component/data 中添加对应的 Data 继承于 ComponentData
+3. view/component 中添加对应的 组件显示 继承于 ComponentBase
+4. view/component/ComponentParser.as 中 getComponentDataByConfig、getCustomComponentData、getComponentByData 函数中添加对应的条件判断
+5. view/attributesEditer/attributePanel/attributePanel 中添加对应的属性编面板 继承于 AttributePanelBase
+6. view/attributesEditer/AttributePanel.as 中 onShowComponentAttributes 函数添加对应的条件判断

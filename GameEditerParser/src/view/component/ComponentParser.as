@@ -7,6 +7,7 @@ package view.component
 	
 	import view.component.data.ComponentData;
 	import view.component.data.GroupData;
+	import view.component.data.ImageData;
 	import view.component.data.LabelData;
 
 	public class ComponentParser
@@ -41,10 +42,17 @@ package view.component
 				case "Label":
 					var label:LabelData = new LabelData();
 					label.parser(json);
+					component = label;
+					break;
+				case "Image":
+					var image:ImageData = new ImageData();
+					image.parser(json);
+					component = image;
 					break;
 				case "Group":
 					var group:GroupData = new GroupData();
 					group.parser(json);
+					component = group;
 					break;
 			}
 			return component;
@@ -55,6 +63,9 @@ package view.component
 			switch(name) {
 				case "Label":
 					component = new LabelData();
+					break;
+				case "Image":
+					component = new ImageData();
 					break;
 				case "Group":
 					component = new GroupData();
@@ -71,6 +82,9 @@ package view.component
 			switch(componentData.type){
 				case "Label":
 					component = new Label(componentData as LabelData);
+					break;
+				case "Image":
+					component = new Image(componentData as ImageData);
 					break;
 				case "Group":
 					component = new Group(componentData as GroupData);

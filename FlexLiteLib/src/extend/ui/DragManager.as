@@ -31,6 +31,8 @@ package extend.ui
 		private static var _isDraging:Boolean;
 		private static var stage:Stage;
 		private static var dragBg:Sprite;
+		private static var _offX:int;
+		private static var _offY:int;
 		
 		public static function get isDraging():Boolean {
 			return _isDraging;
@@ -42,6 +44,14 @@ package extend.ui
 		
 		public static function get type():String {
 			return _type;
+		}
+		
+		public static function get offX():int {
+			return _offX;
+		}
+		
+		public static function get offY():int {
+			return _offY;
 		}
 		
 		public static function startDrag(type:String,dragDisplay:DisplayObject,dragData:*,dragImage:DisplayObject,offX:int=0,offY:int=0,alpha:Number=0.5):void {
@@ -56,6 +66,8 @@ package extend.ui
 			DragManager.stage = stage;
 			DragManager._dragData = dragData;
 			DragManager._dragImage = dragImage;
+			DragManager._offX = offX;
+			DragManager._offY = offY;
 			if(dragImage) {
 				_isDraging = true;
 				stage.addChild(dragBg);

@@ -1,10 +1,5 @@
 package view.component
 {
-	import flash.events.Event;
-	import flash.geom.Rectangle;
-	
-	import egret.components.Group;
-	import egret.components.UIAsset;
 	
 	import view.component.data.GroupData;
 	import view.events.ComponentAttributeEvent;
@@ -12,18 +7,16 @@ package view.component
 
 	public class Group extends ComponentBase
 	{
-		private var bgContainer:egret.components.Group;
-		private var container:egret.components.Group;
 		
 		public function Group(data:GroupData)
 		{
 			super(data);
 			
-			bgContainer = new egret.components.Group();
-			this.addElement(bgContainer);
-			
-			container = new egret.components.Group();
-			this.addElement(container);
+			this.numChildren
+			for(var i:int = 0; i < data.numChildren; i++) {
+				var component:ComponentBase = ComponentParser.getComponentByData(data.getChildAt(i));
+				childContainer.addElement(component);
+			}
 			
 			data.addEventListener(GroupEvent.ADD_CHILD,onAddChild);//2f4da421
 			data.addEventListener(GroupEvent.REMOVE_CHILD,onRemoveChild);
@@ -33,14 +26,14 @@ package view.component
 		
 		private function onAddChild(e:GroupEvent):void {
 			var component:ComponentBase = ComponentParser.getComponentByData(e.child);
-			container.addElement(component);
+			childContainer.addElement(component);
 		}
 		
 		private function onRemoveChild(e:GroupEvent):void {
 			for(var i:int = 0; i < this.numElements; i++) {
-				var component:ComponentBase = container.getElementAt(i) as ComponentBase;
+				var component:ComponentBase = childContainer.getElementAt(i) as ComponentBase;
 				if(component.data == e.child) {
-					container.removeElementAt(i);
+					childContainer.removeElementAt(i);
 					break;
 				}
 			}
@@ -48,9 +41,9 @@ package view.component
 		
 		private function onSetChildIndex(e:GroupEvent):void {
 			for(var i:int = 0; i < this.numElements; i++) {
-				var component:ComponentBase = container.getElementAt(i) as ComponentBase;
+				var component:ComponentBase = childContainer.getElementAt(i) as ComponentBase;
 				if(component.data == e.child) {
-					container.setElementIndex(component,e.index);
+					childContainer.setElementIndex(component,e.index);
 					break;
 				}
 			}

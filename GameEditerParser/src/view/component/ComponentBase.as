@@ -12,21 +12,38 @@ package view.component
 
 	public class ComponentBase extends egret.components.Group
 	{
-		private var show:UIAsset;
+		protected var selctedShow:UIAsset;
+		protected var editerShow:UIAsset;
 		protected var styleData:Object;
+		protected var bgContainer:egret.components.Group;
+		protected var selfContainer:egret.components.Group;
+		protected var childContainer:egret.components.Group;
 		protected var _data:ComponentData;
 		
 		public function ComponentBase(data:ComponentData)
 		{
 			_data = data;
 			
-			show = new UIAsset();
-			this.show.source = "assets/componentCustom/Group/bg.png";
-			this.show.scale9Grid = new Rectangle(1,1,8,8);
-			this.addElement(show);
-			this.show.width = data.width;
-			this.show.height = data.height;
-			show.alpha = this.data.selected?1:0.1;
+			this.addElement(bgContainer = new egret.components.Group());
+			this.addElement(selfContainer = new egret.components.Group());
+			
+			selctedShow = new UIAsset();
+			this.selctedShow.source = "assets/bg/selectBg.png";
+			this.selctedShow.scale9Grid = new Rectangle(1,1,8,8);
+			this.addElement(selctedShow);
+			this.selctedShow.width = data.width;
+			this.selctedShow.height = data.height;
+			selctedShow.alpha = this.data.selected?1:0;
+			
+			editerShow = new UIAsset();
+			this.editerShow.source = "assets/bg/editerBg.png";
+			this.editerShow.scale9Grid = new Rectangle(1,1,8,8);
+			this.addElement(editerShow);
+			this.editerShow.width = data.width;
+			this.editerShow.height = data.height;
+			editerShow.alpha = this.data.inediter?1:0;
+			
+			this.addElement(childContainer = new egret.components.Group());
 			
 			this.x = data.x;
 			this.y = data.y;
@@ -38,6 +55,7 @@ package view.component
 			this.data.addEventListener("height",onPropertyChange);
 			this.data.addEventListener("visible",onPropertyChange);
 			this.data.addEventListener("selected",onPropertyChange);
+			this.data.addEventListener("inediter",onPropertyChange);
 			
 			this.addEventListener(UIEvent.CREATION_COMPLETE,onComplete);
 		}
@@ -58,10 +76,11 @@ package view.component
 			switch(e.type) {
 				case "x": this.x = e.value; break;
 				case "y": this.y = e.value; break;
-				case "width": this.show.width = e.value; break;
-				case "height": this.show.height = e.value; break;
+				case "width": this.selctedShow.width = this.editerShow.width = e.value; break;
+				case "height": this.selctedShow.height = this.editerShow.height = e.value; break;
 				case "visible": this.visible = e.value; break;
-				case "selected": show.alpha = e.value?1:0.1; break;
+				case "selected": this.selctedShow.alpha = e.value?1:0; break;
+				case "inediter": editerShow.alpha = e.value?1:0;break;
 			}
 		}
 		

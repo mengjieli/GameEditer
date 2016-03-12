@@ -20,11 +20,11 @@ package view
 			toolBar.height = 24;
 			toolBar.dataProvider=new XMLList(
 				'<node icon="assets/component/Label.png" id="Label" tooltip="标签"/>'
-				+ '<node icon="assets/component/TextInput.png" id="TextInput" tooltip="输入框"/>'
+//				+ '<node icon="assets/component/TextInput.png" id="TextInput" tooltip="输入框"/>'
 				+ '<node  type="spliter"/>'
 				+ '<node icon="assets/component/Image.png" id="Image" tooltip="图片"/>'
 				+ '<node  type="spliter"/>'
-				+ '<node icon="assets/component/Button.png" id="Button" tooltip="按钮"/>'
+//				+ '<node icon="assets/component/Button.png" id="Button" tooltip="按钮"/>'
 				+ '<node  type="spliter"/>'
 				+ '<node icon="assets/component/Group.png" id="Group" tooltip="容器"/>'
 				+ '<node  type="spliter"/>'
