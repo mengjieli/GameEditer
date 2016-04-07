@@ -1,9 +1,7 @@
 package flower.ui
 {
-	public class UIComponent
+	public interface UIComponent
 	{
-		public function UIComponent()
-		{
-		}
+		
 	}
 }

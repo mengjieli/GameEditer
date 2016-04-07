@@ -12,6 +12,8 @@ package view
 
 	public class ViewParser extends ParserBase
 	{
+		public static var paste:Object;
+		
 		public function ViewParser()
 		{
 		}

@@ -12,9 +12,11 @@ package dataParser
 		private var _name:String;
 		private var _desc:String;
 		private var _members:Vector.<DataItem> = new Vector.<DataItem>();
+		private var _root:Boolean = false;
 		
 		public function DataData()
 		{
+			this.dataType = "Data";
 		}
 		
 		public function get dataName():String {
@@ -23,6 +25,10 @@ package dataParser
 		
 		public function set dataName(val:String):void {
 			_name = val;
+		}
+		
+		public function get root():Boolean {
+			return _root;
 		}
 		
 		public function get dataDesc():String {
@@ -44,6 +50,7 @@ package dataParser
 				var cfg:Object = JSON.parse(content);
 				this._name = cfg.name;
 				this._desc = cfg.desc;
+				this._root = cfg.root==null?false:cfg.root;
 				this.desc = this._desc;
 				_members = new Vector.<DataItem>();
 				var mebs:Object = cfg.members;

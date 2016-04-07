@@ -25,7 +25,7 @@ package flower.res
 		/**
 		 * 是否在本地
 		 */
-		public var local:Boolean;
+		public var local:Boolean = true;
 		
 		public function ResItem()
 		{

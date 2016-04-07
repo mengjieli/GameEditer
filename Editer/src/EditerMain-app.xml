@@ -117,6 +117,7 @@
         <fullScreen>false</fullScreen>
         <visible>true</visible>
     </initialWindow>
+	<supportedProfiles>extendedDesktop</supportedProfiles>
 
 	<!-- We recommend omitting the supportedProfiles element, -->
 	<!-- which in turn permits your application to be deployed to all -->

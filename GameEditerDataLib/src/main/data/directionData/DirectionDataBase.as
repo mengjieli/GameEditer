@@ -27,6 +27,11 @@ package main.data.directionData
 		public var type:String;
 		
 		/**
+		 * 数据的类别，用于区分
+		 */
+		public var dataType:String;
+		
+		/**
 		 * 目录打开时的图标
 		 */
 		public var directionOpenIcon:String;
@@ -39,7 +44,6 @@ package main.data.directionData
 		 * 文件图标
 		 */
 		public var fileIcon:String;
-		
 		
 		/**
 		 * url

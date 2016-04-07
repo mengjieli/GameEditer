@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<actionScriptProperties analytics="false" mainApplicationPath="ParserLoadModel/ParserLoadModel.as" projectUUID="e52eb0fd-9e31-4ec1-ba99-19f355a25ef6" version="11">
+<actionScriptProperties analytics="false" mainApplicationPath="FileSyncModel/FileSyncModel.as" projectUUID="e52eb0fd-9e31-4ec1-ba99-19f355a25ef6" version="11">
   <compiler additionalCompilerArguments="-locale en_US" advancedTelemetry="false" autoRSLOrdering="true" copyDependentFiles="true" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderLocation="/Users/mengjieli/Documents/flash/GameEditer/Editer/bin-debug/models" outputFolderPath="bin-debug" removeUnusedRSL="true" sourceFolderPath="src" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="true" useDebugRSLSwfs="true" useFlashSDK="true" verifyDigests="true" warn="true">
     <compilerSourcePath/>
     <libraryPath defaultLinkType="0">
@@ -36,6 +36,9 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
+    <application path="FileSyncModel/FileSyncModel.as">
+      <airExcludes/>
+    </application>
     <application path="ParserLoadModel/ParserLoadModel.as">
       <airExcludes/>
     </application>
@@ -49,6 +52,10 @@
       <airSettings airCertificatePath="" airTimestamp="true" anePathSet="false" version="1">
         <airExcludes/>
         <anePaths/>
+        <newLaunchParams/>
+        <modifiedLaunchParams/>
+        <newPackagingParams/>
+        <modifiedPackagingParams/>
       </airSettings>
       <actionScriptSettings version="1"/>
     </buildTarget>

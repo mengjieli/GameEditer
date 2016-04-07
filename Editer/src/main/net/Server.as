@@ -43,11 +43,11 @@ package main.net
 		
 		public function close():void {
 			if(websocket) {
+				websocket.close();
 				websocket.removeEventListener(WebSocketEvent.OPEN, handleWebSocketOpen);
 				websocket.removeEventListener(WebSocketEvent.MESSAGE, handleWebSocketMessage);
 				websocket.removeEventListener(WebSocketEvent.ERROR,onWebSocketConnectError);
 				websocket.removeEventListener(WebSocketEvent.CLOSE,onWebSocketClose);
-				websocket.close();
 				websocket = null;
 			}
 		}
@@ -73,6 +73,7 @@ package main.net
 			bytes.initFromArray(list);
 			var pos:Number;
 			var cmd:Number = bytes.readUIntV();
+			trace("[Receive]",cmd);
 			if(cmd == 0) {
 				var backCmd:Number = bytes.readUIntV();
 				var zbackList:Array = zbacks[backCmd];
@@ -155,7 +156,6 @@ package main.net
 		private var remotes:Object = {};
 		public function registerRemote(remote:RemoteBase):void {
 			remotes[remote.id] = remote;
-			
 		}
 		
 		public function removeRemote(remote:RemoteBase):void {

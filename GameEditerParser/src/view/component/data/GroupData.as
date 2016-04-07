@@ -1,5 +1,6 @@
 package view.component.data
 {
+	
 	import view.component.ComponentParser;
 	import view.events.GroupEvent;
 
@@ -10,8 +11,8 @@ package view.component.data
 		public function GroupData(type:String = "Group")
 		{
 			super(type);
-			this.width = 600;
-			this.height = 400;
+			this.width = 480;
+			this.height = 320;
 		}
 		
 		public function get numChildren():int {
@@ -74,6 +75,18 @@ package view.component.data
 			for(var i:int = 0; i < json.children.length; i++) {
 				var child:ComponentData = ComponentParser.getComponentDataByConfig(json.children[i]);
 				this.addChild(child);
+			}
+		}
+		
+		override public function run():void {
+			if(this._alginCount) {
+				for(var i:int = 0; i < this._children.length; i++) {
+					_children[i].resetAlgin();
+				}
+			}
+			super.countAlgin();
+			for(var i:int = 0; i < _children.length; i++) {
+				_children[i].run();
 			}
 		}
 	}

@@ -39,6 +39,16 @@ EDU（养成类）
 			
 		}
 		
+		public function getAllTypeOfRes(type:String):Vector.<DirectionDataBase> {
+			var arr:Vector.<DirectionDataBase> = new Vector.<DirectionDataBase>();
+			for(var i:int = 0; i < list.length; i++) {
+				if(list[i].dataType == type) {
+					arr.push(list[i]);
+				}
+			}
+			return arr;
+		}
+		
 		/**
 		 * 通过相对目录返回本机绝对目录
 		 */

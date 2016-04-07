@@ -18,6 +18,13 @@
     <classEntry path="main.events.ToolBarEvent"/>
     <classEntry path="main.model.ModelBase"/>
     <classEntry path="utils.PNGDecoder"/>
+    <classEntry path="main.Global"/>
+    <classEntry path="main.data.parsers.command.Command"/>
+    <classEntry path="main.data.parsers.command.AttributeEXE"/>
+    <classEntry path="main.data.parsers.command.FunctionEXE"/>
+    <classEntry path="main.data.parsers.command.Execute"/>
+    <classEntry path="main.data.parsers.command.EventEXE"/>
+    <classEntry path="NodeJS"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

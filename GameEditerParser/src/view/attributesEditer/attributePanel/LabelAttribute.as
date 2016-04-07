@@ -1,15 +1,17 @@
 package view.attributesEditer.attributePanel
 {
+	import main.data.parsers.ReaderBase;
+	
 	import view.attributesEditer.attributes.TextAttribute;
 	import view.component.data.LabelData;
 
 	public class LabelAttribute extends AttributePanelBase
 	{
-		public function LabelAttribute(data:LabelData)
+		public function LabelAttribute(data:LabelData,reader:ReaderBase)
 		{
-			super(data);
+			super(data,reader);
 			
-			var text:TextAttribute = new TextAttribute(data);
+			var text:TextAttribute = new TextAttribute(data,reader);
 			text.y = startY;
 			this.addElement(text);
 			startY += text.height + 10;

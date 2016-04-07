@@ -2,7 +2,6 @@ package ParserLoadModel
 {
 	import flash.display.Loader;
 	import flash.display.LoaderInfo;
-	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.filesystem.File;
 	import flash.net.URLRequest;
@@ -25,7 +24,7 @@ package ParserLoadModel
 		public function ParserLoadModel()
 		{
 //			NetWaitingPanel.show("加载模块");
-			EventMgr.ist.addEventListener(ToolBarEvent.CLICK,onClickToolBar);
+//			EventMgr.ist.addEventListener(ToolBarEvent.CLICK,onClickToolBar);
 		}
 		
 		private function onClickToolBar(e:ToolBarEvent):void {
@@ -39,6 +38,10 @@ package ParserLoadModel
 			
 			index = 0;
 //			setTimeout(loadNextParser,0);
+		}
+		
+		override public function get modelName():String {
+			return "ParserLoadModel";
 		}
 		
 		private var load:Loader;

@@ -11,6 +11,7 @@ package main.data
 
 	public class ToolData
 	{
+		public var userName:String;
 		private var configURL:String = "configs/config.txt";
 		public var server:*;
 		public var mobile:MobileData = new MobileData();

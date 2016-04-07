@@ -16,7 +16,8 @@ package view.component
 			super(data);
 			
 			this.selfContainer.addElement(image = new UIAsset(ToolData.getInstance().project.getResURL(data.url)));
-			
+			image.scaleX = data.scaleX;
+			image.scaleY = data.scaleY;
 			if(data.width == 0) this.selctedShow.width = this.editerShow.width = 100;
 			if(data.height == 0) this.selctedShow.height = this.editerShow.height = 100;
 		}
@@ -25,6 +26,8 @@ package view.component
 			super.onPropertyChange(e);
 			switch(e.type) {
 				case "url": image.source = ToolData.getInstance().project.getResURL(e.value); break;
+				case "scaleX": image.scaleX = e.value; break;
+				case "scaleY": image.scaleY = e.value; break;
 			}
 			if(data.width == 0) this.selctedShow.width = this.editerShow.width = 100;
 			if(data.height == 0) this.selctedShow.height = this.editerShow.height = 100;

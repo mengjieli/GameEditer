@@ -19,6 +19,8 @@ package view.component
 			label.text = data.text;
 			label.textColor = data.color;
 			label.size = data.size;
+			label.width = data.width;
+			label.height = data.height;
 			
 			this.data.addEventListener("text",onPropertyChange);
 		}
@@ -27,6 +29,10 @@ package view.component
 			super.onPropertyChange(e);
 			switch(e.type) {
 				case "text": label.text = e.value; break;
+				case "width": label.width = e.value; break;
+				case "height": label.height = e.value; break;
+				case "scaleX": label.scaleX = e.value; break;
+				case "scaleY": label.scaleY = e.value; break;
 			}
 		}
 		

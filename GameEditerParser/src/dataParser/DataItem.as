@@ -27,6 +27,10 @@ package dataParser
 			return _desc;
 		}
 		
+		public function get nameDesc():String {
+			return _desc!=""?_desc:_name;
+		}
+		
 		public function set type(val:String):void {
 			_type = val;
 		}

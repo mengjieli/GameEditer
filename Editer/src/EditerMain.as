@@ -68,6 +68,7 @@ package
 			application.title="";
 			this.addElement(application);
 			
+			ToolData.getInstance().server = new Server();
 			
 			//启动控制器
 			new SystemController().start(application);
@@ -88,8 +89,7 @@ package
 		}
 		
 		private function start(e:Event):void {
-			var server:Server = new Server();
-			ToolData.getInstance().server = server;
+			var server:Server = ToolData.getInstance().server;
 			var init:Boolean = false;
 			flash.utils.setTimeout(function():void{
 				server.connect(ToolData.getInstance().getConfigValue("ip","server"),ToolData.getInstance().getConfigValue("port","server"));
@@ -117,7 +117,7 @@ package
 				
 				server.addEventListener(WebSocketEvent.ERROR,function(e:WebSocketEvent):void {
 					Alert.show("与服务器的连接出错 " + server.ip + ":" + server.port + "\n" + e.message,"错误",null,function():void{
-						NativeApplication.nativeApplication.exit();
+						flash.desktop.NativeApplication.nativeApplication.exit();
 					},"确定");
 					//					server.connect(ToolData.getInstance().getConfigValue("ip","server"),ToolData.getInstance().getConfigValue("port","server"));
 					//					NetWaitingPanel.show("链接服务器中 ... " + server.ip + ":" + server.port);

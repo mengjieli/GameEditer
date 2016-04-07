@@ -1,5 +1,7 @@
 package view.component.data
 {
+	import flash.events.Event;
+	
 	import view.events.ComponentAttributeEvent;
 
 	public class RootPanelData extends PanelData
@@ -14,12 +16,17 @@ package view.component.data
 		 */
 		private var _sizeType:int = 0;
 		
+		/**
+		 * 传入的数据结构
+		 */
+		private var _data:String = "";
 		
 		public function RootPanelData(type:String = "RootPanel")
 		{
 			super(type);
-			this.width = 960;
-			this.height = 640
+			_editerFlag = false;
+			this.width = 640;
+			this.height = 480
 		}
 		
 		public function set sizeType(val:int):void {
@@ -31,15 +38,35 @@ package view.component.data
 			return this._sizeType;
 		}
 		
+		public function get data():String {
+			return _data;
+		}
+		
+		public function set data(val:String):void {
+			_data = val;
+			this.dispatchEvent(new ComponentAttributeEvent("data",val));
+		}
+		
 		override public function encode():Object {
 			var json:Object = super.encode();
 			json.sizeType = sizeType;
+			if(data != "") json.data = data;
 			return json;
 		}
 		
 		override public function parser(json:Object):void {
 			super.parser(json);
 			this.sizeType = json.sizeType;
+			this.data = json.data||"";
+			this._alginCount = false;
+		}
+		
+		override public function dispatchEvent(event:Event):Boolean {
+			var bool:Boolean = super.dispatchEvent(event);
+			if(event.type != ComponentAttributeEvent.CHILD_ATTRIBUTE_CHANGE) {
+				this.dispatchEvent(new ComponentAttributeEvent(ComponentAttributeEvent.CHILD_ATTRIBUTE_CHANGE,null));
+			}
+			return bool;
 		}
 	}
 }

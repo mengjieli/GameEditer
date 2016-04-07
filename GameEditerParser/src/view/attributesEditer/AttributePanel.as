@@ -1,8 +1,11 @@
 package view.attributesEditer
 {
+	import flash.utils.setTimeout;
+	
 	import egret.components.Group;
 	import egret.ui.components.TabPanel;
 	
+	import main.data.parsers.ReaderBase;
 	import main.events.EventMgr;
 	
 	import view.attributesEditer.attributePanel.GroupAttribute;
@@ -18,9 +21,13 @@ package view.attributesEditer
 	public class AttributePanel extends TabPanel
 	{
 		private var container:Group;
+		private var readyShowData:ComponentData;
+		private var showData:ComponentData;
+		private var reader:ReaderBase;
 		
-		public function AttributePanel()
+		public function AttributePanel(reader:ReaderBase)
 		{
+			this.reader = reader;
 			this.title = "属性";
 			this.addElement(container = new Group());
 			container.percentWidth = 100;
@@ -33,25 +40,35 @@ package view.attributesEditer
 		}
 		
 		private function onShowComponentAttributes(e:EditeComponentEvent):void {
-			container.removeAllElements();
 			var data:ComponentData = e.component;
+			readyShowData = data;
+			setTimeout(this.changeShowData,0);
+		}
+		
+		private function changeShowData():void {
+			var data:ComponentData = this.readyShowData;
+			if(data == showData) {
+				return;
+			}
+			container.removeAllElements();
 			switch(data.type) {
 				case "Label":
-					container.addElement(new LabelAttribute(data as LabelData));
+					container.addElement(new LabelAttribute(data as LabelData,reader));
 					break;
 				case "Image":
-					container.addElement(new ImageAttribute(data as ImageData));
+					container.addElement(new ImageAttribute(data as ImageData,reader));
 					break;
 				case "Group":
-					container.addElement(new GroupAttribute(data));
+					container.addElement(new GroupAttribute(data,reader));
 					break;
 				case "Panel":
-					container.addElement(new PanelAttribute(data));
+					container.addElement(new PanelAttribute(data,reader));
 					break;
 				case "RootPanel":
-					container.addElement(new RootPanelAttribute(data));
+					container.addElement(new RootPanelAttribute(data,reader));
 					break;
 			}
+			showData = data;
 		}
 	}
 }

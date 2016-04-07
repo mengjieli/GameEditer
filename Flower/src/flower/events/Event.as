@@ -8,11 +8,26 @@ package flower.events
 		public var $target:* = null;
 		public var $currentTarget:* = null;
 		public var data:*;
+		private var _isPropagationStopped:Boolean = false;
 		
 		public function Event(type:String,bubbles:Boolean=false)
 		{
 			this.$type = type;
 			$bubbles = bubbles;
+		}
+		
+		/**
+		 * 停止向上传递
+		 */
+		public function stopPropagation():void {
+			_isPropagationStopped = true;
+		}
+		
+		/**
+		 * 事件是否已经停止向上传递
+		 */
+		public function get isPropagationStopped():Boolean {
+			return _isPropagationStopped;
 		}
 		
 		public function get type():String {
@@ -34,7 +49,13 @@ package flower.events
 			return $currentTarget;
 		}
 		
+		public static const READY:String = "ready";
 		public static const COMPLETE:String = "complete";
+		public static const ADD:String = "add";
+		public static const REMOVE:String = "remove";
+		public static const CONNECT:String = "connect";
+		public static const CLOSE:String = "close";
+		public static const ERROR:String = "error";
 		
 		private static var _eventPool:Vector.<Event> = new Vector.<Event>();
 		

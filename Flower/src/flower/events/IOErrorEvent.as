@@ -4,7 +4,9 @@ package flower.events
 	{
 		public static const ERROR:String = "error";
 		
-		public function IOErrorEvent(type:String)
+		public var message:String;
+		
+		public function IOErrorEvent(type:String,message:String)
 		{
 			super(type);
 		}

@@ -13,6 +13,7 @@ package main.model.loginModel
 		{
 			var loginName:String = ToolData.getInstance().getConfigValue("loginUser");
 			var loginPassword:String = ToolData.getInstance().getConfigValue("loginPassword");
+			ToolData.getInstance().userName = loginName;
 			if(!loginName || loginName == "") {
 				new LoginPanel().open(false);
 			} else {

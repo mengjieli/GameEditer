@@ -1,11 +1,15 @@
 package view.attributesEditer.attributes
 {
 	import flash.events.Event;
+	import flash.events.FocusEvent;
+	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	
 	import egret.components.Label;
 	import egret.ui.components.TextInput;
 	
+	import main.data.parsers.ReaderBase;
+	import main.data.parsers.command.AttributeEXE;
 	import main.events.EventMgr;
 	
 	import view.component.data.ComponentData;
@@ -16,9 +20,9 @@ package view.attributesEditer.attributes
 	{
 		private var nameTxt:TextInput;
 		
-		public function BaseAttribute(data:ComponentData)
+		public function BaseAttribute(data:ComponentData,reader:ReaderBase)
 		{
-			super("基本信息");
+			super("基本信息",reader);
 			
 			var label:Label = new Label();
 			label.text = "类型:";
@@ -66,16 +70,29 @@ package view.attributesEditer.attributes
 			nameTxt.y = 50;
 			this.addElement(nameTxt);
 			nameTxt.text = data.name;
-			nameTxt.addEventListener(Event.CHANGE,function(e:Event):void {
+			nameTxt.addEventListener(KeyboardEvent.KEY_DOWN,function(e:KeyboardEvent):void {
+				if(e.keyCode == 13) {
+					var val:* = data.name;
+					data.name = nameTxt.text;
+					if(val != data.name) {
+						reader.pushCommand(new AttributeEXE(data,"name",val));
+					}
+				}
+			});
+			nameTxt.addEventListener(FocusEvent.FOCUS_OUT,function(e:Event):void {
+				var val:* = data.name;
 				data.name = nameTxt.text;
+				if(val != data.name) {
+					reader.pushCommand(new AttributeEXE(data,"name",val));
+				}
 			});
 			var nameFunc:Function = function(e:ComponentAttributeEvent):void {
 				nameTxt.text = data.name;
 			}
 			data.addEventListener("name",nameFunc);
-			this.addEventListener(Event.REMOVED_FROM_STAGE,function(e:Event):void {
-				data.removeEventListener("name",nameFunc);
-			});
+//			this.addEventListener(Event.REMOVED_FROM_STAGE,function(e:Event):void {
+//				data.removeEventListener("name",nameFunc);
+//			});
 			
 			this.height = 75;
 			

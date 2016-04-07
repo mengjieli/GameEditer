@@ -18,6 +18,9 @@ package flower.events
 		}
 		
 		private function _addListener(type:String, listener:Function, thisObject:*,once:Boolean):void {
+			if(!_events) {
+				return;
+			}
 			if(!_events[type]) {
 				_events[type] = [];
 			}
@@ -36,6 +39,9 @@ package flower.events
 		}
 		
 		public function removeListener(type:String,listener:Function,thisObject:*):void {
+			if(!_events) {
+				return;
+			}
 			var list:Array = _events[type];
 			if(!list) {
 				return;
@@ -55,6 +61,9 @@ package flower.events
 		}
 		
 		public function hasListener(type:String):Boolean {
+			if(!_events) {
+				return false;
+			}
 			var list:Array = _events[type];
 			if(!list) {
 				return false;
@@ -68,6 +77,9 @@ package flower.events
 		}
 		
 		public function dispatch(event:Event):void {
+			if(!_events) {
+				return;
+			}
 			var list:Array = _events[event.type];
 			if(!list) {
 				return;
@@ -75,7 +87,7 @@ package flower.events
 			for(var i:int = 0,len:int = list.length; i < len; i++) {
 				if(list[i].del == false) {
 					var listener:Function = list[i].listener;
-					var thisObj:* = list[i].thisObj;
+					var thisObj:* = list[i].thisObject;
 					if(event.$target == null) {
 						event.$target = this;
 					}
@@ -97,6 +109,9 @@ package flower.events
 		}
 		
 		public function dispatchWidth(type:String,data:*=null):void {
+			if(!_events) {
+				return;
+			}
 			var e:Event = Event.create(type,data);
 			this.dispatch(e);
 		}

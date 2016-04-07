@@ -1,6 +1,7 @@
 package view
 {
 	import flash.events.Event;
+	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	import flash.geom.Rectangle;
 	
@@ -10,9 +11,14 @@ package view
 	
 	import extend.ui.DragManager;
 	
+	import main.data.parsers.ReaderBase;
+	import main.data.parsers.command.AttributeEXE;
+	import main.data.parsers.command.EventEXE;
+	import main.data.parsers.command.FunctionEXE;
 	import main.events.EventMgr;
 	
 	import view.component.ComponentBase;
+	import view.component.ComponentParser;
 	import view.component.Panel;
 	import view.component.data.ComponentData;
 	import view.component.data.GroupData;
@@ -34,11 +40,14 @@ package view
 		private var container:Group;
 		private var viewPanel:Panel;
 		private var viewData:ViewData;
-		private var selectComponent:ComponentData;
+		private var selectComponent:GroupData;
 		private var editedComponent:ComponentData;
+		private var reader:ReaderBase;
 		
-		public function ViewEditePanel()
+		public function ViewEditePanel(reader:ReaderBase)
 		{
+			this.reader = reader;
+			
 			backGround = new UIAsset();
 			backGround.source = "assets/bg/viewBg.png";
 			backGround.fillMode = BitmapFillMode.SCALE;
@@ -80,6 +89,37 @@ package view
 			this.addEventListener(MouseEvent.MOUSE_UP,onMouseEvent);
 			DragManager.getInstance().addEventListener(DragManager.START_DRAG,onMouseEvent);
 			EventMgr.ist.addEventListener(EditeComponentEvent.EDITE_COMPOENET,this.onEditerComponent);
+			reader.addEventListener(KeyboardEvent.KEY_DOWN,onKeyDown);
+		}
+		
+		private function onKeyDown(e:KeyboardEvent):void {
+			var len:int = reader.commandLength;
+			if(e.keyCode == 46 || (e.keyCode == 88 && e.ctrlKey == true && e.shiftKey == false && e.altKey == false) ) { //删除 //剪切
+				var data:ComponentData = this.editedComponent;
+				var parent:GroupData = this.editedComponent.parent;
+				if(parent) {
+					EventMgr.ist.dispatchEvent(new EditeComponentEvent(EditeComponentEvent.EDITE_COMPOENET,parent));
+					parent.removeChild(data);
+					reader.pushCommand(new FunctionEXE(parent,parent.addChild,[data]));
+				}
+				if(e.keyCode == 88) { //剪切
+					ViewParser.paste = data.encode();
+				}
+			}
+			if(e.keyCode == 67 && e.ctrlKey == true && e.shiftKey == false && e.altKey == false) { //copy
+				var val:* = ViewParser.paste;
+				var cfg:Object = this.editedComponent.encode();
+				ViewParser.paste = cfg;
+				reader.pushCommand(new AttributeEXE(ViewParser,"paste",val));
+			}
+			if(e.keyCode == 86 && e.ctrlKey == true && e.shiftKey == false && e.altKey == false) { //粘贴
+				if(ViewParser.paste) {
+					var compoent:ComponentData = ComponentParser.getComponentDataByConfig(ViewParser.paste);
+					reader.pushCommand(new FunctionEXE(selectComponent,selectComponent.removeChild,[compoent]));
+					this.selectComponent.addChild(compoent);
+				}
+			}
+			reader.memgerCommandTo(len+1);
 		}
 		
 //		private function onCreateComplete(e:UIEvent):void {
@@ -109,6 +149,7 @@ package view
 		private var dragMove:Boolean;
 		private var setDragComponentSelected:Boolean;
 		private function onMouseEvent(e:Event):void {
+			var len:int = reader.commandLength;
 			switch(e.type) {
 				case DragManager.START_DRAG:
 					if(dragNew == false && DragManager.isDraging && DragManager.type == "Component" && this.mouseX >= 0 && this.mouseX < this.width && this.mouseY >= 0 && this.mouseY < this.height) {
@@ -211,10 +252,13 @@ package view
 									selectComponent.selected = false;
 									selectComponent = null;
 								}
-								this.selectComponent = dragComponent;
+								this.selectComponent = dragComponent as GroupData;
 								this.selectComponent.selected = true;
 							}
 							editerComponent(dragComponent);
+						}
+						if(editedComponent.x != this.dragStartX || editedComponent.y != this.dragStartY) {
+							reader.pushCommand(new AttributeEXE(dragComponent,"x",this.dragStartX),new AttributeEXE(dragComponent,"y",this.dragStartY));
 						}
 					}
 					if(dragContainer) {
@@ -232,6 +276,7 @@ package view
 					}
 					break;
 			}
+			reader.memgerCommandTo(len+1);
 		}
 		
 		/**
@@ -248,8 +293,10 @@ package view
 					data.y -= group.y;
 					group = group.parent;
 				}
+				reader.pushCommand(new FunctionEXE((this.selectComponent as GroupData),(this.selectComponent as GroupData).removeChild,[data]));
 				(this.selectComponent as GroupData).addChild(data);
 			} else {
+				reader.pushCommand(new FunctionEXE(this.viewData.panel,this.viewData.panel.removeChild,[data]));
 				this.viewData.panel.addChild(data);
 			}
 			editerComponent(data);
@@ -264,7 +311,11 @@ package view
 		
 		private function onEditerComponent(e:EditeComponentEvent):void {
 			if(editedComponent) {
+				if(editedComponent == e.component) {
+					return;
+				}
 				editedComponent.inediter = false;
+				this.reader.pushCommand(new EventEXE(EventMgr.ist,new EditeComponentEvent(EditeComponentEvent.EDITE_COMPOENET,editedComponent)));
 			}
 			this.editedComponent = e.component;
 			this.editedComponent.inediter = true;

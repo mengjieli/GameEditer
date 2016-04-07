@@ -4,18 +4,25 @@ package view
 	import main.data.parsers.ReaderBase;
 	
 	import view.attributesEditer.ComponentAttributeEditerPanel;
+	import view.dataView.ViewDataTabGroup;
 
 	public class ViewReader extends ReaderBase
 	{
+		private var dataView:ViewDataTabGroup;
 		private var toolBar:ViewEditerToolBar;
 		private var editer:ViewEditePanel;
 		private  var attribute:ComponentAttributeEditerPanel;
 		
 		public function ViewReader()
 		{
+			dataView = new ViewDataTabGroup();
+			this.addElement(dataView);
+			dataView.width = 200;
+			dataView.percentHeight = 100;
+			
 			toolBar = new ViewEditerToolBar();
 			this.addElement(toolBar);
-			this.toolBar.left = 0;
+			this.toolBar.left = 200;
 			this.toolBar.right = 300;
 			toolBar.height = 24;
 			toolBar.dataProvider=new XMLList(
@@ -30,14 +37,14 @@ package view
 				+ '<node  type="spliter"/>'
 			);
 			
-			this.editer = new ViewEditePanel();
-			this.editer.left = 0;
+			this.editer = new ViewEditePanel(this);
+			this.editer.left = 200;
 			this.editer.right = 300;
 			this.editer.top = 24;
 			this.editer.bottom = 0;
 			this.addElement(this.editer);
 			
-			this.attribute = new ComponentAttributeEditerPanel();
+			this.attribute = new ComponentAttributeEditerPanel(this);
 			this.attribute.width = 300;
 			this.attribute.right = 0;
 			this.attribute.top = 0;
@@ -51,6 +58,7 @@ package view
 			this.icon = d.fileIcon;
 			var viewData:ViewData = d as ViewData;
 			this.editer.showView(viewData);
+			this.dataView.showView(viewData);
 			//			trace(ToolData.getInstance().project.getResURL(d.url));
 		}
 	}
