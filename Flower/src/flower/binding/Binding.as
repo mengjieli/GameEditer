@@ -2,6 +2,7 @@ package flower.binding
 {
 	import flower.binding.compiler.Compiler;
 	import flower.binding.compiler.structs.Expr;
+	import flower.tween.Tween;
 
 	public class Binding
 	{
@@ -29,7 +30,7 @@ package flower.binding
 								exprs.push(content.slice(lastEnd,i));
 								lastEnd = j + 1;
 							}
-							var expr:Expr = Compiler.parserExpr(content.slice(i+1,j),property,checks,list,thisObj);
+							var expr:Expr = Compiler.parserExpr(content.slice(i+1,j),property,checks,{"this":thisObj},{"Tween":Tween},list,thisObj);
 							exprs.push(expr);
 							i = j;
 							break;
