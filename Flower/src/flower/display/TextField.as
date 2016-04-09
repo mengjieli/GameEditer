@@ -25,6 +25,7 @@ package flower.display
 			height = 100;
 			_setSize(_TextField[0]);
 			_setColor(_TextField[1]);
+			_nativeClass = "TextField";
 		}
 		
 		private function _setSize(val:uint):void {
@@ -109,8 +110,8 @@ package flower.display
 		}
 		
 		override public function dispose():void {
-			text = "";
 			super.dispose();
+			text = "";
 		}
 		///////////////////////////////////set & get/////////////////////////////
 		public function get size():uint {

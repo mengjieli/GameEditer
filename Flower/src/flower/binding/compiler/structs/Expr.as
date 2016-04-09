@@ -37,6 +37,21 @@ package flower.binding.compiler.structs
 		}
 		
 		public function getValue():* {
+			if(type == "Atr") {
+				return expr1.getValue();
+			}
+			if(type == "int") {
+				return expr1;
+			}
+			if(type == "0xint") {
+				return expr1;
+			}
+			if(type == "number") {
+				return expr1;
+			}
+			if(type == "boolean") {
+				return expr1;
+			}
 			if(type == "+a") {
 				return expr1.getValue();
 			}
@@ -114,21 +129,6 @@ package flower.binding.compiler.structs
 			}
 			if(type == "?:") {
 				return expr1.getValue()?expr2.getValue():expr3.getValue();
-			}
-			if(type == "Atr") {
-				return expr1.getValue();
-			}
-			if(type == "int") {
-				return expr1;
-			}
-			if(type == "0xint") {
-				return expr1;
-			}
-			if(type == "number") {
-				return expr1;
-			}
-			if(type == "boolean") {
-				return expr1;
 			}
 			return null;
 		}

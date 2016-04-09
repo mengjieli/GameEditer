@@ -5,6 +5,8 @@ package
 	import flower.Engine;
 	import flower.res.Res;
 	
+	import test.TestCase;
+	
 	[SWF(width="960",height="640")]
 	public class Flower extends flash.display.Sprite
 	{
@@ -19,7 +21,8 @@ package
 				Res.localURL = "";
 			}
 			new Engine();
-			Engine.getInstance().showDebugTool();
+//			Engine.getInstance().showDebugTool();
+			new TestCase();
 		}
 	}
 }

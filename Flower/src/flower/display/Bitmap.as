@@ -1,6 +1,5 @@
 package flower.display
 {
-	import flower.debug.DebugInfo;
 	import flower.texture.Texture2D;
 
 	public class Bitmap extends DisplayObject
@@ -12,6 +11,7 @@ package flower.display
 		{
 			_show = System.getNativeShow("Bitmap");
 			this.texture = texture;
+			_nativeClass = "Bitmap";
 		}
 		
 		protected function _setTexture(val:Texture2D):void {

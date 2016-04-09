@@ -173,7 +173,6 @@ package
 				var show:* = nativeShows[className].pop();
 				return show;
 			}
-			trace("[New native show]",className);
 			if(className == "DisplayObjectContainer") {
 				return new Sprite();
 			}

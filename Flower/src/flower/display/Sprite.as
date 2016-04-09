@@ -12,6 +12,7 @@ package flower.display
 		{
 			super();
 			_show = System.getNativeShow("DisplayObjectContainer");
+			_nativeClass = "DisplayObjectContainer";
 		}
 		
 		/**

@@ -24,6 +24,7 @@ package flower.display
 		protected var _displayFlags:uint;
 		protected var _stage:Stage;
 		protected var _nestLevel:uint = 0;
+		protected var _nativeClass:String;
 		protected var _show:*;
 		protected static var showProperty:Object = System.DisplayObject;
 		
@@ -230,6 +231,10 @@ package flower.display
 		//////////////////////////属性//////////////////////////////
 		public function get id():int {
 			return _id;
+		}
+		
+		public function get nativeClass():String {
+			return _nativeClass;
 		}
 		
 		public function get name():String {

@@ -98,6 +98,9 @@ package flower.binding.compiler.structs
 					} else if(list[i].type == "call") {
 						atr = atr.apply(lastAtr,(list[i].val as CallParams).getValueList());
 					}
+					if(i < this.list.length - 1 && this.list[i+1].type == "call") {
+						continue;
+					}
 					lastAtr = atr;
 				} catch(e) {
 					return null;

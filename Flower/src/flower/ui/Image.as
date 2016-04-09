@@ -3,12 +3,11 @@ package flower.ui
 	import flower.Engine;
 	import flower.binding.Binding;
 	import flower.data.DataManager;
+	import flower.data.member.StringValue;
 	import flower.debug.DebugInfo;
 	import flower.display.Bitmap;
 	import flower.events.Event;
 	import flower.net.URLLoader;
-	import flower.res.Res;
-	import flower.res.ResTexture;
 	import flower.texture.Texture2D;
 	import flower.utils.Formula;
 
@@ -19,9 +18,11 @@ package flower.ui
 		
 		public function Image(source:*=null)
 		{
+			super();
 			if(source) {
 				this.setSource(source);
 			}
+			_nativeClass = "UI";
 		}
 		
 		private function setSource(val:*):void {
@@ -60,20 +61,7 @@ package flower.ui
 		}
 		
 		/////////////////////////////////////////Component/////////////////////////////////////////
-		/**顶端对齐方式，可选 top bottom 或者 空字符串**/
-		private var _topAlgin:String = "";
-		private var _bottomAlgin:String = "";
-		private var _top:Number = 0;
-		private var _bottom:Number = 0;
-		/**左端对齐方式，可选 left right 或者 空字符串**/
-		private var _leftAlgin:String = "";
-		private var _rightAlgin:String = "";
-		private var _left:Number = 0;
-		private var _right:Number = 0;
-		//占据父类尺寸，如果同时设置了 top 和 bottom 则以 top 和 bottom 为准
-		private var _percentWidth:Number = -1;
-		private var _percentHeight:Number = -1;
-		//bingdings
+		//////////////////////bingdings
 		private var _binds:Object = {};
 		
 		public function bindProperty(property:String,content:String):void {
@@ -83,16 +71,57 @@ package flower.ui
 			_binds[property] = new Binding(this,[this,DataManager.ist,Formula,Engine.global],property,content);
 		}
 		
-		public function hasBindProperty(property:String):Boolean {
-			return _binds[property]?true:false;
-		}
-		
 		public function removeBindProperty(property:String):void {
 			if(_binds[property]) {
 				_binds[property].dispose();
 				delete _binds[property];
 			}
 		}
+		
+		//////////////////////state
+		public var $state:StringValue = new StringValue();
+		public function get currentState():String {
+			return $state.value;
+		}
+		
+		public function set currentState(val:String):void {
+			if($state.value == val) {
+				return;
+			}
+			$state.value = val;
+		}
+		
+		private var _propertyValues:Object = {};
+		public function setStatePropertyValue(property:String,state:String,val:String):void {
+			if(!_propertyValues[property]) {
+				_propertyValues[property] = {};
+			}
+			_propertyValues[property][state] = val;
+		}
+		
+		public function changeState(state:String):String {
+			for(var property:String in _propertyValues) {
+				if(_propertyValues[property][state]) {
+					this.removeBindProperty(property);
+					this.bindProperty(property,_propertyValues[property][state]);
+				}
+			}
+			return currentState;
+		}
+		//////////////////////layout
+		/**顶端对齐方式，可选 top bottom 或者 空字符串**/
+		private var _topAlgin:String = "";
+		private var _bottomAlgin:String = "";
+		/**左端对齐方式，可选 left right 或者 空字符串**/
+		private var _leftAlgin:String = "";
+		private var _rightAlgin:String = "";
+		private var _top:Number = 0;
+		private var _bottom:Number = 0;
+		private var _left:Number = 0;
+		private var _right:Number = 0;
+		//占据父类尺寸，如果同时设置了 top 和 bottom 则以 top 和 bottom 为准
+		private var _percentWidth:Number = -1;
+		private var _percentHeight:Number = -1;
 		
 		public function get topAlgin():String {
 			return _topAlgin;
