@@ -11,6 +11,7 @@ package
 	import flash.net.URLRequest;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
+	import flash.text.TextFormat;
 	import flash.utils.ByteArray;
 	
 	import net.gimite.websocket.WebSocket;
@@ -248,9 +249,7 @@ package
 		private static var $mesureTxt:flash.text.TextField = new flash.text.TextField();
 		public static var TextField:Object = {
 			"color":{"atr":"textColor"},
-			"size":{"exe":function(txt:flash.text.TextField,size:uint):void {
-				txt.defaultTextFormat.size = size;
-			}},
+			"size":{},
 			"resetText":function(txt:flash.text.TextField, text:String, width:uint, height:uint, size:uint, wordWrap:Boolean, multiline:Boolean, autoSize:Boolean):void {
 //				txt.text = text; return;
 				
@@ -261,11 +260,13 @@ package
 				var txtText:String = "";
 				var start:uint = 0;
 				var line:int = 0;
+				var format:TextFormat = new TextFormat(null,size,txt.textColor);
 				for(var i:int = 0; i < text.length; i++) {
 					//取一行文字进行处理
 					if(text.charAt(i) == "\n" || text.charAt(i) == "\r" || i == text.length-1) {
 						var str:String = text.slice(start,i);
 						$mesureTxt.text = str;
+						$mesureTxt.setTextFormat(format);
 						var lineWidth:uint = $mesureTxt.textWidth;
 						var findEnd:uint = i;
 						var changeLine:Boolean = false;
@@ -274,6 +275,7 @@ package
 							changeLine = true;
 							findEnd--;
 							$mesureTxt.text = text.slice(start,findEnd + (i == text.length-1?1:0));
+							$mesureTxt.setTextFormat(format);
 							lineWidth = $mesureTxt.textWidth;
 						}
 						if(wordWrap && changeLine) {
@@ -282,6 +284,7 @@ package
 						} else {
 							txt.text = txtText + text.slice(start,findEnd + (i == text.length-1?1:0));
 						}
+						txt.setTextFormat(format);
 						//如果文字的高度已经大于设定的高，回退一次
 						if(!autoSize && txt.textHeight > height) {
 							txt.text = txtText;
@@ -299,6 +302,7 @@ package
 						line++;
 					}
 				}
+				txt.setTextFormat(format);
 			},
 			"mesure":function(txt:flash.text.TextField):Object{
 				return {"width":txt.textWidth,"height":txt.textHeight};
