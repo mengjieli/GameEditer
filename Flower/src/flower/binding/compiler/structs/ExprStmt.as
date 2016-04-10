@@ -13,8 +13,12 @@ package flower.binding.compiler.structs
 		/**
 		 * 需要检查的属性在哪里,比如在 this 中，或者在 DataManager 中
 		 */
-		public function checkPropertyBinding(checks:Array,commonInfo:Object):void {
-			this.expr.checkPropertyBinding(checks,commonInfo);
+		public function checkPropertyBinding(commonInfo:Object):void {
+			this.expr.checkPropertyBinding(commonInfo);
+		}
+		
+		public function getValue():* {
+			return expr.getValue();
 		}
 	}
 }

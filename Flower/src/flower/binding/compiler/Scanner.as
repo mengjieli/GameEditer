@@ -203,11 +203,11 @@ package flower.binding.compiler
 			switch (token)
 			{
 				case 1:return null;
-				case 35:return TokenType.Type["null"];
-				case 24:return TokenType.Type["as"];
-				case 25:return TokenType.Type["is"];
-				case 36:return TokenType.Type["true"];
-				case 37:return TokenType.Type["false"];
+				case 37:return TokenType.Type["null"];
+				case 26:return TokenType.Type["as"];
+				case 27:return TokenType.Type["is"];
+				case 38:return TokenType.Type["true"];
+				case 39:return TokenType.Type["false"];
 				case 3:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
 				case 4:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
 				case 5:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
@@ -219,39 +219,41 @@ package flower.binding.compiler
 				case 11:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
 				case 12:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
 				case 13:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
-				case 28:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
-				case 29:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
-				case 16:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
 				case 14:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
 				case 15:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
-				case 17:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
-				case 27:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
-				case 26:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
-				case 34:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
-				case 33:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
+				case 30:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
+				case 31:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
 				case 18:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
+				case 16:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
+				case 17:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
 				case 19:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
+				case 29:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
+				case 28:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
+				case 36:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
+				case 35:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
 				case 20:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
 				case 21:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
 				case 22:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
-				case 23:
-				case 40:this.commonInfo.tokenValue = content;return TokenType.Type["valueInt"];
-				case 31:this.commonInfo.tokenValue = content;return TokenType.Type["valueOxInt"];
-				case 30:this.commonInfo.tokenValue = content;return TokenType.Type["valueNumber"];
-				case 32:this.commonInfo.tokenValue = content;return TokenType.Type["valueString"];
+				case 23:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
+				case 24:this.commonInfo.tokenValue = content;return TokenType.Type["op"];
+				case 25:
+				case 42:this.commonInfo.tokenValue = content;return TokenType.Type["valueInt"];
+				case 33:this.commonInfo.tokenValue = content;return TokenType.Type["valueOxInt"];
+				case 32:this.commonInfo.tokenValue = content;return TokenType.Type["valueNumber"];
+				case 34:this.commonInfo.tokenValue = content;return TokenType.Type["valueString"];
 				case 2:
-				case 39:
-				case 42:
-				case 43:
+				case 41:
 				case 44:
 				case 45:
 				case 46:
 				case 47:
+				case 48:
 				case 49:
-				case 50:
 				case 51:
 				case 52:
-				case 53:this.commonInfo.tokenValue = installId(this.commonInfo,content);return TokenType.Type["id"];
+				case 53:
+				case 54:
+				case 55:this.commonInfo.tokenValue = installId(this.commonInfo,content);return TokenType.Type["id"];
 			}
 			return null;
 		}

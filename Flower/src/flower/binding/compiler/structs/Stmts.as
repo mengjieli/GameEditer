@@ -13,20 +13,30 @@ package flower.binding.compiler.structs
 			list.push(stmt);
 		}
 		
-		public function execute():* {
-			
+		public function addStmtAt(stmt:*,index:int):void {
+			list.splice(index,0,stmt);
 		}
 		
 		/**
 		 * 需要检查的属性在哪里,比如在 this 中，或者在 DataManager 中
 		 */
-		public function checkPropertyBinding(checks:Array,commonInfo:Object):void {
-			if(checks == null) {
-				return;
-			}
+		public function checkPropertyBinding(commonInfo:Object):void {
 			for(var i:int = 0; i < list.length; i++) {
-				this.list[i].checkPropertyBinding(checks,commonInfo);
+				this.list[i].checkPropertyBinding(commonInfo);
 			}
 		}
+		
+		public function getValue():* {
+			var value:*;
+			for(var i:int = 0; i < list.length; i++) {
+				if(i == 0) {
+					value = list[i].getValue();
+				} else {
+					list[i].getValue();
+				}
+			}
+			return value;
+		}
+		
 	}
 }

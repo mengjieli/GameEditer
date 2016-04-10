@@ -17,9 +17,9 @@ package flower.binding.compiler.structs
 			list.splice(index,0,expr);
 		}
 		
-		public function checkPropertyBinding(checks:Array,commonInfo:Object):void {
+		public function checkPropertyBinding(commonInfo:Object):void {
 			for(var i:int = 0; i < list.length; i++) {
-				list[i].checkPropertyBinding(checks,commonInfo);
+				list[i].checkPropertyBinding(commonInfo);
 			}
 		}
 		

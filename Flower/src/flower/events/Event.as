@@ -51,8 +51,10 @@ package flower.events
 		
 		public static const READY:String = "ready";
 		public static const COMPLETE:String = "complete";
-		public static const ADD:String = "add";
-		public static const REMOVE:String = "remove";
+		public static const ADDED:String = "added";
+		public static const REMOVED:String = "removed";
+		public static const ADDED_TO_STAGE:String = "added_to_stage";
+		public static const REMOVED_FROM_STAGE:String = "removed_from_stage";
 		public static const CONNECT:String = "connect";
 		public static const CLOSE:String = "close";
 		public static const ERROR:String = "error";

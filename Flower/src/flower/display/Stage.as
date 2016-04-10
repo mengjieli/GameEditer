@@ -44,13 +44,13 @@ package flower.display
 			
 			var target:DisplayObject = this.getMouseTarget(x,y,mouse.mutiply);
 			mouse.target = target;
-			target.addListener(Event.REMOVE,onMouseTargetRemove,this);
+			target.addListener(Event.REMOVED,onMouseTargetRemove,this);
 			
-			var event:TouchEvent = new TouchEvent(TouchEvent.TOUCH_BEGIN);
-			event.stageX = x;
-			event.stageY = y;
 			if(target)
 			{
+				var event:TouchEvent = new TouchEvent(TouchEvent.TOUCH_BEGIN);
+				event.stageX = x;
+				event.stageY = y;
 				event.$target = target;
 				event.touchX = Math.floor(target.touchX);
 				event.touchY = Math.floor(target.touchY);
@@ -72,21 +72,17 @@ package flower.display
 			}
 			if(mouse == null) return;
 			if(mouse.moveX == x && mouse.moveY == y) return;
-			
-			this.getMouseTarget(x,y,mouse.mutiply);
-			
+			var target:DisplayObject = this.getMouseTarget(x,y,mouse.mutiply);
 			mouse.moveX = x;
 			mouse.moveY = y;
-			
-			var target:DisplayObject = mouse.target;
-			
-			var eventList:Array;
-			var event:TouchEvent = new TouchEvent(TouchEvent.TOUCH_MOVE);
-			event.stageX = x;
-			event.stageY = y;
-			
+			if(target != mouse.target) {
+				return;
+			}
 			if(target)
 			{
+				var event:TouchEvent = new TouchEvent(TouchEvent.TOUCH_MOVE);
+				event.stageX = x;
+				event.stageY = y;
 				event.$target = target;
 				event.touchX = Math.floor(target.touchX);
 				event.touchY = Math.floor(target.touchY);
@@ -106,16 +102,22 @@ package flower.display
 				}
 			}
 			if(mouse == null) return;
-			
-			var target:DisplayObject = mouse.target;
-			
-			var eventList:Array;
-			var event:TouchEvent = new TouchEvent(TouchEvent.TOUCH_END);
-			event.stageX = x;
-			event.stageY = y;
-			
-			if(target)
+			var target:DisplayObject = this.getMouseTarget(x,y,mouse.mutiply);
+			var event:TouchEvent;
+			if(target == mouse.target)
 			{
+				event = new TouchEvent(TouchEvent.TOUCH_END);
+				event.stageX = x;
+				event.stageY = y;
+				event.$target = target;
+				event.touchX = Math.floor(target.touchX);
+				event.touchY = Math.floor(target.touchY);
+				target.dispatch(event);
+			} else {
+				target = mouse.target;
+				event = new TouchEvent(TouchEvent.TOUCH_RELEASE);
+				event.stageX = x;
+				event.stageY = y;
 				event.$target = target;
 				event.touchX = Math.floor(target.touchX);
 				event.touchY = Math.floor(target.touchY);

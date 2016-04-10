@@ -5,6 +5,7 @@ package flower.events
 		public static const TOUCH_BEGIN:String = "touch_begin";
 		public static const TOUCH_MOVE:String = "touch_move";
 		public static const TOUCH_END:String = "touch_end";
+		public static const TOUCH_RELEASE:String = "touch_release";
 		
 		public var touchX:int;
 		public var touchY:int;

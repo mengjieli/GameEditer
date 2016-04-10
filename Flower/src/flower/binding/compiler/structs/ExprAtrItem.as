@@ -9,6 +9,7 @@ package flower.binding.compiler.structs
 		 * id 
 		 * . .id
 		 * call 函数调用
+		 * object
 		 */
 		public var type:String;
 		public var val:*;
@@ -17,25 +18,6 @@ package flower.binding.compiler.structs
 		{
 			this.type = type;
 			this.val = val;
-		}
-		
-		public function print():String {
-			if(type == "()") {
-				return "(?)";
-			}
-			if(type == "string") {
-				return val;
-			}
-			if(type == "id") {
-				return this.val;
-			}
-			if(type == ".") {
-				return "." + val;
-			}
-			if(type == "call") {
-				return "(call?)";
-			}
-			return "[?" + type + ":" + val +"?]";
 		}
 	}
 }

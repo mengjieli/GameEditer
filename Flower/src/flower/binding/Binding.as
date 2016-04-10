@@ -2,13 +2,15 @@ package flower.binding
 {
 	import flower.binding.compiler.Compiler;
 	import flower.binding.compiler.structs.Expr;
+	import flower.binding.compiler.structs.Stmts;
+	import flower.tween.Ease;
 	import flower.tween.Tween;
 
 	public class Binding
 	{
 		private var singleValue:Boolean = false;
 		private var list:Array = [];
-		private var exprs:Array = [];
+		private var stmts:Array = [];
 		private var thisObj:*;
 		private var property:String;
 		
@@ -27,11 +29,11 @@ package flower.binding
 								singleValue = true;
 							}
 							if(lastEnd < i) {
-								exprs.push(content.slice(lastEnd,i));
+								stmts.push(content.slice(lastEnd,i));
 								lastEnd = j + 1;
 							}
-							var expr:Expr = Compiler.parserExpr(content.slice(i+1,j),property,checks,{"this":thisObj},{"Tween":Tween},list,thisObj);
-							exprs.push(expr);
+							var stmt:Stmts = Compiler.parserExpr(content.slice(i+1,j),checks,{"this":thisObj},{"Tween":Tween,"Ease":Ease},list);
+							stmts.push(stmt);
 							i = j;
 							break;
 						}
@@ -39,7 +41,7 @@ package flower.binding
 				}
 			}
 			if(lastEnd < content.length) {
-				exprs.push(content.slice(lastEnd,content.length));
+				stmts.push(content.slice(lastEnd,content.length));
 			}
 			this.thisObj = thisObj;
 			this.property = property;
@@ -61,14 +63,14 @@ package flower.binding
 		private function update(value:*=null,old:*=null):void {
 			if(this.singleValue) {
 				try {
-					thisObj[property] = exprs[0].getValue();
+					thisObj[property] = stmts[0].getValue();
 				} catch(e) {
 					thisObj[property] = null;
 				}
 			} else {
 				var str:String = "";
-				for(var i:int = 0; i < exprs.length; i++) {
-					var expr:* = exprs[i];
+				for(var i:int = 0; i < stmts.length; i++) {
+					var expr:* = stmts[i];
 					if(expr is Expr) {
 						try {
 							str += expr.getValue();

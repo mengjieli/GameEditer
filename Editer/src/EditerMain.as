@@ -6,6 +6,7 @@ package
 	import flash.events.Event;
 	import flash.events.NativeDragEvent;
 	import flash.filesystem.File;
+	import flash.text.TextField;
 	import flash.utils.setTimeout;
 	
 	import egret.components.Theme;
@@ -46,6 +47,17 @@ package
 		public function EditerMain()
 		{
 			ExtendGlobal.stage = stage;
+			
+			var txt:TextField = new TextField();
+			txt.addEventListener(Event.ADDED_TO_STAGE,function(e:Event):void{
+				trace("to stage");
+			});
+			txt.addEventListener(Event.ADDED,function(e:Event):void{
+				trace("added");
+			});
+			this.stage.addChild(txt);
+			trace("!");
+			
 			
 			AppLanguage.init(AppLanguage.LANGUAGE_CONFIG);
 			AppUpdater.start();

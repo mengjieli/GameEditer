@@ -36,18 +36,18 @@ package flower.ui
 			this.addListener(Event.ADDED,this.onEXEAdded,this);
 		}
 		
-		private var onAddedEXE:Stmts;
-		public function set onAdded(val:String):void {
-			if(val == "" || val == null) {
-				onAddedEXE = null;
-			} else {
-				onAddedEXE = Compiler.parserExpr(val,[this,DataManager.ist,Formula,Engine.global],{"this":this},{"Tween":Tween,"Ease":Ease},[]);
-			}
+		private var onAddedEXE:Function;
+		public function set onAdded(val:Function):void {
+			onAddedEXE = val;
+		}
+		
+		public function get onAdded():Function {
+			return onAddedEXE;
 		}
 		
 		private function onEXEAdded(e:Event):void {
 			if(onAddedEXE && e.target == this) {
-				onAddedEXE.getValue();
+				onAddedEXE.call(this);
 			}
 		}
 		

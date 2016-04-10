@@ -74,8 +74,10 @@ package flower.display
 			this._parent = parent;
 			if(parent) {
 				this._parent["$nativeShow"].addChild(this._show);
+				this.dispatchWidth(Event.ADDED);
 			} else {
 				p["$nativeShow"].removeChild(this._show);
+				this.dispatchWidth(Event.REMOVED);
 			}
 		}
 		
@@ -86,7 +88,7 @@ package flower.display
 		public function $onAddToStage(stage:Stage, nestLevel:Number):void {
 			this._stage = stage;
 			this._nestLevel = nestLevel;
-//			Sprite._EVENT_ADD_TO_STAGE_LIST.push(this);
+			this.dispatchWidth(Event.ADDED_TO_STAGE);
 		}
 		
 		/**
@@ -96,7 +98,7 @@ package flower.display
 		public function $onRemoveFromStage():void {
 			this._stage = null;
 			this._nestLevel = 0;
-//			Sprite._EVENT_REMOVE_FROM_STAGE_LIST.push(this);
+			this.dispatchWidth(Event.REMOVED_FROM_STAGE);
 		}
 		
 		protected function _setX(val:Number):void {
@@ -209,7 +211,7 @@ package flower.display
 		
 		override public function dispatch(event:Event):void {
 			super.dispatch(event);
-			if(!event.isPropagationStopped && this._parent) {
+			if(event.bubbles && !event.isPropagationStopped && this._parent) {
 				this._parent.dispatch(event);
 			}
 		}

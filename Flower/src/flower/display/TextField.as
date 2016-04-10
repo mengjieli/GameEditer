@@ -136,6 +136,7 @@ package flower.display
 		
 		public function set text(val:String):void {
 			val = val + "";
+			trace("设置文字:",val);
 			_setText(val);
 		}
 		

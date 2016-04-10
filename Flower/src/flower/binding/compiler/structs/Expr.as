@@ -16,23 +16,26 @@ package flower.binding.compiler.structs
 			this.expr1 = expr1;
 			this.expr2 = expr2;
 			this.expr3 = expr3;
+			if(type == "int") {
+				this.expr1 = parseInt(expr1);
+			}
 		}
 		
 		/**
 		 * 需要检查的属性在哪里,比如在 this 中，或者在 DataManager 中
 		 */
-		public function checkPropertyBinding(checks:Array,commonInfo:Object):void {
+		public function checkPropertyBinding(commonInfo:Object):void {
 			if(type == "Atr") {
-				(this.expr1 as ExprAtr).checkPropertyBinding(checks,commonInfo);
+				(this.expr1 as ExprAtr).checkPropertyBinding(commonInfo);
 			}
 			if(expr1 && expr1 is Expr) {
-				(expr1 as Expr).checkPropertyBinding(checks,commonInfo);
+				(expr1 as Expr).checkPropertyBinding(commonInfo);
 			}
 			if(expr2 && expr2 is Expr) {
-				(expr2 as Expr).checkPropertyBinding(checks,commonInfo);
+				(expr2 as Expr).checkPropertyBinding(commonInfo);
 			}
 			if(expr3 && expr3 is Expr) {
-				(expr3 as Expr).checkPropertyBinding(checks,commonInfo);
+				(expr3 as Expr).checkPropertyBinding(commonInfo);
 			}
 		}
 		
@@ -50,6 +53,9 @@ package flower.binding.compiler.structs
 				return expr1;
 			}
 			if(type == "boolean") {
+				return expr1;
+			}
+			if(type == "string") {
 				return expr1;
 			}
 			if(type == "+a") {

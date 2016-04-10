@@ -256,8 +256,5 @@ package flower.display
 			}
 			return Math.floor(ey - sy);
 		}
-		
-		public static var _EVENT_ADD_TO_STAGE_LIST:Array = [];
-		public static var _EVENT_REMOVE_FROM_STAGE_LIST:Array = [];
 	}
 }

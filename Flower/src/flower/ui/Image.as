@@ -2,6 +2,8 @@ package flower.ui
 {
 	import flower.Engine;
 	import flower.binding.Binding;
+	import flower.binding.compiler.Compiler;
+	import flower.binding.compiler.structs.Stmts;
 	import flower.data.DataManager;
 	import flower.data.member.StringValue;
 	import flower.debug.DebugInfo;
@@ -9,6 +11,8 @@ package flower.ui
 	import flower.events.Event;
 	import flower.net.URLLoader;
 	import flower.texture.Texture2D;
+	import flower.tween.Ease;
+	import flower.tween.Tween;
 	import flower.utils.Formula;
 
 	public class Image extends Bitmap
@@ -23,6 +27,7 @@ package flower.ui
 				this.setSource(source);
 			}
 			_nativeClass = "UI";
+			this.addUIEvents();
 		}
 		
 		private function setSource(val:*):void {
@@ -61,6 +66,26 @@ package flower.ui
 		}
 		
 		/////////////////////////////////////////Component/////////////////////////////////////////
+		//////////////////////bingding event
+		protected function addUIEvents():void {
+			this.addListener(Event.ADDED,this.onEXEAdded,this);
+		}
+		
+		private var onAddedEXE:Function;
+		public function set onAdded(val:Function):void {
+			onAddedEXE = val;
+		}
+		
+		public function get onAdded():Function {
+			return onAddedEXE;
+		}
+		
+		private function onEXEAdded(e:Event):void {
+			if(onAddedEXE && e.target == this) {
+				onAddedEXE.call(this);
+			}
+		}
+		
 		//////////////////////bingdings
 		private var _binds:Object = {};
 		
@@ -91,15 +116,31 @@ package flower.ui
 			$state.value = val;
 		}
 		
-		private var _propertyValues:Object = {};
+		private var _propertyValues:Object;
 		public function setStatePropertyValue(property:String,state:String,val:String):void {
-			if(!_propertyValues[property]) {
-				_propertyValues[property] = {};
+			if(!_propertyValues) {
+				_propertyValues = {};
+				if(!_propertyValues[property]) {
+					_propertyValues[property] = {};
+				}
+				this.bindProperty("currentState","{this.changeState($state)}");
+				_propertyValues[property][state] = val;
+			} else {
+				if(!_propertyValues[property]) {
+					_propertyValues[property] = {};
+				}
+				_propertyValues[property][state] = val;
 			}
-			_propertyValues[property][state] = val;
+			if(state == currentState) {
+				this.removeBindProperty(property);
+				this.bindProperty(property,val);
+			}
 		}
 		
 		public function changeState(state:String):String {
+			if(!_propertyValues) {
+				return currentState;
+			}
 			for(var property:String in _propertyValues) {
 				if(_propertyValues[property][state]) {
 					this.removeBindProperty(property);

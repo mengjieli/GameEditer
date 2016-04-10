@@ -28,12 +28,15 @@ package flower.binding.compiler.structs
 		/**
 		 * 需要检查的属性在哪里,比如在 this 中，或者在 DataManager 中
 		 */
-		public function checkPropertyBinding(checks:Array,commonInfo:Object):void {
+		public function checkPropertyBinding(commonInfo:Object):void {
 			var atr:*;
 			if(list[0].type == "()") {
-				(list[0].val as Expr).checkPropertyBinding(checks,commonInfo);
-			} else if(list[0].type == "id") {
-				var name:String = list[0].print();
+				(list[0].val as Expr).checkPropertyBinding(commonInfo);
+			} else if(list[0].type == "object") {
+				(list[0].val as ObjectAtr).checkPropertyBinding(commonInfo);
+			}
+			else if(list[0].type == "id") {
+				var name:String = list[0].val;
 				if(commonInfo.objects[name]) {
 					before = commonInfo.objects[name];
 					beforeClass = false;
@@ -42,11 +45,13 @@ package flower.binding.compiler.structs
 					before = commonInfo.classes[name];
 					beforeClass = true;
 					equalBefore = true;
-				} else {
-					for(var c:int = 0; c < checks.length; c++) {
+				} else if(commonInfo.checks) {
+					for(var c:int = 0; c < commonInfo.checks.length; c++) {
 						try{
-							atr = checks[c][name];
-							before = checks[c];
+							atr = commonInfo.checks[c][name];
+							if(atr) {
+								before = commonInfo.checks[c];
+							}
 						} catch(e){
 							atr = null;
 							before = null;
@@ -69,7 +74,7 @@ package flower.binding.compiler.structs
 					}
 				} else if(list[i].type == "call") {
 					atr = null;
-					list[i].val.checkPropertyBinding(checks,commonInfo);
+					list[i].val.checkPropertyBinding(commonInfo);
 				}
 			}
 			if(atr && atr is Value) {
@@ -86,6 +91,8 @@ package flower.binding.compiler.structs
 			var lastAtr:* = null;
 			if(list[0].type == "()") {
 				atr = (list[0].val as Expr).getValue();
+			} else if(list[0].type == "object") {
+				atr = (list[0].val as ObjectAtr).getValue();
 			} else if(list[0].type == "id") {
 				atr = this.before;
 				lastAtr = this.before;
