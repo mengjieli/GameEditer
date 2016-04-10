@@ -38,10 +38,10 @@ package
 				engine.onMouseDown(0,e.stageX,e.stageY);
 			});
 			stage.addEventListener(MouseEvent.MOUSE_MOVE,function(e:MouseEvent):void {
-				engine.onMouseMove(0,e.stageX,e.stageX);
+				engine.onMouseMove(0,e.stageX,e.stageY);
 			});
 			stage.addEventListener(MouseEvent.MOUSE_UP,function(e:MouseEvent):void {
-				engine.onMouseUp(0,e.stageX,e.stageX);
+				engine.onMouseUp(0,e.stageX,e.stageY);
 			});
 			
 			$mesureTxt.autoSize = TextFieldAutoSize.LEFT;
