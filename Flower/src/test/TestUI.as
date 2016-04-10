@@ -3,6 +3,7 @@ package test
 	import flower.Engine;
 	import flower.display.Sprite;
 	import flower.events.TouchEvent;
+	import flower.tween.Tween;
 	import flower.ui.Button;
 	import flower.ui.Group;
 	import flower.ui.Image;
@@ -47,20 +48,30 @@ package test
 			var button2:Button = new Button();
 			button2.x = 100;
 			this.addChild(button2);
+			label = new Label();
+			button2.addChild(label);
+			label.color = 0xff0000;
+			label.size = 20;
+			label.x = 5;
+			label.y = 5;
+			label.text = "未设置任何属性";
 			image = new Image();
 			button2.addChild(image);
-			image.setStatePropertyValue("source","up","res/test/closeup.png");
-			image.setStatePropertyValue("source","down","res/test/closedown.png");
-			image.bindProperty("currentState","{this.changeState($state)}");
+			image.source = "res/test/closeup.png";
+//			image.setStatePropertyValue("source","up","res/test/closeup.png");
+//			image.setStatePropertyValue("source","down","res/test/closedown.png");
+			image.bindProperty("currentState","{Tween.to(this,2,$state)}");
 			button2.addListener(TouchEvent.TOUCH_END,function(e:TouchEvent):void {
 				button.enabled = !button.enabled;
 			},this);
 			
-			image = new Image();
-			this.addChild(image);
-			image.x = 100;
-			image.y = 100;
-			image.source = "res/test/closeup.png";
+//			image = new Image();
+//			this.addChild(image);
+//			image.x = 100;
+//			image.y = 100;
+//			image.source = "res/test/closeup.png";
+			
+//			Tween.to(image,3,{x:500,y:400});
 		}
 	}
 }

@@ -27,9 +27,9 @@ package flower.binding.compiler
 			return common.stmts;
 		}
 		
-		public function parserExpr(content:String,property:String,checks:Array,result:Array,thisObj:*):Expr {
+		public function parserExpr(content:String,property:String,checks:Array,objects:Object,classes:Object,result:Array,thisObj:*):Expr {
 			var scanner:Scanner = new Scanner();
-			var common:Object = {"content":content,"objects":{"this":thisObj},"ids":{},"tokenValue":null,"scanner":_scanner,"nodeStack":null,bindList:new Vector.<String>()};
+			var common:Object = {"content":content,"objects":objects,"classes":classes,"ids":{},"tokenValue":null,"scanner":_scanner,"nodeStack":null,bindList:new Vector.<String>()};
 			_scanner.setCommonInfo(common);
 			_parser.setCommonInfo(common);
 			_parser.parser(content);
@@ -41,11 +41,11 @@ package flower.binding.compiler
 		
 		private static var ist:Compiler;
 		
-		public static function parserExpr(content:String,property:String,checks:Array,result:Array,thisObj:*):Expr {
+		public static function parserExpr(content:String,property:String,checks:Array,objects:Object,classes:Object,result:Array,thisObj:*):Expr {
 			if(!ist) {
 				ist = new Compiler();
 			}
-			return ist.parserExpr(content,property,checks,result,thisObj);
+			return ist.parserExpr(content,property,checks,objects,classes,result,thisObj);
 		}
 	}
 }

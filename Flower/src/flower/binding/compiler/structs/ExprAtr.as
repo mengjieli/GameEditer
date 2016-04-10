@@ -12,6 +12,7 @@ package flower.binding.compiler.structs
 		public var list:Vector.<ExprAtrItem>;
 		private var value:Value;
 		private var before:*;
+		private var beforeClass:Boolean;
 		private var equalBefore:Boolean;
 		
 		public function ExprAtr()
@@ -35,6 +36,11 @@ package flower.binding.compiler.structs
 				var name:String = list[0].print();
 				if(commonInfo.objects[name]) {
 					before = commonInfo.objects[name];
+					beforeClass = false;
+					equalBefore = true;
+				} else if(commonInfo.classes[name]) {
+					before = commonInfo.classes[name];
+					beforeClass = true;
 					equalBefore = true;
 				} else {
 					for(var c:int = 0; c < checks.length; c++) {
@@ -96,7 +102,11 @@ package flower.binding.compiler.structs
 					if(list[i].type == ".") {
 						atr = atr[this.list[i].val];
 					} else if(list[i].type == "call") {
-						atr = atr.apply(lastAtr,(list[i].val as CallParams).getValueList());
+						if(i == 2 && beforeClass) {
+							atr = atr.apply(null,(list[i].val as CallParams).getValueList());
+						} else {
+							atr = atr.apply(lastAtr,(list[i].val as CallParams).getValueList());
+						}
 					}
 					if(i < this.list.length - 1 && this.list[i+1].type == "call") {
 						continue;
