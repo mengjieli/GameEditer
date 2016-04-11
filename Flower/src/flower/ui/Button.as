@@ -1,15 +1,8 @@
 package flower.ui
 {
-	import flower.Engine;
-	import flower.binding.compiler.Compiler;
-	import flower.binding.compiler.structs.Stmts;
-	import flower.data.DataManager;
 	import flower.display.DisplayObject;
 	import flower.events.TouchEvent;
 	import flower.geom.Matrix;
-	import flower.tween.Ease;
-	import flower.tween.Tween;
-	import flower.utils.Formula;
 
 	public class Button extends Group
 	{
@@ -46,7 +39,6 @@ package flower.ui
 					break;
 			}
 		}
-		
 		
 		///////////////////////////////////set & get/////////////////////////////
 		public function set enabled(val:Boolean):void {

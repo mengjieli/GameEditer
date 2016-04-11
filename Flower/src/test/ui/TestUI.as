@@ -1,4 +1,4 @@
-package test
+package test.ui
 {
 	import flower.Engine;
 	import flower.display.Sprite;
@@ -16,6 +16,8 @@ package test
 		{
 			Engine.getInstance().addChild(this);
 			
+			this.addChild(new TestParser());
+			return;
 			var button:Button = new Button();
 			button.onAdded = function():void {
 				Tween.to(this,3,{alpha:1,x:300,y:300},Ease.CUBIC_EASE_IN_OUT,{alpha:0});
@@ -25,8 +27,8 @@ package test
 			button.addChild(group);
 			var image:Image = new Image();
 			group.addChild(image);
-			image.setStatePropertyValue("source","up","res/test/closeup.png");
-			image.setStatePropertyValue("source","down","res/test/closedown.png");
+			image.setStatePropertyValue("src","up","res/test/closeup.png");
+			image.setStatePropertyValue("src","down","res/test/closedown.png");
 			var label:Label = new Label();
 			group.addChild(label);
 			label.color = 0xffffff;
@@ -58,9 +60,9 @@ package test
 			this.addChild(button2);
 			var image:Image = new Image();
 			button2.addChild(image);
-			image.source = "res/test/closeup.png";
-			image.setStatePropertyValue("source","up","res/test/closeup.png");
-			image.setStatePropertyValue("source","down","res/test/closedown.png");
+			image.src = "res/test/closeup.png";
+			image.setStatePropertyValue("src","up","res/test/closeup.png");
+			image.setStatePropertyValue("src","down","res/test/closedown.png");
 			button2.addListener(TouchEvent.TOUCH_END,function(e:TouchEvent):void {
 				button.enabled = !button.enabled;
 			},this);
@@ -79,7 +81,7 @@ package test
 //			this.addChild(image);
 //			image.x = 100;
 //			image.y = 100;
-//			image.source = "res/test/closeup.png";
+//			image.src = "res/test/closeup.png";
 			
 //			Tween.to(image,3,{x:500,y:400});
 		}

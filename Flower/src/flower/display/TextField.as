@@ -30,6 +30,16 @@ package flower.display
 		
 		private function _setSize(val:uint):void {
 			_TextField[0] = val;
+			var p:Object = textFieldProperty.size;
+			if(p.atr) {
+				this._show[p.atr] = val;
+			}
+			else if(p.func) {
+				this._show[p.func](val);
+			}
+			else if(p.exe) {
+				p.exe(this._show,val);
+			}
 			_invalidateNativeText();
 		}
 		
@@ -136,7 +146,6 @@ package flower.display
 		
 		public function set text(val:String):void {
 			val = val + "";
-			trace("设置文字:",val);
 			_setText(val);
 		}
 		

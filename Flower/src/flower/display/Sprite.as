@@ -1,7 +1,6 @@
 package flower.display
 {
 	import flower.geom.Matrix;
-	import flower.utils.CallLater;
 
 	public class Sprite extends DisplayObject implements DisplayObjectContainer
 	{
@@ -27,9 +26,7 @@ package flower.display
 			child.$parentAlpha = $parentAlpha*alpha;
 			child.$setParent(this);
 			child.$onAddToStage(this.stage,this._nestLevel+1);
-			if(System.IDE == "cocos2dx") {
-				CallLater.add(this._resetChildIndex,this);
-			}
+			this.$setFlag(3,true);
 		}
 		
 		public function getChildAt(index:int):DisplayObject {
@@ -53,9 +50,7 @@ package flower.display
 				child.$parentAlpha = $parentAlpha*alpha;
 				child.$setParent(this);
 				child.$onAddToStage(this.stage,this._nestLevel+1);
-				if(System.IDE == "cocos2dx") {
-					CallLater.add(this._resetChildIndex,this);
-				}
+				this.$setFlag(3,true);
 			}
 		}
 		
@@ -74,9 +69,7 @@ package flower.display
 					child.$parentAlpha = 1;
 					child.$setParent(null);
 					child.$onRemoveFromStage();
-					if(System.IDE == "cocos2dx") {
-						CallLater.add(this._resetChildIndex,this);
-					}
+					this.$setFlag(3,true);
 					return;
 				}
 			}
@@ -87,9 +80,7 @@ package flower.display
 			child.$parentAlpha = 1;
 			child.$setParent(null);
 			child.$onRemoveFromStage();
-			if(System.IDE == "cocos2dx") {
-				CallLater.add(this._resetChildIndex,this);
-			}
+			this.$setFlag(3,true);
 		}
 		
 		/**
@@ -106,18 +97,18 @@ package flower.display
 			}
 			_childs.splice(childIndex,1);
 			_childs.splice(index,0,child);
-			var p:Object = displayObjectContainerProperty.setChildIndex;
-			if(System.IDE == "cocos2dx") {
-				CallLater.add(this._resetChildIndex,this);
-			} else {
-				this._show[p.func](child.$nativeShow,index);
-			}
+			this.$setFlag(3,true);
 		}
 		
 		private function _resetChildIndex():void {
 			if(System.IDE == "cocos2dx") {
 				for(var i:int = 0; i < _childs.length; i++) {
 					_childs[i].$nativeShow["setLocalZOrder"](i);
+				}
+			} else {
+				var p:Object = displayObjectContainerProperty.setChildIndex;
+				for(var i:int = 0; i < _childs.length; i++) {
+					this._show[p.func](_childs[i].$nativeShow,i);
 				}
 			}
 		}
@@ -159,6 +150,9 @@ package flower.display
 		}
 		
 		override public function $onFrameEnd():void {
+			if(this.$getFlag(3)) {
+				_resetChildIndex();
+			}
 			for(var i:int = 0,len:int = this._childs.length; i < len; i++) {
 				this._childs[i].$onFrameEnd();
 			}

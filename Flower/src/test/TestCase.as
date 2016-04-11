@@ -1,5 +1,6 @@
 package test
 {
+	import test.ui.TestUI;
 
 	public class TestCase
 	{

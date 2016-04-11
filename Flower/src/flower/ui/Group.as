@@ -2,16 +2,12 @@ package flower.ui
 {
 	import flower.Engine;
 	import flower.binding.Binding;
-	import flower.binding.compiler.Compiler;
-	import flower.binding.compiler.structs.Stmts;
 	import flower.data.DataManager;
 	import flower.data.member.StringValue;
 	import flower.debug.DebugInfo;
 	import flower.display.DisplayObject;
 	import flower.display.Sprite;
 	import flower.events.Event;
-	import flower.tween.Ease;
-	import flower.tween.Tween;
 	import flower.utils.Formula;
 
 	dynamic public class Group extends Sprite 

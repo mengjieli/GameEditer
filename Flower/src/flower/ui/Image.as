@@ -44,6 +44,11 @@ package flower.ui
 			}
 		}
 		
+		override protected function _setTexture(val:Texture2D):void {
+			super._setTexture(val);
+			this.$addFlag(10);
+		}
+		
 		override public function dispose():void {
 			for(var key:String in _binds) {
 				_binds[key].dispose();
@@ -53,12 +58,16 @@ package flower.ui
 		}
 		
 		/////////////////////////////////////set && get/////////////////////////////////////
-		public function set source(val:*):void {
+		public function set src(val:*):void {
 			if(_source == val) {
 				return;
 			}
 			_source = val;
 			setSource(val);
+		}
+		
+		public function get src():* {
+			return _source;
 		}
 		
 		private function onLoadTextureComplete(e:Event):void {

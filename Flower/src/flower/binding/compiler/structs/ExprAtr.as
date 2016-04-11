@@ -129,7 +129,7 @@ package flower.binding.compiler.structs
 		public function print():String {
 			var content:String = "";
 			for(var i:int = 0; i < list.length; i++) {
-				content += list[i].print();
+				content += list[i].val;
 			}
 			return content;
 		}

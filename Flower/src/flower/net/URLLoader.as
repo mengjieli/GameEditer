@@ -25,7 +25,7 @@ package flower.net
 		 * @url 路径
 		 * @type 类型,Bitmap Text Json
 		 */
-		public function URLLoader(res:*,type:String="")
+		public function URLLoader(res:*)
 		{
 			var val:* = res;
 			if(res is String) {
