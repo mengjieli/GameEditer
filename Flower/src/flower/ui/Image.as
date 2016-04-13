@@ -2,18 +2,12 @@ package flower.ui
 {
 	import flower.Engine;
 	import flower.binding.Binding;
-	import flower.binding.compiler.Compiler;
-	import flower.binding.compiler.structs.Stmts;
-	import flower.data.DataManager;
 	import flower.data.member.StringValue;
 	import flower.debug.DebugInfo;
 	import flower.display.Bitmap;
 	import flower.events.Event;
 	import flower.net.URLLoader;
 	import flower.texture.Texture2D;
-	import flower.tween.Ease;
-	import flower.tween.Tween;
-	import flower.utils.Formula;
 
 	public class Image extends Bitmap
 	{
@@ -98,11 +92,11 @@ package flower.ui
 		//////////////////////bingdings
 		private var _binds:Object = {};
 		
-		public function bindProperty(property:String,content:String):void {
+		public function bindProperty(property:String,content:String,checks:Array=null):void {
 			if(_binds[property]) {
 				_binds[property].dispose();
 			}
-			_binds[property] = new Binding(this,[this,DataManager.ist,Formula,Engine.global],property,content);
+			_binds[property] = new Binding(this,checks,property,content);
 		}
 		
 		public function removeBindProperty(property:String):void {
@@ -113,6 +107,15 @@ package flower.ui
 		}
 		
 		//////////////////////state
+		private var _absoluteState:Boolean = false;
+		public function get absoluteState():Boolean {
+			return _absoluteState;
+		}
+		
+		public function set absoluteState(val:Boolean):void {
+			_absoluteState = !!val;
+		}
+		
 		public var $state:StringValue = new StringValue();
 		public function get currentState():String {
 			return $state.value;
@@ -126,19 +129,19 @@ package flower.ui
 		}
 		
 		private var _propertyValues:Object;
-		public function setStatePropertyValue(property:String,state:String,val:String):void {
+		public function setStatePropertyValue(property:String,state:String,val:String,checks:Array=null):void {
 			if(!_propertyValues) {
 				_propertyValues = {};
 				if(!_propertyValues[property]) {
 					_propertyValues[property] = {};
 				}
 				this.bindProperty("currentState","{this.changeState($state)}");
-				_propertyValues[property][state] = val;
+				_propertyValues[property][state] = {"value":val,"checks":checks};
 			} else {
 				if(!_propertyValues[property]) {
 					_propertyValues[property] = {};
 				}
-				_propertyValues[property][state] = val;
+				_propertyValues[property][state] = {"value":val,"checks":checks};
 			}
 			if(state == currentState) {
 				this.removeBindProperty(property);
@@ -153,11 +156,12 @@ package flower.ui
 			for(var property:String in _propertyValues) {
 				if(_propertyValues[property][state]) {
 					this.removeBindProperty(property);
-					this.bindProperty(property,_propertyValues[property][state]);
+					this.bindProperty(property,_propertyValues[property][state].value,_propertyValues[property][state].checks);
 				}
 			}
 			return currentState;
 		}
+		
 		//////////////////////layout
 		/**顶端对齐方式，可选 top bottom 或者 空字符串**/
 		private var _topAlgin:String = "";
@@ -165,10 +169,16 @@ package flower.ui
 		/**左端对齐方式，可选 left right 或者 空字符串**/
 		private var _leftAlgin:String = "";
 		private var _rightAlgin:String = "";
+		/**水平居中对齐方式，可选 center 或者 空字符串**/
+		private var _horizontalCenterAlgin:String = "";
+		/**垂直居中对齐方式，可选 center 或者 空字符串**/
+		private var _verticalCenterAlgin:String = "";
 		private var _top:Number = 0;
 		private var _bottom:Number = 0;
 		private var _left:Number = 0;
 		private var _right:Number = 0;
+		private var _horizontalCenter:Number = 0;
+		private var _verticalCenter:Number = 0;
 		//占据父类尺寸，如果同时设置了 top 和 bottom 则以 top 和 bottom 为准
 		private var _percentWidth:Number = -1;
 		private var _percentHeight:Number = -1;
@@ -265,6 +275,44 @@ package flower.ui
 			this.$addFlag(10);
 		}
 		
+		public function set horizontalCenterAlgin(val:String):void {
+			if(Engine.DEBUG) {
+				if(val != "" && val != "center") {
+					DebugInfo.debug("非法的 horizontalCenterAlgin 值:" + val + "，只能为 \"\" 或 \"center\"",DebugInfo.ERROR);
+				}
+			}
+			_horizontalCenterAlgin = val;
+			this.$addFlag(10);
+		}
+		
+		public function get horizontalCenter():Number {
+			return _horizontalCenter;
+		}
+		
+		public function set horizontalCenter(val:Number):void {
+			_horizontalCenter = val;
+			this.$addFlag(10);
+		}
+		
+		public function set verticalCenterAlgin(val:String):void {
+			if(Engine.DEBUG) {
+				if(val != "" && val != "center") {
+					DebugInfo.debug("非法的 verticalCenterAlgin 值:" + val + "，只能为 \"\" 或 \"center\"",DebugInfo.ERROR);
+				}
+			}
+			_verticalCenterAlgin = val;
+			this.$addFlag(10);
+		}
+		
+		public function get verticalCenter():Number {
+			return _verticalCenter;
+		}
+		
+		public function set verticalCenter(val:Number):void {
+			_verticalCenter = val;
+			this.$addFlag(10);
+		}
+		
 		public function get percentWidth():Number {
 			return _percentWidth<0?0:_percentWidth;
 		}
@@ -288,6 +336,7 @@ package flower.ui
 		}
 		
 		override public function $onFrameEnd():void {
+			super.$onFrameEnd();
 			if(this.$getFlag(10) || this.parent.$getFlag(10)) {
 				this.$removeFlag(10);
 				if(_percentWidth >= 0) {
@@ -318,6 +367,9 @@ package flower.ui
 						}
 					}
 				}
+				if(_verticalCenterAlgin != "") {
+					this.y = (this.parent.height - this.height*this.scaleY)*.5 + this._verticalCenter;
+				}
 				if(_leftAlgin != "") {
 					if(_leftAlgin == "left") {
 						this.x = _left;
@@ -339,6 +391,9 @@ package flower.ui
 							this.x = this.parent.width - _right - this._width*this.scaleX;
 						}
 					}
+				}
+				if(_horizontalCenterAlgin != "") {
+					this.x = (this.parent.width - this.width*this.scaleX)*.5 + this._horizontalCenter;
 				}
 			}
 		}

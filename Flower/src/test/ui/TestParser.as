@@ -5,6 +5,8 @@ package test.ui
 	import flower.events.Event;
 	import flower.net.URLLoaderList;
 	import flower.ui.Button;
+	import flower.ui.Group;
+	import flower.ui.Label;
 	import flower.ui.UIParser;
 	
 	public class TestParser extends Sprite

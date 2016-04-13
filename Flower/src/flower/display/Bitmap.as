@@ -49,6 +49,8 @@ package flower.display
 					}
 				}
 			}
+			this.$addFlag(10);
+			this.$propagateFlagsUp(10);
 		}
 		
 		override protected function _setWidth(val:Number):void {

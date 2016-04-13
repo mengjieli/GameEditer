@@ -1,5 +1,6 @@
 package flower.binding
 {
+	import flower.Engine;
 	import flower.binding.compiler.Compiler;
 	import flower.binding.compiler.structs.Expr;
 	import flower.binding.compiler.structs.Stmts;
@@ -16,9 +17,18 @@ package flower.binding
 		
 		public function Binding(thisObj:*,checks:Array,property:String,content:String)
 		{
+			var i:int;
 			//分两种情况考虑，一种是 "{...}" 或者其它 就是字符串相加 "" + ... +  {..} + ... + {...}
+			if(checks == null) {
+				checks = bindingChecks.concat();
+			} else {
+				for(i = 0; i < bindingChecks.length; i++) {
+					checks.push(bindingChecks[i]);
+				}
+			}
+			checks.push(thisObj);
 			var lastEnd:int = 0;
-			for(var i:int = 0; i < content.length; i++) {
+			for(i = 0; i < content.length; i++) {
 				if(content.charAt(i) == "{") {
 					for(var j:int = i + 1; j < content.length; j++) {
 						if(content.charAt(j) == "{") {
@@ -89,6 +99,20 @@ package flower.binding
 			for(var i:int = 0; i < list.length; i++) {
 				list[i].removeListener(this.update,this);
 			}
+		}
+		
+		private static var bindingChecks:Array = [];
+		public static function addBindingCheck(check:*):void {
+			for(var i:int = 0; i < bindingChecks.length; i++) {
+				if(bindingChecks[i] == check) {
+					return;
+				}
+			}
+			bindingChecks.push(check);
+		}
+		
+		public static function clearBindingChecks():void {
+			bindingChecks = null;
 		}
 	}
 }

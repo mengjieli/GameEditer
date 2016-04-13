@@ -10,6 +10,7 @@ package flower.ui
 		
 		public function Button()
 		{
+			this.absoluteState = true;
 			this.currentState = "up";
 			this.addListener(TouchEvent.TOUCH_BEGIN,_onTouch,this);
 			this.addListener(TouchEvent.TOUCH_END,_onTouch,this);

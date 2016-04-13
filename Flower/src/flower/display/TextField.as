@@ -72,7 +72,7 @@ package flower.display
 			_invalidateNativeText();
 		}
 		
-		private function _setNativeText():void {
+		protected function _setNativeText():void {
 			var p:Object = textFieldProperty.resetText;
 			p(_show,_TextField[2],_width,_height,_TextField[0],_TextField[5],_TextField[6],_TextField[7]);
 			p = textFieldProperty.mesure;
@@ -80,6 +80,8 @@ package flower.display
 			_TextField[3] = size.width;
 			_TextField[4] = size.height;
 			this.$removeFlag(2);
+			this.$addFlag(10);
+			this.$propagateFlagsUp(4);
 		}
 		
 		override public function $isMouseTarget(matrix:Matrix,mutiply:Boolean):Boolean
@@ -99,7 +101,7 @@ package flower.display
 			return false;
 		}
 		
-		private function _invalidateNativeText():void {
+		protected function _invalidateNativeText():void {
 			this.$addFlag(1);
 			if(!this.$getFlag(2)) {
 				this.$addFlag(2);
@@ -145,7 +147,7 @@ package flower.display
 		}
 		
 		public function set text(val:String):void {
-			val = val + "";
+			val = val;
 			_setText(val);
 		}
 		
@@ -187,6 +189,42 @@ package flower.display
 			}
 			_TextField[6] = val;
 			_invalidateNativeText();
+		}
+		
+		override public function get width():int {
+			if($getFlag(1)) {
+				this.$getSize();
+			}
+			if(_TextField[7] == true) {
+				return _TextField[3];
+			}
+			return _width;
+		}
+		
+		override public function set width(val:int):void {
+			val = +val&~0;
+			if(_width == val) {
+				return;
+			}
+			_setWidth(val);
+		}
+		
+		override public function get height():int {
+			if($getFlag(1)) {
+				this.$getSize();
+			}
+			if(_TextField[7] == true) {
+				return _TextField[4];
+			}
+			return _height;
+		}
+		
+		override public function set height(val:int):void {
+			val = +val&~0;
+			if(_height == val) {
+				return;
+			}
+			_setHeight(val);
 		}
 		
 		/**

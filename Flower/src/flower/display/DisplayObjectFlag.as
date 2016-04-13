@@ -14,6 +14,9 @@ package flower.display
 		/**容器类，子对象顺序失效**/
 		public static const DISPLAYOBJECT_CONTAINER_INDEX:int = 3;
 		
+		/**容器类，实际大小变化**/
+		public static const DISPLAYOBJECT_CONTAINER_SIZE:int = 4;
+		
 		/**Component 位置失效**/
 		public static const COMPONENT_POSITION:int = 10;
 	}

@@ -16,7 +16,8 @@ package test.ui
 		{
 			Engine.getInstance().addChild(this);
 			
-			this.addChild(new TestParser());
+//			this.addChild(new TestParser());
+			this.addChild(new TestLayout());
 			return;
 			var button:Button = new Button();
 			button.onAdded = function():void {

@@ -37,7 +37,10 @@ package flower.binding.compiler.structs
 			}
 			else if(list[0].type == "id") {
 				var name:String = list[0].val;
-				if(commonInfo.objects[name]) {
+				if(commonInfo.objects["this"][name]) {
+					atr = commonInfo.objects["this"][name];
+					before = commonInfo.objects["this"];
+				} else if(commonInfo.objects[name]) {
 					before = commonInfo.objects[name];
 					beforeClass = false;
 					equalBefore = true;

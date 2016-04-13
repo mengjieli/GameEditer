@@ -45,14 +45,6 @@ package flower.display
 			};
 		}
 		///////////////////////////方法/////////////////////////////
-		public function $setFlag(pos:int,value:Boolean):void {
-			if(value) {
-				this._displayFlags |= pos;
-			} else {
-				this._displayFlags &= ~pos;
-			}
-		}
-		
 		public function $addFlag(pos:int):void {
 			this._displayFlags |= pos;
 		}
@@ -63,6 +55,21 @@ package flower.display
 		
 		public function $getFlag(pos:int):Boolean {
 			return _displayFlags&pos?true:false;
+		}
+		
+		
+		/*
+		* 沿着显示列表向上传递标志量，如果标志量已经被设置过就停止传递。
+		*/
+		public function $propagateFlagsUp(flags:Number):void {
+			if (this.$getFlag(flags)) {
+				return;
+			}
+			this.$addFlag(flags);
+			var parent:* = this._parent;
+			if (parent) {
+				parent.$propagateFlagsUp(flags);
+			}
 		}
 		
 		/**
@@ -109,6 +116,8 @@ package flower.display
 			} else {
 				_show[p.atr] = _x;
 			}
+			this.$addFlag(10);
+			this.$propagateFlagsUp(4);
 		}
 		
 		protected function _setY(val:Number):void {
@@ -119,6 +128,8 @@ package flower.display
 			} else {
 				_show[p.atr] = _y;
 			}
+			this.$addFlag(10);
+			this.$propagateFlagsUp(4);
 		}
 		
 		protected function _setScaleX(val:Number):void {
@@ -129,6 +140,8 @@ package flower.display
 			} else {
 				_show[p.atr] = _DisplayObject[0];
 			}
+			this.$addFlag(10);
+			this.$propagateFlagsUp(4);
 		}
 		
 		protected function _setScaleY(val:Number):void {
@@ -139,6 +152,8 @@ package flower.display
 			} else {
 				_show[p.atr] = _DisplayObject[1];
 			}
+			this.$addFlag(10);
+			this.$propagateFlagsUp(4);
 		}
 		
 		protected function _setRotation(val:Number):void {
@@ -149,6 +164,8 @@ package flower.display
 			} else {
 				_show[p.atr] = _DisplayObject[4]*p.scale;
 			}
+			this.$addFlag(10);
+			this.$propagateFlagsUp(4);
 		}
 		
 		protected function _setAlpha(val:Number):void {
@@ -228,7 +245,6 @@ package flower.display
 			alpha = 1;
 			visible = true;
 			rotation = 0;
-			this.$setFlag(1,true);
 		}
 		//////////////////////////属性//////////////////////////////
 		public function get id():int {

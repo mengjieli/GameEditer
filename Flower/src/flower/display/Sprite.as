@@ -26,7 +26,8 @@ package flower.display
 			child.$parentAlpha = $parentAlpha*alpha;
 			child.$setParent(this);
 			child.$onAddToStage(this.stage,this._nestLevel+1);
-			this.$setFlag(3,true);
+			this.$addFlag(3);
+			this.$propagateFlagsUp(4);
 		}
 		
 		public function getChildAt(index:int):DisplayObject {
@@ -50,7 +51,8 @@ package flower.display
 				child.$parentAlpha = $parentAlpha*alpha;
 				child.$setParent(this);
 				child.$onAddToStage(this.stage,this._nestLevel+1);
-				this.$setFlag(3,true);
+				this.$addFlag(3);
+				this.$propagateFlagsUp(4);
 			}
 		}
 		
@@ -69,7 +71,8 @@ package flower.display
 					child.$parentAlpha = 1;
 					child.$setParent(null);
 					child.$onRemoveFromStage();
-					this.$setFlag(3,true);
+					this.$addFlag(3);
+					this.$propagateFlagsUp(4);
 					return;
 				}
 			}
@@ -80,7 +83,8 @@ package flower.display
 			child.$parentAlpha = 1;
 			child.$setParent(null);
 			child.$onRemoveFromStage();
-			this.$setFlag(3,true);
+			this.$addFlag(3);
+			this.$propagateFlagsUp(4);
 		}
 		
 		/**
@@ -97,17 +101,18 @@ package flower.display
 			}
 			_childs.splice(childIndex,1);
 			_childs.splice(index,0,child);
-			this.$setFlag(3,true);
+			this.$addFlag(3);
 		}
 		
 		private function _resetChildIndex():void {
+			var i:int;
 			if(System.IDE == "cocos2dx") {
-				for(var i:int = 0; i < _childs.length; i++) {
+				for(i = 0; i < _childs.length; i++) {
 					_childs[i].$nativeShow["setLocalZOrder"](i);
 				}
 			} else {
 				var p:Object = displayObjectContainerProperty.setChildIndex;
-				for(var i:int = 0; i < _childs.length; i++) {
+				for(i = 0; i < _childs.length; i++) {
 					this._show[p.func](_childs[i].$nativeShow,i);
 				}
 			}
@@ -147,6 +152,10 @@ package flower.display
 			for(var i:int = 0; i < this._childs.length; i++) {
 				this._childs[i].$parentAlpha = $parentAlpha*alpha;
 			}
+		}
+		
+		override protected function $getSize():void {
+			this.$removeFlag(1);
 		}
 		
 		override public function $onFrameEnd():void {
